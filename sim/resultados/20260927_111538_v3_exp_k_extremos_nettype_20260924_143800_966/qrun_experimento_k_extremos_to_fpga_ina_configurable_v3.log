@@ -1,0 +1,1735 @@
+QuestaSim-64 qrun 2026.1_1 Utility 2026.03 Mar  2 2026
+Start time: 11:05:31 on Sep 27,2026
+qrun -f qrun_experimento_ina_2adcs_configurable_to_fpga_v3.f
+
+Formatted qrun command:
+qrun
+    # Expanding -f qrun_experimento_ina_2adcs_configurable_to_fpga_v3.f
+        -O5
+        -sv
+        +define+EXPERIMENTO_CONTACTO_50K+ALTAS_FRECUENCIAS+DISPERSION_CONTACTOS+EXPERIMENTO_K_EXTREMOS
+        -top tb_correlacion_portable_python_to_fpga_configurable
+        +incdir+../src/
+        -l qrun_experimento_k_extremos_to_fpga_ina_configurable_v3.log
+        -batch
+        -do run -all; quit -f
+        ../src/FFT_mariposa.c
+        ../src/dpi_guardar_datos_detalle_tiempos.c
+        ../src/dpi_pkg_tiempos.sv
+        ../src/electrical_pkg.sv
+        ../src/bioz_block_portable_to_fpga_ina_v3.sv
+        ../src/rp_adc_model_nettype.sv
+        ../src/rp_dac_model_nettype.sv
+        ../src/top_bioimpedancia_circuito_medida_portable_to_fpga_ina_v3.sv
+        ../src/Fixed2Float.v
+        ../src/Float2Fixed.v
+        ../src/NormalCases.v
+        ../src/Overflow.v
+        ../src/SpecialCases.v
+        ../src/FixedShifter.v
+        ../src/FixedShiftCalc.v
+        ../src/Divisor_Alg_ali2.sv
+        ../src/arctan8b.sv
+        ../src/arctan8better2.sv
+        ../src/arctan8best.sv
+        ../src/DDS_rafa_red_cuarto.sv
+        ../src/fixed_pkg.vhd
+        ../src/memoria_dual_port.sv
+        ../src/memoria_single_port_vhdl_2008_arctan.vhd
+        ../src/nuevo_radicador_rapido2.sv
+        ../src/premodulo_generico_best.sv
+        ../src/Control_path_dds_configurable_mejora_correlacion8_autoshunt_sweep_updown_4p_mejorado_quiza_final.sv
+        ../src/tb_correlacion_ina_2adcs_configurable_to_fpga_v3.sv
+
+** Note: (qrun-220) 'questa.ini' is used as the ini file.
+-- Skipping 'vlog -O5 -sv +define+EXPERIMENTO_CONTACTO_50K+ALTAS_FRECUENC...'
+-- Skipping 'vcom -O5 ../src/fixed_pkg.vhd ../src/memoria_single_port_vhd...'
+-- Skipping vopt
+# ** Note: (vsim-220) 'questa.ini' is used as the ini file.
+# vsim -batch -lib qrun.out/work -do "run -all; quit -f" -statslog qrun.out/stats_logznimWE qrun_opt -appendlog -l qrun_experimento_k_extremos_to_fpga_ina_configurable_v3.log 
+# Start time: 11:05:31 on Sep 27,2026
+# //  Questa Sim-64
+# //  Version 2026.1_1 linux_x86_64 Mar  2 2026
+# //
+# // Unpublished work. Copyright 2026 Siemens
+# //
+# // This material contains trade secrets or otherwise confidential information
+# // owned by Siemens Industry Software Inc. or its affiliates (collectively,
+# // "SISW"), or its licensors. Access to and use of this information is strictly
+# // limited as set forth in the Customer's applicable agreements with SISW.
+# //
+# // This material may not be copied, distributed, or otherwise disclosed outside
+# // of the Customer's facilities without the express written permission of SISW,
+# // and may not be used in any way not expressly authorized by SISW.
+# //
+# Loading sv_std.std
+# Loading work.electrical_pkg(fast)
+# Loading work.rp_adc_model_nettype_sv_unit(fast)
+# Loading work.bioz_block_portable_to_fpga_ina_v3_sv_unit(fast)
+# Loading work.rp_dac_model_nettype_sv_unit(fast)
+# Loading work.top_bioimpedancia_circuito_medida_portable_to_fpga_ina_v3_sv_unit(fast)
+# Loading work.dpi_pkg_tiempos(fast)
+# Loading work.tb_correlacion_ina_2adcs_configurable_to_fpga_v3_sv_unit(fast)
+# Loading work.tb_correlacion_portable_python_to_fpga_configurable(fast)
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.math_real(body)
+# Loading work.fixed_pkg(body)
+# Loading work.memoria_single_port_mejorado(inferencia)#1
+# Loading /tmp/eda@hyperion8_dpi_181621/linux_x86_64_gcc-13.4.0/vsim_auto_compile.so
+# 
+# run -all
+# [SYSTEMVERILOG FREQ GEN] Generado freq_log_ideal.dat con          89 puntos entre 40.00 Hz y 1000000.00 Hz
+# [rp_dac_model_nettype] Asignando node_out en instancia: tb_correlacion_portable_python_to_fpga_configurable.analog_circuit.dac_p
+# [rp_dac_model_nettype] Asignando node_out en instancia: tb_correlacion_portable_python_to_fpga_configurable.analog_circuit.dac_n
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 4 ns  Iteration: 1  Instance: /tb_correlacion_portable_python_to_fpga_configurable/control_path_4p_inst/divisor_fb/arco_tangente1
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 4 ns  Iteration: 1  Instance: /tb_correlacion_portable_python_to_fpga_configurable/control_path_4p_inst/divisor_fb/arco_tangente1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 4 ns  Iteration: 1  Instance: /tb_correlacion_portable_python_to_fpga_configurable/control_path_4p_inst/divisor_fa/arco_tangente1
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 4 ns  Iteration: 1  Instance: /tb_correlacion_portable_python_to_fpga_configurable/control_path_4p_inst/divisor_fa/arco_tangente1
+# 
+# =================================================================
+#    [V3 DEFINITIVA] INICIANDO MEDIDAS (INYECCIÓN BALANCEADA + OPCIÓN 1)
+# =================================================================
+# 
+# 
+#   [FLASH EXTRACTION] Freq:  40.0 Hz
+#     -> Z Bucle Total Medida:    120336 Ohm
+#     -> R_contact Dinámica Extraída:     51132 Ohm
+#     -> R_contact_Force real (promedio):     52745 Ohm (rf1: 49998, rf2: 55493)
+#     -> R_contact_Sense real (oculto rs1):     60855 Ohm
+# === FREQ:     39.99 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 18023.44 Ohm | Fase:   0.00 deg
+#   [SUJETO 1: POST-INV] Mag: 18023.44 Ohm | Fase:   0.00 deg | Err_M:  0.14% | Err_F:  0.73 deg
+#   [SUJETO 2: GOLDEN]   Mag: 17998.32 Ohm | Fase:  -0.73 deg
+# 
+#   [FLASH EXTRACTION] Freq:  44.9 Hz
+#     -> Z Bucle Total Medida:    118696 Ohm
+#     -> R_contact Dinámica Extraída:     50309 Ohm
+#     -> R_contact_Force real (promedio):     52547 Ohm (rf1: 49810, rf2: 55283)
+#     -> R_contact_Sense real (oculto rs1):     60626 Ohm
+# === FREQ:     44.88 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 18027.34 Ohm | Fase:   0.00 deg
+#   [SUJETO 1: POST-INV] Mag: 18027.34 Ohm | Fase:   0.00 deg | Err_M:  0.16% | Err_F:  0.82 deg
+#   [SUJETO 2: GOLDEN]   Mag: 17997.88 Ohm | Fase:  -0.82 deg
+# 
+#   [FLASH EXTRACTION] Freq:  50.3 Hz
+#     -> Z Bucle Total Medida:    118252 Ohm
+#     -> R_contact Dinámica Extraída:     50093 Ohm
+#     -> R_contact_Force real (promedio):     52431 Ohm (rf1: 49700, rf2: 55162)
+#     -> R_contact_Sense real (oculto rs1):     60492 Ohm
+# === FREQ:     50.35 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 18015.62 Ohm | Fase:   0.00 deg
+#   [SUJETO 1: POST-INV] Mag: 18015.62 Ohm | Fase:   0.00 deg | Err_M:  0.10% | Err_F:  0.92 deg
+#   [SUJETO 2: GOLDEN]   Mag: 17997.34 Ohm | Fase:  -0.92 deg
+# 
+#   [FLASH EXTRACTION] Freq:  56.5 Hz
+#     -> Z Bucle Total Medida:    118028 Ohm
+#     -> R_contact Dinámica Extraída:     49981 Ohm
+#     -> R_contact_Force real (promedio):     52378 Ohm (rf1: 49650, rf2: 55106)
+#     -> R_contact_Sense real (oculto rs1):     60431 Ohm
+# === FREQ:     56.49 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 18015.62 Ohm | Fase:   0.00 deg
+#   [SUJETO 1: POST-INV] Mag: 18015.62 Ohm | Fase:   0.00 deg | Err_M:  0.11% | Err_F:  1.03 deg
+#   [SUJETO 2: GOLDEN]   Mag: 17996.65 Ohm | Fase:  -1.03 deg
+# 
+#   [FLASH EXTRACTION] Freq:  63.4 Hz
+#     -> Z Bucle Total Medida:    117924 Ohm
+#     -> R_contact Dinámica Extraída:     49929 Ohm
+#     -> R_contact_Force real (promedio):     52368 Ohm (rf1: 49640, rf2: 55095)
+#     -> R_contact_Sense real (oculto rs1):     60419 Ohm
+# === FREQ:     63.39 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 18015.62 Ohm | Fase:   0.00 deg
+#   [SUJ# 
+# run -all
+# [SYSTEMVERILOG FREQ GEN] Generado freq_log_ideal.dat con          89 puntos entre 40.00 Hz y 1000000.00 Hz
+# [rp_dac_model_nettype] Asignando node_out en instancia: tb_correlacion_portable_python_to_fpga_configurable.analog_circuit.dac_p
+# [rp_dac_model_nettype] Asignando node_out en instancia: tb_correlacion_portable_python_to_fpga_configurable.analog_circuit.dac_n
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 4 ns  Iteration: 1  Instance: /tb_correlacion_portable_python_to_fpga_configurable/control_path_4p_inst/divisor_fb/arco_tangente1
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 4 ns  Iteration: 1  Instance: /tb_correlacion_portable_python_to_fpga_configurable/control_path_4p_inst/divisor_fb/arco_tangente1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 4 ns  Iteration: 1  Instance: /tb_correlacion_portable_python_to_fpga_configurable/control_path_4p_inst/divisor_fa/arco_tangente1
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 4 ns  Iteration: 1  Instance: /tb_correlacion_portable_python_to_fpga_configurable/control_path_4p_inst/divisor_fa/arco_tangente1
+# 
+# =================================================================
+#    [V3 DEFINITIVA] INICIANDO MEDIDAS (INYECCIÓN BALANCEADA + OPCIÓN 1)
+# =================================================================
+# 
+# 
+#   [FLASH EXTRACTION] Freq:  40.0 Hz
+#     -> Z Bucle Total Medida:    120336 Ohm
+#     -> R_contact Dinámica Extraída:     51132 Ohm
+#     -> R_contact_Force real (promedio):     52745 Ohm (rf1: 49998, rf2: 55493)
+#     -> R_contact_Sense real (oculto rs1):     60855 Ohm
+# === FREQ:     39.99 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 18023.44 Ohm | Fase:   0.00 deg
+#   [SUJETO 1: POST-INV] Mag: 18023.44 Ohm | Fase:   0.00 deg | Err_M:  0.14% | Err_F:  0.73 deg
+#   [SUJETO 2: GOLDEN]   Mag: 17998.32 Ohm | Fase:  -0.73 deg
+# 
+#   [FLASH EXTRACTION] Freq:  44.9 Hz
+#     -> Z Bucle Total Medida:    118696 Ohm
+#     -> R_contact Dinámica Extraída:     50309 Ohm
+#     -> R_contact_Force real (promedio):     52547 Ohm (rf1: 49810, rf2: 55283)
+#     -> R_contact_Sense real (oculto rs1):     60626 Ohm
+# === FREQ:     44.88 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 18027.34 Ohm | Fase:   0.00 deg
+#   [SUJETO 1: POST-INV] Mag: 18027.34 Ohm | Fase:   0.00 deg | Err_M:  0.16% | Err_F:  0.82 deg
+#   [SUJETO 2: GOLDEN]   Mag: 17997.88 Ohm | Fase:  -0.82 deg
+# 
+#   [FLASH EXTRACTION] Freq:  50.3 Hz
+#     -> Z Bucle Total Medida:    118252 Ohm
+#     -> R_contact Dinámica Extraída:     50093 Ohm
+#     -> R_contact_Force real (promedio):     52431 Ohm (rf1: 49700, rf2: 55162)
+#     -> R_contact_Sense real (oculto rs1):     60492 Ohm
+# === FREQ:     50.35 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 18015.62 Ohm | Fase:   0.00 deg
+#   [SUJETO 1: POST-INV] Mag: 18015.62 Ohm | Fase:   0.00 deg | Err_M:  0.10% | Err_F:  0.92 deg
+#   [SUJETO 2: GOLDEN]   Mag: 17997.34 Ohm | Fase:  -0.92 deg
+# 
+#   [FLASH EXTRACTION] Freq:  56.5 Hz
+#     -> Z Bucle Total Medida:    118028 Ohm
+#     -> R_contact Dinámica Extraída:     49981 Ohm
+#     -> R_contact_Force real (promedio):     52378 Ohm (rf1: 49650, rf2: 55106)
+#     -> R_contact_Sense real (oculto rs1):     60431 Ohm
+# === FREQ:     56.49 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 18015.62 Ohm | Fase:   0.00 deg
+#   [SUJETO 1: POST-INV] Mag: 18015.62 Ohm | Fase:   0.00 deg | Err_M:  0.11% | Err_F:  1.03 deg
+#   [SUJETO 2: GOLDEN]   Mag: 17996.65 Ohm | Fase:  -1.03 deg
+# 
+#   [FLASH EXTRACTION] Freq:  63.4 Hz
+#     -> Z Bucle Total Medida:    117924 Ohm
+#     -> R_contact Dinámica Extraída:     49929 Ohm
+#     -> R_contact_Force real (promedio):     52368 Ohm (rf1: 49640, rf2: 55095)
+#     -> R_contact_Sense real (oculto rs1):     60419 Ohm
+# === FREQ:     63.39 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 18015.62 Ohm | Fase:   0.00 deg
+#   [SUJETO 1: POST-INV] Mag: 18015.62 Ohm | Fase:   0.00 deg | Err_M:  0.11% | Err_F:  1.16 deg
+#   [SUJETO 2: GOLDEN]   Mag: 17995.78 Ohm | Fase:  -1.15 deg
+# 
+#   [FLASH EXTRACTION] Freq:  71.1 Hz
+#     -> Z Bucle Total Medida:    117905 Ohm
+#     -> R_contact Dinámica Extraída:     49919 Ohm
+#     -> R_contact_Force real (promedio):     52387 Ohm (rf1: 49658, rf2: 55115)
+#     -> R_contact_Sense real (oculto rs1):     60441 Ohm
+# === FREQ:     71.13 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 18015.62 Ohm | Fase:   0.00 deg
+#   [SUJETO 1: POST-INV] Mag: 18015.62 Ohm | Fase:   0.00 deg | Err_M:  0.12% | Err_F:  1.30 deg
+#   [SUJETO 2: GOLDEN]   Mag: 17994.69 Ohm | Fase:  -1.29 deg
+# 
+#   [FLASH EXTRACTION] Freq:  79.8 Hz
+#     -> Z Bucle Total Medida:    117946 Ohm
+#     -> R_contact Dinámica Extraída:     49940 Ohm
+#     -> R_contact_Force real (promedio):     52422 Ohm (rf1: 49692, rf2: 55152)
+#     -> R_contact_Sense real (oculto rs1):     60482 Ohm
+# === FREQ:     79.80 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 18015.62 Ohm | Fase:  -0.88 deg
+#   [SUJETO 1: POST-INV] Mag: 18015.62 Ohm | Fase:  -0.87 deg | Err_M:  0.12% | Err_F:  0.58 deg
+#   [SUJETO 2: GOLDEN]   Mag: 17993.31 Ohm | Fase:  -1.45 deg
+# === FREQ:     89.55 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 18007.81 Ohm | Fase:  -0.88 deg
+#   [SUJETO 1: POST-INV] Mag: 18007.81 Ohm | Fase:  -0.87 deg | Err_M:  0.09% | Err_F:  0.76 deg
+#   [SUJETO 2: GOLDEN]   Mag: 17991.58 Ohm | Fase:  -1.63 deg
+# === FREQ:    100.47 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 18003.91 Ohm | Fase:  -0.88 deg
+#   [SUJETO 1: POST-INV] Mag: 18003.91 Ohm | Fase:  -0.87 deg | Err_M:  0.08% | Err_F:  0.96 deg
+#   [SUJETO 2: GOLDEN]   Mag: 17989.40 Ohm | Fase:  -1.83 deg
+# === FREQ:    112.75 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 18000.00 Ohm | Fase:  -0.88 deg
+#   [SUJETO 1: POST-INV] Mag: 18000.00 Ohm | Fase:  -0.87 deg | Err_M:  0.07% | Err_F:  1.18 deg
+#   [SUJETO 2: GOLDEN]   Mag: 17986.66 Ohm | Fase:  -2.05 deg
+# === FREQ:    126.49 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 17992.19 Ohm | Fase:  -0.88 deg
+#   [SUJETO 1: POST-INV] Mag: 17992.19 Ohm | Fase:  -0.87 deg | Err_M:  0.05% | Err_F:  1.43 deg
+#   [SUJETO 2: GOLDEN]   Mag: 17983.21 Ohm | Fase:  -2.30 deg
+# === FREQ:    141.94 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 17988.28 Ohm | Fase:  -1.75 deg
+#   [SUJETO 1: POST-INV] Mag: 17988.28 Ohm | Fase:  -1.74 deg | Err_M:  0.05% | Err_F:  0.84 deg
+#   [SUJETO 2: GOLDEN]   Mag: 17978.87 Ohm | Fase:  -2.58 deg
+# === FREQ:    159.26 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 17984.38 Ohm | Fase:  -1.75 deg
+#   [SUJETO 1: POST-INV] Mag: 17984.38 Ohm | Fase:  -1.74 deg | Err_M:  0.06% | Err_F:  1.15 deg
+#   [SUJETO 2: GOLDEN]   Mag: 17973.42 Ohm | Fase:  -2.89 deg
+# === FREQ:    178.67 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 17976.56 Ohm | Fase:  -1.75 deg
+#   [SUJETO 1: POST-INV] Mag: 17976.56 Ohm | Fase:  -1.74 deg | Err_M:  0.06% | Err_F:  1.51 deg
+#   [SUJETO 2: GOLDEN]   Mag: 17966.55 Ohm | Fase:  -3.24 deg
+# === FREQ:    200.47 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 17968.75 Ohm | Fase:  -2.62 deg
+#   [SUJETO 1: POST-INV] Mag: 17968.75 Ohm | Fase:  -2.61 deg | Err_M:  0.06% | Err_F:  1.03 deg
+#   [SUJETO 2: GOLDEN]   Mag: 17957.92 Ohm | Fase:  -3.64 deg
+# === FREQ:    224.94 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 17957.03 Ohm | Fase:  -2.62 deg
+#   [SUJETO 1: POST-INV] Mag: 17957.03 Ohm | Fase:  -2.61 deg | Err_M:  0.06% | Err_F:  1.47 deg
+#   [SUJETO 2: GOLDEN]   Mag: 17947.07 Ohm | Fase:  -4.08 deg
+# === FREQ:    252.39 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 17945.31 Ohm | Fase:  -2.62 deg
+#   [SUJETO 1: POST-INV] Mag: 17945.31 Ohm | Fase:  -2.61 deg | Err_M:  0.07% | Err_F:  1.97 deg
+#   [SUJETO 2: GOLDEN]   Mag: 17933.45 Ohm | Fase:  -4.58 deg
+# === FREQ:    283.18 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 17933.59 Ohm | Fase:  -3.50 deg
+#   [SUJETO 1: POST-INV] Mag: 17933.59 Ohm | Fase:  -3.48 deg | Err_M:  0.10% | Err_F:  1.65 deg
+#   [SUJETO 2: GOLDEN]   Mag: 17916.34 Ohm | Fase:  -5.13 deg
+# === FREQ:    317.73 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 17917.97 Ohm | Fase:  -3.50 deg
+#   [SUJETO 1: POST-INV] Mag: 17917.97 Ohm | FETO 1: POST-INV] Mag: 18015.62 Ohm | Fase:   0.00 deg | Err_M:  0.11% | Err_F:  1.16 deg
+#   [SUJETO 2: GOLDEN]   Mag: 17995.78 Ohm | Fase:  -1.15 deg
+# 
+#   [FLASH EXTRACTION] Freq:  71.1 Hz
+#     -> Z Bucle Total Medida:    117905 Ohm
+#     -> R_contact Dinámica Extraída:     49919 Ohm
+#     -> R_contact_Force real (promedio):     52387 Ohm (rf1: 49658, rf2: 55115)
+#     -> R_contact_Sense real (oculto rs1):     60441 Ohm
+# === FREQ:     71.13 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 18015.62 Ohm | Fase:   0.00 deg
+#   [SUJETO 1: POST-INV] Mag: 18015.62 Ohm | Fase:   0.00 deg | Err_M:  0.12% | Err_F:  1.30 deg
+#   [SUJETO 2: GOLDEN]   Mag: 17994.69 Ohm | Fase:  -1.29 deg
+# 
+#   [FLASH EXTRACTION] Freq:  79.8 Hz
+#     -> Z Bucle Total Medida:    117946 Ohm
+#     -> R_contact Dinámica Extraída:     49940 Ohm
+#     -> R_contact_Force real (promedio):     52422 Ohm (rf1: 49692, rf2: 55152)
+#     -> R_contact_Sense real (oculto rs1):     60482 Ohm
+# === FREQ:     79.80 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 18015.62 Ohm | Fase:  -0.88 deg
+#   [SUJETO 1: POST-INV] Mag: 18015.62 Ohm | Fase:  -0.87 deg | Err_M:  0.12% | Err_F:  0.58 deg
+#   [SUJETO 2: GOLDEN]   Mag: 17993.31 Ohm | Fase:  -1.45 deg
+# === FREQ:     89.55 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 18007.81 Ohm | Fase:  -0.88 deg
+#   [SUJETO 1: POST-INV] Mag: 18007.81 Ohm | Fase:  -0.87 deg | Err_M:  0.09% | Err_F:  0.76 deg
+#   [SUJETO 2: GOLDEN]   Mag: 17991.58 Ohm | Fase:  -1.63 deg
+# === FREQ:    100.47 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 18003.91 Ohm | Fase:  -0.88 deg
+#   [SUJETO 1: POST-INV] Mag: 18003.91 Ohm | Fase:  -0.87 deg | Err_M:  0.08% | Err_F:  0.96 deg
+#   [SUJETO 2: GOLDEN]   Mag: 17989.40 Ohm | Fase:  -1.83 deg
+# === FREQ:    112.75 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 18000.00 Ohm | Fase:  -0.88 deg
+#   [SUJETO 1: POST-INV] Mag: 18000.00 Ohm | Fase:  -0.87 deg | Err_M:  0.07% | Err_F:  1.18 deg
+#   [SUJETO 2: GOLDEN]   Mag: 17986.66 Ohm | Fase:  -2.05 deg
+# === FREQ:    126.49 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 17992.19 Ohm | Fase:  -0.88 deg
+#   [SUJETO 1: POST-INV] Mag: 17992.19 Ohm | Fase:  -0.87 deg | Err_M:  0.05% | Err_F:  1.43 deg
+#   [SUJETO 2: GOLDEN]   Mag: 17983.21 Ohm | Fase:  -2.30 deg
+# === FREQ:    141.94 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 17988.28 Ohm | Fase:  -1.75 deg
+#   [SUJETO 1: POST-INV] Mag: 17988.28 Ohm | Fase:  -1.74 deg | Err_M:  0.05% | Err_F:  0.84 deg
+#   [SUJETO 2: GOLDEN]   Mag: 17978.87 Ohm | Fase:  -2.58 deg
+# === FREQ:    159.26 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 17984.38 Ohm | Fase:  -1.75 deg
+#   [SUJETO 1: POST-INV] Mag: 17984.38 Ohm | Fase:  -1.74 deg | Err_M:  0.06% | Err_F:  1.15 deg
+#   [SUJETO 2: GOLDEN]   Mag: 17973.42 Ohm | Fase:  -2.89 deg
+# === FREQ:    178.67 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 17976.56 Ohm | Fase:  -1.75 deg
+#   [SUJETO 1: POST-INV] Mag: 17976.56 Ohm | Fase:  -1.74 deg | Err_M:  0.06% | Err_F:  1.51 deg
+#   [SUJETO 2: GOLDEN]   Mag: 17966.55 Ohm | Fase:  -3.24 deg
+# === FREQ:    200.47 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 17968.75 Ohm | Fase:  -2.62 deg
+#   [SUJETO 1: POST-INV] Mag: 17968.75 Ohm | Fase:  -2.61 deg | Err_M:  0.06% | Err_F:  1.03 deg
+#   [SUJETO 2: GOLDEN]   Mag: 17957.92 Ohm | Fase:  -3.64 deg
+# === FREQ:    224.94 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 17957.03 Ohm | Fase:  -2.62 deg
+#   [SUJETO 1: POST-INV] Mag: 17957.03 Ohm | Fase:  -2.61 deg | Err_M:  0.06% | Err_F:  1.47 deg
+#   [SUJETO 2: GOLDEN]   Mag: 17947.07 Ohm | Fase:  -4.08 deg
+# === FREQ:    252.39 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 17945.31 Ohm | Fase:  -2.62 deg
+#   [SUJETO 1: POST-INV] Mag: 17945.31 Ohm | Fase:  -2.61 deg | Err_M:  0.07% | Err_F:  1.97 deg
+#   [SUJETO 2: GOLDEN]   Mag: 17933.45 Ohm | Fase:  -4.58 deg
+# === FREQ:    283.18 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 17933.59 Ohm | Fase:  -3.50 deg
+#   [SUJETO 1: POST-INV] Mag: 17933.59 Ohm | Fase:  -3.48 deg | Err_M:  0.10% | Err_F:  1.65 deg
+#   [SUJETO 2: GOLDEN]   Mag: 17916.34 Ohm | Fase:  -5.13 deg
+# === FREQ:    317.73 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 17917.97 Ohm | Fase:  -3.50 deg
+#   [SUJETO 1: POST-INV] Mag: 17917.97 Ohm | Fase:  -3.48 deg | Err_M:  0.13% | Err_F:  2.27 deg
+#   [SUJETO 2: GOLDEN]   Mag: 17894.87 Ohm | Fase:  -5.75 deg
+# === FREQ:    356.49 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 17894.53 Ohm | Fase:  -4.50 deg
+#   [SUJETO 1: POST-INV] Mag: 17894.53 Ohm | Fase:  -4.47 deg | Err_M:  0.15% | Err_F:  1.97 deg
+#   [SUJETO 2: GOLDEN]   Mag: 17867.94 Ohm | Fase:  -6.45 deg
+# === FREQ:    400.00 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 17867.19 Ohm | Fase:  -6.25 deg
+#   [SUJETO 1: POST-INV] Mag: 17867.19 Ohm | Fase:  -6.22 deg | Err_M:  0.18% | Err_F:  1.00 deg
+#   [SUJETO 2: GOLDEN]   Mag: 17834.22 Ohm | Fase:  -7.22 deg
+# === FREQ:    448.81 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 17835.94 Ohm | Fase:  -6.25 deg
+#   [SUJETO 1: POST-INV] Mag: 17835.94 Ohm | Fase:  -6.22 deg | Err_M:  0.25% | Err_F:  1.87 deg
+#   [SUJETO 2: GOLDEN]   Mag: 17792.03 Ohm | Fase:  -8.09 deg
+# === FREQ:    503.58 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 17792.97 Ohm | Fase:  -7.12 deg
+#   [SUJETO 1: POST-INV] Mag: 17792.97 Ohm | Fase:  -7.09 deg | Err_M:  0.30% | Err_F:  1.97 deg
+#   [SUJETO 2: GOLDEN]   Mag: 17739.37 Ohm | Fase:  -9.06 deg
+# === FREQ:    565.02 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 17742.19 Ohm | Fase:  -8.00 deg
+#   [SUJETO 1: POST-INV] Mag: 17742.19 Ohm | Fase:  -7.96 deg | Err_M:  0.39% | Err_F:  2.17 deg
+#   [SUJETO 2: GOLDEN]   Mag: 17673.72 Ohm | Fase: -10.13 deg
+# === FREQ:    633.97 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 17675.78 Ohm | Fase:  -8.88 deg
+#   [SUJETO 1: POST-INV] Mag: 17675.78 Ohm | Fase:  -8.83 deg | Err_M:  0.48% | Err_F:  2.50 deg
+#   [SUJETO 2: GOLDEN]   Mag: 17592.14 Ohm | Fase: -11.33 deg
+# === FREQ:    711.30 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 17597.66 Ohm | Fase:  -9.75 deg
+#   [SUJETO 1: POST-INV] Mag: 17597.66 Ohm | Fase:  -9.70 deg | Err_M:  0.61% | Err_F:  2.96 deg
+#   [SUJETO 2: GOLDEN]   Mag: 17490.97 Ohm | Fase: -12.66 deg
+# === FREQ:    798.11 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 17500.00 Ohm | Fase: -11.50 deg
+#   [SUJETO 1: POST-INV] Mag: 17500.00 Ohm | Fase: -11.44 deg | Err_M:  0.77% | Err_F:  2.69 deg
+#   [SUJETO 2: GOLDEN]   Mag: 17366.12 Ohm | Fase: -14.13 deg
+# === FREQ:    895.50 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 17375.00 Ohm | Fase: -13.25 deg
+#   [SUJETO 1: POST-INV] Mag: 17375.00 Ohm | Fase: -13.19 deg | Err_M:  0.94% | Err_F:  2.57 deg
+#   [SUJETO 2: GOLDEN]   Mag: 17212.71 Ohm | Fase: -15.75 deg
+# === FREQ:   1004.75 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 17210.94 Ohm | Fase: -15.00 deg
+#   [SUJETO 1: POST-INV] Mag: 17210.94 Ohm | Fase: -14.93 deg | Err_M:  1.09% | Err_F:  2.61 deg
+#   [SUJETO 2: GOLDEN]   Mag: 17025.24 Ohm | Fase: -17.54 deg
+# === FREQ:   1127.37 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 17007.81 Ohm | Fase: -16.62 deg
+#   [SUJETO 1: POST-INV] Mag: 17007.81 Ohm | Fase: -16.54 deg | Err_M:  1.25% | Err_F:  2.94 deg
+#   [SUJETO 2: GOLDEN]   Mag: 16797.84 Ohm | Fase: -19.48 deg
+# === FREQ:   1264.91 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 16765.62 Ohm | Fase: -18.25 deg
+#   [SUJETO 1: POST-INV] Mag: 16765.62 Ohm | Fase: -18.16 deg | Err_M:  1.46% | Err_F:  3.43 deg
+#   [SUJETO 2: GOLDEN]   Mag: 16524.19 Ohm | Fase: -21.59 deg
+# === FREQ:   1419.25 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 16484.38 Ohm | Fase: -20.75 deg
+#   [SUJETO 1: POST-INV] Mag: 16484.38 Ohm | Fase: -20.65 deg | Err_M:  1.77% | Err_F:  3.22 deg
+#   [SUJETO 2: GOLDEN]   Mag: 16198.14 Ohm | Fase: -23.87 deg
+# === FREQ:   1592.42 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 16156.25 Ohm | Fase: -23.12 deg
+#   [SUJETO 1: POST-INV] Mag: 16156.25 Ohm | Fase: -23.01 deg | Err_M:  2.16% | Err_F:  3.29 deg
+#   [SUJETO 2: GOLDEN]   Mag: 15814.02 Ohm | Fase: -26.30 deg
+# === FREQ:   1786.74 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 15781.25 Ohm | Fase: -25.50 deg
+#   [SUJETO 1: POST-INV] Mag: 15781.25 Ohm | Fase: -25.37 deg | Err_M:  2.69% | Err_F:  3.51 deg
+#   [SUJETO 2: GOLDEN]   Mag: 15367.55 Ohm | Fase: -28.88 deg
+# === FREQ:   2004.76 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 15351.56 Ohm | Fase: -27.75 deg
+#   [SUJETO 1: POST-INV] Mag: 15351.56 Ohm | Fase: -27.60 deg | Err_M:  3.33% | Err_F:  3.97 deg
+#   [SUJETO 2: GOLDEN]   Mag: 14856.27 Ohm | Fase: -31.57 deg
+# === FREQ:   2249.38 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 14851.56 Ohm | Fase: -30.75 deg
+#   [SUJETO 1: POST-INV] Mag: 14851.56 Ohm | Fase: -30.59 deg | Err_M:  4.00% | Err_F:  3.77 deg
+#   [SUJETO 2: GOLDEN]   Mag: 14280.44 Ohm | Fase: -34.35 deg
+# === FREQ:   2523.83 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 14296.88 Ohm | Fase: -33.50 deg
+#   [SUJETO 1: POST-INV] Mag: 14296.88 Ohm | Fase: -33.32 deg | Err_M:  4.79% | Err_F:  3.87 deg
+#   [SUJETO 2: GOLDEN]   Mag: 13643.43 Ohm | Fase: -37.19 deg
+# === FREQ:   2831.77 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 13664.06 Ohm | Fase: -36.75 deg
+#   [SUJETO 1: POST-INV] Mag: 13664.06 Ohm | Fase: -36.54 deg | Err_M:  5.50% | Err_F:  3.48 deg
+#   [SUJETO 2: GOLDEN]   Mag: 12952.04 Ohm | Fase: -40.02 deg
+# === FREQ:   3177.32 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 12960.94 Ohm | Fase: -39.25 deg
+#   [SUJETO 1: POST-INV] Mag: 12960.94 Ohm | Fase: -39.02 deg | Err_M:  6.09% | Err_F:  3.80 deg
+#   [SUJETO 2: GOLDEN]   Mag: 12216.43 Ohm | Fase: -42.82 deg
+# === FREQ:   3565.02 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 12195.31 Ohm | Fase: -42.00 deg
+#   [SUJETO 1: POST-INV] Mag: 12195.31 Ohm | Fase: -41.74 deg | Err_M:  6.52% | Err_F:  3.78 deg
+#   [SUJETO 2: GOLDEN]   Mag: 11449.16 Ohm | Fase: -45.52 deg
+# === FREQ:   4000.00 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 11421.88 Ohm | Fase: -44.62 deg
+#   [SUJETO 1: POST-INV] Mag: 11421.88 Ohm | Fase: -44.33 deg | Err_M:  7.10% | Err_F:  3.75 deg
+#   [SUJETO 2: GOLDEN]   Mag: 10664.37 Ohm | Fase: -48.09 deg
+# === FREQ:   4488.07 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 10648.44 Ohm | Fase: -47.62 deg
+#   [SUJETO 1: POST-INV] Mag: 10648.44 Ohm | Fase: -47.30 deg | Err_M:  7.81% | Err_F:  3.17 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9876.60 Ohm | Fase: -50.47 deg
+# === FREQ:   5035.69 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  9867.19 Ohm | Fase: -50.25 deg
+#   [SUJETO 1: POST-INV] Mag:  9867.19 Ohm | Fase: -49.88 deg | Err_M:  8.44% | Err_F:  2.74 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9099.60 Ohm | Fase: -52.62 deg
+# === FREQ:   5650.16 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  9101.56 Ohm | Fase: -51.75 deg
+#   [SUJETO 1: POST-INV] Mag:  9101.56 Ohm | Fase: -51.34 deg | Err_M:  9.06% | Err_F:  3.18 deg
+#   [SUJETO 2: GOLDEN]   Mag:  8345.57 Ohm | Fase: -54.52 deg
+# === FREQ:   6339.57 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  8359.38 Ohm | Fase: -54.00 deg
+#   [SUJETO 1: POST-INV] Mag:  8359.38 Ohm | Fase: -53.54 deg | Err_M:  9.64% | Err_F:  2.60 deg
+#   [SUJETO 2: GOLDEN]   Mag:  7624.34 Ohm | Fase: -56.14 deg
+# === FREQ:   7113.12 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  7625.00 Ohm | Fase: -55.62 deg
+#   [SUJETO 1: POST-INV] Mag:  7625.00 Ohm | Fase: -55.11 deg | Err_M:  9.82% | Err_F:  2.35 deg
+#   [SUJETO 2: GOLDEN]   Mag:  6943.38 Ohm | Fase: -57.46 deg
+# === FREQ:   7981.06 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  6945.31 Ohm | Fase: -57.25 deg
+#   [SUJETO 1: POST-INV] Mag:  6945.31 Ohm | Fase: -56.67 deg | Err_M: 10.11% | Err_F:  1.79 deg
+#   [SUJETO 2: GOLDEN]   Mag:  6307.72 Ohm | Fase: -58.46 deg
+# === FREQ:   8954.87 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  6296.88 Ohm | Fase: -57.75 deg
+#   [SUJETO 1: POST-INV] Mag:  6296.88 Ohm | Fase: -57.10 deg | Err_M: 10.08% | Err_F:  2.04 deg
+#   [SUJETO 2: GOLDEN]   Mag:  5720.18 Ohm | Fase: -59.14 deg
+# === FREQ:  10047.54 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  5687.41 Ohm | Fase: -58.88 deg
+#   [SUJETO 1: POST-INV] Mag:  5687.41 Ohm | Fase: -58.13 deg | Err_M:  9.76% | Err_F:  1.36 deg
+#   [SUJETO 2: GOLDEN]   Mag:  5181.85 Ohm | Fase: -59.50 deg
+# === FREQ:  11273.54 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  5151.71 Ohm | Fase: -59.38 deg
+#   [SUJETO 1: POST-INV] Mag:  5151.71 Ohm | Fase: -58.54 deg | Err_M:  9.79% | Err_F:  0.97 deg
+#   [SUJETO 2: GOLDEN]   Mag:  4692.40 Ohm | Fase: -59.52 deg
+# === FREQ:  12649.11 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  4660.64 Ohm | Fase: -59.62 deg
+#   [SUJETO 1: POST-INV] Mag:  4660.64 Ohm | Fase: -58.69 deg | Err_M:  9.65% | Err_F:  0.52 deg
+#   [SUJETO 2: GOLDEN]   Mag:  4250.42 Ohm | Fase: -59.21 deg
+# === FREQ:  14192.54 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  4214.22 Ohm | Fase: -58.75 deg
+#   [SUJETO 1: POST-INV] Mag:  4214.22 Ohm | Fase: -57.70 deg | Err_M:  9.35% | Err_F:  0.87 deg
+#   [SUJETO 2: GOLDEN]   Mag:  3853.82 Ohm | Fase: -58.57 deg
+# === FREQ:  15924.28 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  3821.37 Ohm | Fase: -58.50 deg
+#   [SUJETO 1: POST-INV] Mag:  3821.37 Ohm | Fase: -57.33 deg | Err_M:  9.18% | Err_F:  0.28 deg
+#   [SUJETO 2: GOLDEN]   Mag:  3500.05 Ohm | Fase: -57.61 deg
+# === FREQ:  17867.34 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  3464.23 Ohm | Fase: -57.75 deg
+#   [SUJETO 1: POST-INV] Mag:  3464.23 Ohm | Fase: -56.43 deg | Err_M:  8.72% | Err_F:  0.10 deg
+#   [SUJETO 2: GOLDEN]   Mag:  3186.29 Ohm | Fase: -56.33 deg
+# === FREQ:  20047.48 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  3151.74 Ohm | Fase: -56.62 deg
+#   [SUJETO 1: POST-INV] Mag:  3151.74 Ohm | Fase: -55.15 deg | Err_M:  8.32% | Err_F:  0.40 deg
+#   [SUJETO 2: GOLDEN]   Mag:  2909.60 Ohm | Fase: -54.75 deg
+# === FREQ:  22493.65 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  2874.96 Ohm | Fase: -54.62 deg
+#   [SUJETO 1: POST-INV] Mag:  2874.96 Ohm | Fase: -52.97 deg | Err_M:  7.80% | Err_F:  0.08 deg
+#   [SUJETO 2: GOLDEN]   Mag:  2667.02 Ohm | Fase: -52.89 deg
+# === FREQ:  25238.29 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  2633.89 Ohm | Fase: -53.00 deg
+#   [SUJETO 1: POST-INV] Mag:  2633.89 Ohm | Fase: -51.14 deg | Err_M:  7.26% | Err_F:  0.38 deg
+#   [SUJETO 2: GOLDEN]   Mag:  2455.64 Ohm | Fase: -50.76 deg
+# === FREQ:  28317.82 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  2419.61 Ohm | Fase: -51.00 deg
+#   [SUJETO 1: POST-INV] Mag:  2419.61 Ohm | Fase: -48.91 deg | Err_M:  6.47% | Err_F:  0.50 deg
+#   [SUJETO 2: GOLDEN]   Mag:  2272.61 Ohm | Fase: -48.41 deg
+# === FREQ:  31773.12 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  2241.04 Ohm | Fase: -48.75 deg
+#   [SUJETO 1: POST-INV] Mag:  2241.04 Ohm | Fase: -46.41 deg | Err_M:  5.95% | Err_F:  0.54 deg
+#   [SUJETO 2: GOLDEN]   Mag:  2115.18 Ohm | Fase: -45.87 deg
+# === FREQ:  35650.04 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  2080.33 Ohm | Fase: -46.25 deg
+#   [SUJETO 1: POST-INV] Mag:  2080.33 Ohm | Fase: -43.62 deg | Err_M:  5.03% | Err_F:  0.44 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1980.69 Ohm | Fase: -43.18 deg
+# === FREQ:  40000.01 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1937.47 Ohm | Fase: -44.12 deg
+#   [SUJETO 1: POST-INV] Mag:  1937.47 Ohm | Fase: -41.18 deg | Err_M:  3.80% | Err_F:  0.78 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1866.61 Ohm | Fase: -40.40 deg
+# === FREQ:  44880.73 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1821.40 Ohm | Fase: -41.12 deg
+#   [SUJETO 1: POST-INV] Mag:  1821.40 Ohm | Fase: -37.82 deg | Err_M:  2.87% | Err_F:  0.26 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1770.52 Ohm | Fase: -37.56 deg
+# === FREQ:  50357.02 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1723.19 Ohm | Fase: -38.50 deg
+#   [SUJETO 1: POST-INV] Mag:  1723.19 Ohm | Fase: -34.79 deg | Err_M:  1.96% | Err_F:  0.07 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1690.15 Ohm | Fase: -34.72 deg
+# === FREQ:  56501.51 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1642.83 Ohm | Fase: -36.25 deg
+#   [SUJETO 1: POST-INV] Mag:  1642.83 Ohm | Fase: -32.09 deg | Err_M:  1.20% | Err_F:  0.16 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1623.36 Ohm | Fase: -31.93 deg
+# === FREQ:  63395.74 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1571.40 Ohm | Fase: -33.25 deg
+#   [SUJETO 1: POST-INV] Mag:  1571.40 Ohm | Fase: -28.58 deg | Err_M:  0.20% | Err_F:  0.64 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1568.22 Ohm | Fase: -29.23 deg
+# === FREQ:  71131.19 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1508.91 Ohm | Fase: -29.88 deg
+#   [SUJETO 1: POST-INV] Mag:  1508.91 Ohm | Fase: -24.64 deg | Err_M:  0.92% | Err_F:  1.99 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1522.95 Ohm | Fase: -26.63 deg
+# === FREQ:  79810.50 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1464.26 Ohm | Fase: -27.75 deg
+#   [SUJETO 1: POST-INV] Mag:  1464.26 Ohm | Fase: -21.88 deg | Err_M:  1.46% | Err_F:  2.30 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1485.98 Ohm | Fase: -24.18 deg
+# === FREQ:  89548.85 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1410.69 Ohm | Fase: -25.00 deg
+#   [SUJETO 1: POST-INV] Mag:  1410.69 Ohm | Fase: -18.42 deg | Err_M:  3.11% | Err_F:  3.46 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1455.92 Ohm | Fase: -21.88 deg
+# === FREQ: 100475.44 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1362.50 Ohm | Fase: -22.62 deg
+#   [SUJETO 1: POST-INV] Mag:  1362.50 Ohm | Fase: -15.17 deg | Err_M:  4.83% | Err_F:  4.58 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1431.59 Ohm | Fase: -19.75 deg
+# === FREQ: 112735.32 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1331.25 Ohm | Fase: -20.38 deg
+#   [SUJETO 1: POST-INV] Mag:  1331.25 Ohm | Fase: -12.02 deg | Err_M:  5.72% | Err_F:  5.77 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1411.95 Ohm | Fase: -17.78 deg
+# === FREQ: 126491.10 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1300.00 Ohm | Fase: -18.75 deg
+#   [SUJETO 1: POST-INV] Mag:  1300.00 Ohm | Fase:  -9.39 deg | Err_M:  6.89% | Err_F:  6.59 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1396.15 Ohm | Fase: -15.98 deg
+# === FREQ: 141925.35 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1275.00 Ohm | Fase: -16.38 deg
+#   [SUJETO 1: POST-INV] Mag:  1275.00 Ohm | Fase:  -5.89 deg | Err_M:  7.84% | Err_F:  8.45 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1383.47 Ohm | Fase: -14.34 deg
+# === FREQ: 159242.86 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1250.00 Ohm | Fase: -14.75 deg
+#   [SUJETO 1: POST-INV] Mag:  1250.00 Ohm | Fase:  -3.02 deg | Err_M:  8.98% | Err_F:  9.83 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1373.31 Ohm | Fase: -12.85 deg
+# === FREQ: 178673.45 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1225.00 Ohm | Fase: -13.12 deg
+#   [SUJETO 1: POST-INV] Mag:  1225.00 Ohm | Fase:  -0.00 deg | Err_M: 10.27% | Err_F: 11.50 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1365.19 Ohm | Fase: -11.50 deg
+# === FREQ: 200474.90 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1200.00 Ohm | Fase: -11.38 deg
+#   [SUJETO 1: POST-INV] Mag:  1200.00 Ohm | Fase:   3.29 deg | Err_M: 11.68% | Err_F: 13.57 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1358.70 Ohm | Fase: -10.29 deg
+# === FREQ: 224936.52 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1168.75 Ohm | Fase:  -8.75 deg
+#   [SUJETO 1: POST-INV] Mag:  1168.75 Ohm | Fase:   7.62 deg | Err_M: 13.65% | Err_F: 16.81 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1353.52 Ohm | Fase:  -9.19 deg
+# === FREQ: 252382.95 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1137.50 Ohm | Fase:  -7.00 deg
+#   [SUJETO 1: POST-INV] Mag:  1137.50 Ohm | Fase:  11.25 deg | Err_M: 15.70% | Err_F: 19.47 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1349.39 Ohm | Fase:  -8.21 deg
+# === FREQ: 283178.32 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1100.00 Ohm | Fase:  -5.25 deg
+#   [SUJETO 1: POST-INV] Mag:  1100.00 Ohm | Fase:  15.08 deg | Err_M: 18.28% | Err_F: 22.41 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1346.11 Ohm | Fase:  -7.33 deg
+# === FREQ: 317731.29 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1068.75 Ohm | Fase:  -1.75 deg
+#   [SUJETO 1: POST-INV] Mag:  1068.75 Ohm | Fase:  20.84 deg | Err_M: 20.45% | Err_F: 27.38 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1343.49 Ohm | Fase:  -6.54 deg
+# === FREQ: 356500.39 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1031.25 Ohm | Fase:   0.88 deg
+#   [SUJETO 1: POST-INV] Mag:  1031.25 Ohm | Fase:  25.93 deg | Err_M: 23.12% | Err_F: 31.77 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1341.41 Ohm | Fase:  -5.84 deg
+# === FREQ: 399999.99 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:   993.75 Ohm | Fase:   4.50 deg
+#   [SUJETO 1: POST-INV] Mag:   993.75 Ohm | Fase:  32.22 deg | Err_M: 25.83% | Err_F: 37.43 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1339.75 Ohm | Fase:  -5.21 deg
+# === FREQ: 448807.38 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:   962.50 Ohm | Fase:   8.88 deg
+#   [SUJETO 1: POST-INV] Mag:   962.50 Ohm | Fase:  39.45 deg | Err_M: 28.09% | Err_F: 44.10 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1338.43 Ohm | Fase:  -4.64 deg
+# === FREQ: 503570.16 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:   931.25 Ohm | Fase:  15.12 deg
+#   [SUJETO 1: POST-INV] Mag:   931.25 Ohm | Fase:  48.74 deg | Err_M: 30.37% | Err_F: 52.89 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1337.39 Ohm | Fase:  -4.14 deg
+# === FREQ: 565015.01 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:   918.75 Ohm | Fase:  21.25 deg
+#   [SUJETO 1: POST-INV] Mag:   918.75 Ohm | Fase:  58.07 deg | Err_M: 31.26% | Err_F: 61.76 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1336.55 Ohm | Fase:  -3.69 deg
+# === FREQ: 633957.27ase:  -3.48 deg | Err_M:  0.13% | Err_F:  2.27 deg
+#   [SUJETO 2: GOLDEN]   Mag: 17894.87 Ohm | Fase:  -5.75 deg
+# === FREQ:    356.49 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 17894.53 Ohm | Fase:  -4.50 deg
+#   [SUJETO 1: POST-INV] Mag: 17894.53 Ohm | Fase:  -4.47 deg | Err_M:  0.15% | Err_F:  1.97 deg
+#   [SUJETO 2: GOLDEN]   Mag: 17867.94 Ohm | Fase:  -6.45 deg
+# === FREQ:    400.00 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 17867.19 Ohm | Fase:  -6.25 deg
+#   [SUJETO 1: POST-INV] Mag: 17867.19 Ohm | Fase:  -6.22 deg | Err_M:  0.18% | Err_F:  1.00 deg
+#   [SUJETO 2: GOLDEN]   Mag: 17834.22 Ohm | Fase:  -7.22 deg
+# === FREQ:    448.81 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 17835.94 Ohm | Fase:  -6.25 deg
+#   [SUJETO 1: POST-INV] Mag: 17835.94 Ohm | Fase:  -6.22 deg | Err_M:  0.25% | Err_F:  1.87 deg
+#   [SUJETO 2: GOLDEN]   Mag: 17792.03 Ohm | Fase:  -8.09 deg
+# === FREQ:    503.58 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 17792.97 Ohm | Fase:  -7.12 deg
+#   [SUJETO 1: POST-INV] Mag: 17792.97 Ohm | Fase:  -7.09 deg | Err_M:  0.30% | Err_F:  1.97 deg
+#   [SUJETO 2: GOLDEN]   Mag: 17739.37 Ohm | Fase:  -9.06 deg
+# === FREQ:    565.02 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 17742.19 Ohm | Fase:  -8.00 deg
+#   [SUJETO 1: POST-INV] Mag: 17742.19 Ohm | Fase:  -7.96 deg | Err_M:  0.39% | Err_F:  2.17 deg
+#   [SUJETO 2: GOLDEN]   Mag: 17673.72 Ohm | Fase: -10.13 deg
+# === FREQ:    633.97 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 17675.78 Ohm | Fase:  -8.88 deg
+#   [SUJETO 1: POST-INV] Mag: 17675.78 Ohm | Fase:  -8.83 deg | Err_M:  0.48% | Err_F:  2.50 deg
+#   [SUJETO 2: GOLDEN]   Mag: 17592.14 Ohm | Fase: -11.33 deg
+# === FREQ:    711.30 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 17597.66 Ohm | Fase:  -9.75 deg
+#   [SUJETO 1: POST-INV] Mag: 17597.66 Ohm | Fase:  -9.70 deg | Err_M:  0.61% | Err_F:  2.96 deg
+#   [SUJETO 2: GOLDEN]   Mag: 17490.97 Ohm | Fase: -12.66 deg
+# === FREQ:    798.11 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 17500.00 Ohm | Fase: -11.50 deg
+#   [SUJETO 1: POST-INV] Mag: 17500.00 Ohm | Fase: -11.44 deg | Err_M:  0.77% | Err_F:  2.69 deg
+#   [SUJETO 2: GOLDEN]   Mag: 17366.12 Ohm | Fase: -14.13 deg
+# === FREQ:    895.50 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 17375.00 Ohm | Fase: -13.25 deg
+#   [SUJETO 1: POST-INV] Mag: 17375.00 Ohm | Fase: -13.19 deg | Err_M:  0.94% | Err_F:  2.57 deg
+#   [SUJETO 2: GOLDEN]   Mag: 17212.71 Ohm | Fase: -15.75 deg
+# === FREQ:   1004.75 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 17210.94 Ohm | Fase: -15.00 deg
+#   [SUJETO 1: POST-INV] Mag: 17210.94 Ohm | Fase: -14.93 deg | Err_M:  1.09% | Err_F:  2.61 deg
+#   [SUJETO 2: GOLDEN]   Mag: 17025.24 Ohm | Fase: -17.54 deg
+# === FREQ:   1127.37 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 17007.81 Ohm | Fase: -16.62 deg
+#   [SUJETO 1: POST-INV] Mag: 17007.81 Ohm | Fase: -16.54 deg | Err_M:  1.25% | Err_F:  2.94 deg
+#   [SUJETO 2: GOLDEN]   Mag: 16797.84 Ohm | Fase: -19.48 deg
+# === FREQ:   1264.91 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 16765.62 Ohm | Fase: -18.25 deg
+#   [SUJETO 1: POST-INV] Mag: 16765.62 Ohm | Fase: -18.16 deg | Err_M:  1.46% | Err_F:  3.43 deg
+#   [SUJETO 2: GOLDEN]   Mag: 16524.19 Ohm | Fase: -21.59 deg
+# === FREQ:   1419.25 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 16484.38 Ohm | Fase: -20.75 deg
+#   [SUJETO 1: POST-INV] Mag: 16484.38 Ohm | Fase: -20.65 deg | Err_M:  1.77% | Err_F:  3.22 deg
+#   [SUJETO 2: GOLDEN]   Mag: 16198.14 Ohm | Fase: -23.87 deg
+# === FREQ:   1592.42 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 16156.25 Ohm | Fase: -23.12 deg
+#   [SUJETO 1: POST-INV] Mag: 16156.25 Ohm | Fase: -23.01 deg | Err_M:  2.16% | Err_F:  3.29 deg
+#   [SUJETO 2: GOLDEN]   Mag: 15814.02 Ohm | Fase: -26.30 deg
+# === FREQ:   1786.74 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 15781.25 Ohm | Fase: -25.50 deg
+#   [SUJETO 1: POST-INV] Mag: 15781.25 Ohm | Fase: -25.37 deg | Err_M:  2.69% | Err_F:  3.51 deg
+#   [SUJETO 2: GOLDEN]   Mag: 15367.55 Ohm | Fase: -28.88 deg
+# === FREQ:   2004.76 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 15351.56 Ohm | Fase: -27.75 deg
+#   [SUJETO 1: POST-INV] Mag: 15351.56 Ohm | Fase: -27.60 deg | Err_M:  3.33% | Err_F:  3.97 deg
+#   [SUJETO 2: GOLDEN]   Mag: 14856.27 Ohm | Fase: -31.57 deg
+# === FREQ:   2249.38 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 14851.56 Ohm | Fase: -30.75 deg
+#   [SUJETO 1: POST-INV] Mag: 14851.56 Ohm | Fase: -30.59 deg | Err_M:  4.00% | Err_F:  3.77 deg
+#   [SUJETO 2: GOLDEN]   Mag: 14280.44 Ohm | Fase: -34.35 deg
+# === FREQ:   2523.83 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 14296.88 Ohm | Fase: -33.50 deg
+#   [SUJETO 1: POST-INV] Mag: 14296.88 Ohm | Fase: -33.32 deg | Err_M:  4.79% | Err_F:  3.87 deg
+#   [SUJETO 2: GOLDEN]   Mag: 13643.43 Ohm | Fase: -37.19 deg
+# === FREQ:   2831.77 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 13664.06 Ohm | Fase: -36.75 deg
+#   [SUJETO 1: POST-INV] Mag: 13664.06 Ohm | Fase: -36.54 deg | Err_M:  5.50% | Err_F:  3.48 deg
+#   [SUJETO 2: GOLDEN]   Mag: 12952.04 Ohm | Fase: -40.02 deg
+# === FREQ:   3177.32 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 12960.94 Ohm | Fase: -39.25 deg
+#   [SUJETO 1: POST-INV] Mag: 12960.94 Ohm | Fase: -39.02 deg | Err_M:  6.09% | Err_F:  3.80 deg
+#   [SUJETO 2: GOLDEN]   Mag: 12216.43 Ohm | Fase: -42.82 deg
+# === FREQ:   3565.02 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 12195.31 Ohm | Fase: -42.00 deg
+#   [SUJETO 1: POST-INV] Mag: 12195.31 Ohm | Fase: -41.74 deg | Err_M:  6.52% | Err_F:  3.78 deg
+#   [SUJETO 2: GOLDEN]   Mag: 11449.16 Ohm | Fase: -45.52 deg
+# === FREQ:   4000.00 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 11421.88 Ohm | Fase: -44.62 deg
+#   [SUJETO 1: POST-INV] Mag: 11421.88 Ohm | Fase: -44.33 deg | Err_M:  7.10% | Err_F:  3.75 deg
+#   [SUJETO 2: GOLDEN]   Mag: 10664.37 Ohm | Fase: -48.09 deg
+# === FREQ:   4488.07 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 10648.44 Ohm | Fase: -47.62 deg
+#   [SUJETO 1: POST-INV] Mag: 10648.44 Ohm | Fase: -47.30 deg | Err_M:  7.81% | Err_F:  3.17 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9876.60 Ohm | Fase: -50.47 deg
+# === FREQ:   5035.69 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  9867.19 Ohm | Fase: -50.25 deg
+#   [SUJETO 1: POST-INV] Mag:  9867.19 Ohm | Fase: -49.88 deg | Err_M:  8.44% | Err_F:  2.74 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9099.60 Ohm | Fase: -52.62 deg
+# === FREQ:   5650.16 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  9101.56 Ohm | Fase: -51.75 deg
+#   [SUJETO 1: POST-INV] Mag:  9101.56 Ohm | Fase: -51.34 deg | Err_M:  9.06% | Err_F:  3.18 deg
+#   [SUJETO 2: GOLDEN]   Mag:  8345.57 Ohm | Fase: -54.52 deg
+# === FREQ:   6339.57 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  8359.38 Ohm | Fase: -54.00 deg
+#   [SUJETO 1: POST-INV] Mag:  8359.38 Ohm | Fase: -53.54 deg | Err_M:  9.64% | Err_F:  2.60 deg
+#   [SUJETO 2: GOLDEN]   Mag:  7624.34 Ohm | Fase: -56.14 deg
+# === FREQ:   7113.12 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  7625.00 Ohm | Fase: -55.62 deg
+#   [SUJETO 1: POST-INV] Mag:  7625.00 Ohm | Fase: -55.11 deg | Err_M:  9.82% | Err_F:  2.35 deg
+#   [SUJETO 2: GOLDEN]   Mag:  6943.38 Ohm | Fase: -57.46 deg
+# === FREQ:   7981.06 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  6945.31 Ohm | Fase: -57.25 deg
+#   [SUJETO 1: POST-INV] Mag:  6945.31 Ohm | Fase: -56.67 deg | Err_M: 10.11% | Err_F:  1.79 deg
+#   [SUJETO 2: GOLDEN]   Mag:  6307.72 Ohm | Fase: -58.46 deg
+# === FREQ:   8954.87 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  6296.88 Ohm | Fase: -57.75 deg
+#   [SUJETO 1: POST-INV] Mag:  6296.88 Ohm | Fase: -57.10 deg | Err_M: 10.08% | Err_F:  2.04 deg
+#   [SUJETO 2: GOLDEN]   Mag:  5720.18 Ohm | Fase: -59.14 deg
+# === FREQ:  10047.54 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  5687.41 Ohm | Fase: -58.88 deg
+#   [SUJETO 1: POST-INV] Mag:  5687.41 Ohm | Fase: -58.13 deg | Err_M:  9.76% | Err_F:  1.36 deg
+#   [SUJETO 2: GOLDEN]   Mag:  5181.85 Ohm | Fase: -59.50 deg
+# === FREQ:  11273.54 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  5151.71 Ohm | Fase: -59.38 deg
+#   [SUJETO 1: POST-INV] Mag:  5151.71 Ohm | Fase: -58.54 deg | Err_M:  9.79% | Err_F:  0.97 deg
+#   [SUJETO 2: GOLDEN]   Mag:  4692.40 Ohm | Fase: -59.52 deg
+# === FREQ:  12649.11 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  4660.64 Ohm | Fase: -59.62 deg
+#   [SUJETO 1: POST-INV] Mag:  4660.64 Ohm | Fase: -58.69 deg | Err_M:  9.65% | Err_F:  0.52 deg
+#   [SUJETO 2: GOLDEN]   Mag:  4250.42 Ohm | Fase: -59.21 deg
+# === FREQ:  14192.54 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  4214.22 Ohm | Fase: -58.75 deg
+#   [SUJETO 1: POST-INV] Mag:  4214.22 Ohm | Fase: -57.70 deg | Err_M:  9.35% | Err_F:  0.87 deg
+#   [SUJETO 2: GOLDEN]   Mag:  3853.82 Ohm | Fase: -58.57 deg
+# === FREQ:  15924.28 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  3821.37 Ohm | Fase: -58.50 deg
+#   [SUJETO 1: POST-INV] Mag:  3821.37 Ohm | Fase: -57.33 deg | Err_M:  9.18% | Err_F:  0.28 deg
+#   [SUJETO 2: GOLDEN]   Mag:  3500.05 Ohm | Fase: -57.61 deg
+# === FREQ:  17867.34 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  3464.23 Ohm | Fase: -57.75 deg
+#   [SUJETO 1: POST-INV] Mag:  3464.23 Ohm | Fase: -56.43 deg | Err_M:  8.72% | Err_F:  0.10 deg
+#   [SUJETO 2: GOLDEN]   Mag:  3186.29 Ohm | Fase: -56.33 deg
+# === FREQ:  20047.48 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  3151.74 Ohm | Fase: -56.62 deg
+#   [SUJETO 1: POST-INV] Mag:  3151.74 Ohm | Fase: -55.15 deg | Err_M:  8.32% | Err_F:  0.40 deg
+#   [SUJETO 2: GOLDEN]   Mag:  2909.60 Ohm | Fase: -54.75 deg
+# === FREQ:  22493.65 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  2874.96 Ohm | Fase: -54.62 deg
+#   [SUJETO 1: POST-INV] Mag:  2874.96 Ohm | Fase: -52.97 deg | Err_M:  7.80% | Err_F:  0.08 deg
+#   [SUJETO 2: GOLDEN]   Mag:  2667.02 Ohm | Fase: -52.89 deg
+# === FREQ:  25238.29 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  2633.89 Ohm | Fase: -53.00 deg
+#   [SUJETO 1: POST-INV] Mag:  2633.89 Ohm | Fase: -51.14 deg | Err_M:  7.26% | Err_F:  0.38 deg
+#   [SUJETO 2: GOLDEN]   Mag:  2455.64 Ohm | Fase: -50.76 deg
+# === FREQ:  28317.82 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  2419.61 Ohm | Fase: -51.00 deg
+#   [SUJETO 1: POST-INV] Mag:  2419.61 Ohm | Fase: -48.91 deg | Err_M:  6.47% | Err_F:  0.50 deg
+#   [SUJETO 2: GOLDEN]   Mag:  2272.61 Ohm | Fase: -48.41 deg
+# === FREQ:  31773.12 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  2241.04 Ohm | Fase: -48.75 deg
+#   [SUJETO 1: POST-INV] Mag:  2241.04 Ohm | Fase: -46.41 deg | Err_M:  5.95% | Err_F:  0.54 deg
+#   [SUJETO 2: GOLDEN]   Mag:  2115.18 Ohm | Fase: -45.87 deg
+# === FREQ:  35650.04 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  2080.33 Ohm | Fase: -46.25 deg
+#   [SUJETO 1: POST-INV] Mag:  2080.33 Ohm | Fase: -43.62 deg | Err_M:  5.03% | Err_F:  0.44 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1980.69 Ohm | Fase: -43.18 deg
+# === FREQ:  40000.01 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1937.47 Ohm | Fase: -44.12 deg
+#   [SUJETO 1: POST-INV] Mag:  1937.47 Ohm | Fase: -41.18 deg | Err_M:  3.80% | Err_F:  0.78 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1866.61 Ohm | Fase: -40.40 deg
+# === FREQ:  44880.73 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1821.40 Ohm | Fase: -41.12 deg
+#   [SUJETO 1: POST-INV] Mag:  1821.40 Ohm | Fase: -37.82 deg | Err_M:  2.87% | Err_F:  0.26 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1770.52 Ohm | Fase: -37.56 deg
+# === FREQ:  50357.02 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1723.19 Ohm | Fase: -38.50 deg
+#   [SUJETO 1: POST-INV] Mag:  1723.19 Ohm | Fase: -34.79 deg | Err_M:  1.96% | Err_F:  0.07 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1690.15 Ohm | Fase: -34.72 deg
+# === FREQ:  56501.51 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1642.83 Ohm | Fase: -36.25 deg
+#   [SUJETO 1: POST-INV] Mag:  1642.83 Ohm | Fase: -32.09 deg | Err_M:  1.20% | Err_F:  0.16 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1623.36 Ohm | Fase: -31.93 deg
+# === FREQ:  63395.74 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1571.40 Ohm | Fase: -33.25 deg
+#   [SUJETO 1: POST-INV] Mag:  1571.40 Ohm | Fase: -28.58 deg | Err_M:  0.20% | Err_F:  0.64 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1568.22 Ohm | Fase: -29.23 deg
+# === FREQ:  71131.19 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1508.91 Ohm | Fase: -29.88 deg
+#   [SUJETO 1: POST-INV] Mag:  1508.91 Ohm | Fase: -24.64 deg | Err_M:  0.92% | Err_F:  1.99 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1522.95 Ohm | Fase: -26.63 deg
+# === FREQ:  79810.50 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1464.26 Ohm | Fase: -27.75 deg
+#   [SUJETO 1: POST-INV] Mag:  1464.26 Ohm | Fase: -21.88 deg | Err_M:  1.46% | Err_F:  2.30 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1485.98 Ohm | Fase: -24.18 deg
+# === FREQ:  89548.85 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1410.69 Ohm | Fase: -25.00 deg
+#   [SUJETO 1: POST-INV] Mag:  1410.69 Ohm | Fase: -18.42 deg | Err_M:  3.11% | Err_F:  3.46 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1455.92 Ohm | Fase: -21.88 deg
+# === FREQ: 100475.44 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1362.50 Ohm | Fase: -22.62 deg
+#   [SUJETO 1: POST-INV] Mag:  1362.50 Ohm | Fase: -15.17 deg | Err_M:  4.83% | Err_F:  4.58 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1431.59 Ohm | Fase: -19.75 deg
+# === FREQ: 112735.32 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1331.25 Ohm | Fase: -20.38 deg
+#   [SUJETO 1: POST-INV] Mag:  1331.25 Ohm | Fase: -12.02 deg | Err_M:  5.72% | Err_F:  5.77 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1411.95 Ohm | Fase: -17.78 deg
+# === FREQ: 126491.10 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1300.00 Ohm | Fase: -18.75 deg
+#   [SUJETO 1: POST-INV] Mag:  1300.00 Ohm | Fase:  -9.39 deg | Err_M:  6.89% | Err_F:  6.59 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1396.15 Ohm | Fase: -15.98 deg
+# === FREQ: 141925.35 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1275.00 Ohm | Fase: -16.38 deg
+#   [SUJETO 1: POST-INV] Mag:  1275.00 Ohm | Fase:  -5.89 deg | Err_M:  7.84% | Err_F:  8.45 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1383.47 Ohm | Fase: -14.34 deg
+# === FREQ: 159242.86 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1250.00 Ohm | Fase: -14.75 deg
+#   [SUJETO 1: POST-INV] Mag:  1250.00 Ohm | Fase:  -3.02 deg | Err_M:  8.98% | Err_F:  9.83 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1373.31 Ohm | Fase: -12.85 deg
+# === FREQ: 178673.45 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1225.00 Ohm | Fase: -13.12 deg
+#   [SUJETO 1: POST-INV] Mag:  1225.00 Ohm | Fase:  -0.00 deg | Err_M: 10.27% | Err_F: 11.50 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1365.19 Ohm | Fase: -11.50 deg
+# === FREQ: 200474.90 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1200.00 Ohm | Fase: -11.38 deg
+#   [SUJETO 1: POST-INV] Mag:  1200.00 Ohm | Fase:   3.29 deg | Err_M: 11.68% | Err_F: 13.57 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1358.70 Ohm | Fase: -10.29 deg
+# === FREQ: 224936.52 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1168.75 Ohm | Fase:  -8.75 deg
+#   [SUJETO 1: POST-INV] Mag:  1168.75 Ohm | Fase:   7.62 deg | Err_M: 13.65% | Err_F: 16.81 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1353.52 Ohm | Fase:  -9.19 deg
+# === FREQ: 252382.95 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1137.50 Ohm | Fase:  -7.00 deg
+#   [SUJETO 1: POST-INV] Mag:  1137.50 Ohm | Fase:  11.25 deg | Err_M: 15.70% | Err_F: 19.47 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1349.39 Ohm | Fase:  -8.21 deg
+# === FREQ: 283178.32 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1100.00 Ohm | Fase:  -5.25 deg
+#   [SUJETO 1: POST-INV] Mag:  1100.00 Ohm | Fase:  15.08 deg | Err_M: 18.28% | Err_F: 22.41 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1346.11 Ohm | Fase:  -7.33 deg
+# === FREQ: 317731.29 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1068.75 Ohm | Fase:  -1.75 deg
+#   [SUJETO 1: POST-INV] Mag:  1068.75 Ohm | Fase:  20.84 deg | Err_M: 20.45% | Err_F: 27.38 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1343.49 Ohm | Fase:  -6.54 deg
+# === FREQ: 356500.39 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1031.25 Ohm | Fase:   0.88 deg
+#   [SUJETO 1: POST-INV] Mag:  1031.25 Ohm | Fase:  25.93 deg | Err_M: 23.12% | Err_F: 31.77 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1341.41 Ohm | Fase:  -5.84 deg
+# === FREQ: 399999.99 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:   993.75 Ohm | Fase:   4.50 deg
+#   [SUJETO 1: POST-INV] Mag:   993.75 Ohm | Fase:  32.22 deg | Err_M: 25.83% | Err_F: 37.43 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1339.75 Ohm | Fase:  -5.21 deg
+# === FREQ: 448807.38 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:   962.50 Ohm | Fase:   8.88 deg
+#   [SUJETO 1: POST-INV] Mag:   962.50 Ohm | Fase:  39.45 deg | Err_M: 28.09% | Err_F: 44.10 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1338.43 Ohm | Fase:  -4.64 deg
+# === FREQ: 503570.16 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:   931.25 Ohm | Fase:  15.12 deg
+#   [SUJETO 1: POST-INV] Mag:   931.25 Ohm | Fase:  48.74 deg | Err_M: 30.37% | Err_F: 52.89 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1337.39 Ohm | Fase:  -4.14 deg
+# === FREQ: 565015.01 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:   918.75 Ohm | Fase:  21.25 deg
+#   [SUJETO 1: POST-INV] Mag:   918.75 Ohm | Fase:  58.07 deg | Err_M: 31.26% | Err_F: 61.76 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1336.55 Ohm | Fase:  -3.69 deg
+# === FREQ: 633957.27 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:   931.25 Ohm | Fase:  29.00 deg
+#   [SUJETO 1: POST-INV] Mag:   931.25 Ohm | Fase:  69.16 deg | Err_M: 30.29% | Err_F: 72.45 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1335.89 Ohm | Fase:  -3.29 deg
+# === FREQ: 711311.76 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:   968.75 Ohm | Fase:  36.88 deg
+#   [SUJETO 1: POST-INV] Mag:   968.75 Ohm | Fase:  80.47 deg | Err_M: 27.45% | Err_F: 83.40 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1335.37 Ohm | Fase:  -2.94 deg
+# === FREQ: 798104.91 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1031.25 Ohm | Fase:  45.12 deg
+#   [SUJETO 1: POST-INV] Mag:  1031.25 Ohm | Fase:  92.22 deg | Err_M: 22.75% | Err_F: 94.84 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1334.95 Ohm | Fase:  -2.62 deg
+# === FREQ: 895488.45 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1125.00 Ohm | Fase:  52.00 deg
+#   [SUJETO 1: POST-INV] Mag:  1125.00 Ohm | Fase: 102.62 deg | Err_M: 15.71% | Err_F: 104.96 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1334.63 Ohm | Fase:  -2.34 deg
+# === FREQ: 999999.99 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1243.75 Ohm | Fase:  58.50 deg
+#   [SUJETO 1: POST-INV] Mag:  1243.75 Ohm | Fase: 112.48 deg | Err_M:  6.81% | Err_F: 114.83 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1334.63 Ohm | Fase:  -2.34 deg
+# 
+#   [FLASH EXTRACTION] Freq:  40.0 Hz
+#     -> Z Bucle Total Medida:    115697 Ohm
+#     -> R_contact Dinámica Extraída:     52820 Ohm
+#     -> R_contact_Force real (promedio):     54754 Ohm (rf1: 48794, rf2: 60714)
+#     -> R_contact_Sense real (oculto rs1):     62964 Ohm
+# === FREQ:     39.99 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 10007.81 Ohm | Fase:   0.00 deg
+#   [SUJETO 1: POST-INV] Mag: 10007.81 Ohm | Fase:   0.00 deg | Err_M:  0.08% | Err_F:  0.14 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9999.97 Ohm | Fase:  -0.13 deg
+# 
+#   [FLASH EXTRACTION] Freq:  44.9 Hz
+#     -> Z Bucle Total Medida:    114863 Ohm
+#     -> R_contact Dinámica Extraída:     52401 Ohm
+#     -> R_contact_Force real (promedio):     54564 Ohm (rf1: 48624, rf2: 60503)
+#     -> R_contact_Sense real (oculto rs1):     62744 Ohm
+# === FREQ:     44.88 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 10011.72 Ohm | Fase:   0.00 deg
+#   [SUJETO 1: POST-INV] Mag: 10011.72 Ohm | Fase:   0.00 deg | Err_M:  0.12% | Err_F:  0.15 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9999.96 Ohm | Fase:  -0.15 deg
+# 
+#   [FLASH EXTRACTION] Freq:  50.3 Hz
+#     -> Z Bucle Total Medida:    114490 Ohm
+#     -> R_contact Dinámica Extraída:     52214 Ohm
+#     -> R_contact_Force real (promedio):     54458 Ohm (rf1: 48530, rf2: 60386)
+#     -> R_contact_Sense real (oculto rs1):     62623 Ohm
+# === FREQ:     50.35 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 10011.72 Ohm | Fase:   0.00 deg
+#   [SUJETO 1: POST-INV] Mag: 10011.72 Ohm | Fase:   0.00 deg | Err_M:  0.12% | Err_F:  0.17 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9999.95 Ohm | Fase:  -0.17 deg
+# 
+#   [FLASH EXTRACTION] Freq:  56.5 Hz
+#     -> Z Bucle Total Medida:    114292 Ohm
+#     -> R_contact Dinámica Extraída:     52115 Ohm
+#     -> R_contact_Force real (promedio):     54416 Ohm (rf1: 48492, rf2: 60339)
+#     -> R_contact_Sense real (oculto rs1):     62574 Ohm
+# === FREQ:     56.49 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 10011.72 Ohm | Fase:   0.00 deg
+#   [SUJETO 1: POST-INV] Mag: 10011.72 Ohm | Fase:   0.00 deg | Err_M:  0.12% | Err_F:  0.19 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9999.93 Ohm | Fase:  -0.19 deg
+# 
+#   [FLASH EXTRACTION] Freq:  63.4 Hz
+#     -> Z Bucle Total Medida:    114203 Ohm
+#     -> R_contact Dinámica Extraída:     52070 Ohm
+#     -> R_contact_Force real (promedio):     54416 Ohm (rf1: 48493, rf2: 60339)
+#     -> R_contact_Sense real (oculto rs1):     62575 Ohm
+# === FREQ:     63.39 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 10011.72 Ohm | Fase:   0.00 deg
+#   [SUJETO 1: POST-INV] Mag: 10011.72 Ohm | Fase:   0.00 deg | Err_M:  0.12% | Err_F:  0.22 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9999.91 Ohm | Fase:  -0.21 deg
+# 
+#   [FLASH EXTRACTION] Freq:  71.1 Hz
+#     -> Z Bucle Total Medida:    114203 Ohm
+#     -> R_contact Dinámica Extraída:     52070 Ohm
+#     -> R_contact_Force real (promedio):     54444 Ohm (rf1: 48518, rf2: 60370) Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:   931.25 Ohm | Fase:  29.00 deg
+#   [SUJETO 1: POST-INV] Mag:   931.25 Ohm | Fase:  69.16 deg | Err_M: 30.29% | Err_F: 72.45 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1335.89 Ohm | Fase:  -3.29 deg
+# === FREQ: 711311.76 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:   968.75 Ohm | Fase:  36.88 deg
+#   [SUJETO 1: POST-INV] Mag:   968.75 Ohm | Fase:  80.47 deg | Err_M: 27.45% | Err_F: 83.40 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1335.37 Ohm | Fase:  -2.94 deg
+# === FREQ: 798104.91 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1031.25 Ohm | Fase:  45.12 deg
+#   [SUJETO 1: POST-INV] Mag:  1031.25 Ohm | Fase:  92.22 deg | Err_M: 22.75% | Err_F: 94.84 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1334.95 Ohm | Fase:  -2.62 deg
+# === FREQ: 895488.45 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1125.00 Ohm | Fase:  52.00 deg
+#   [SUJETO 1: POST-INV] Mag:  1125.00 Ohm | Fase: 102.62 deg | Err_M: 15.71% | Err_F: 104.96 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1334.63 Ohm | Fase:  -2.34 deg
+# === FREQ: 999999.99 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1243.75 Ohm | Fase:  58.50 deg
+#   [SUJETO 1: POST-INV] Mag:  1243.75 Ohm | Fase: 112.48 deg | Err_M:  6.81% | Err_F: 114.83 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1334.63 Ohm | Fase:  -2.34 deg
+# 
+#   [FLASH EXTRACTION] Freq:  40.0 Hz
+#     -> Z Bucle Total Medida:    115697 Ohm
+#     -> R_contact Dinámica Extraída:     52820 Ohm
+#     -> R_contact_Force real (promedio):     54754 Ohm (rf1: 48794, rf2: 60714)
+#     -> R_contact_Sense real (oculto rs1):     62964 Ohm
+# === FREQ:     39.99 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 10007.81 Ohm | Fase:   0.00 deg
+#   [SUJETO 1: POST-INV] Mag: 10007.81 Ohm | Fase:   0.00 deg | Err_M:  0.08% | Err_F:  0.14 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9999.97 Ohm | Fase:  -0.13 deg
+# 
+#   [FLASH EXTRACTION] Freq:  44.9 Hz
+#     -> Z Bucle Total Medida:    114863 Ohm
+#     -> R_contact Dinámica Extraída:     52401 Ohm
+#     -> R_contact_Force real (promedio):     54564 Ohm (rf1: 48624, rf2: 60503)
+#     -> R_contact_Sense real (oculto rs1):     62744 Ohm
+# === FREQ:     44.88 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 10011.72 Ohm | Fase:   0.00 deg
+#   [SUJETO 1: POST-INV] Mag: 10011.72 Ohm | Fase:   0.00 deg | Err_M:  0.12% | Err_F:  0.15 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9999.96 Ohm | Fase:  -0.15 deg
+# 
+#   [FLASH EXTRACTION] Freq:  50.3 Hz
+#     -> Z Bucle Total Medida:    114490 Ohm
+#     -> R_contact Dinámica Extraída:     52214 Ohm
+#     -> R_contact_Force real (promedio):     54458 Ohm (rf1: 48530, rf2: 60386)
+#     -> R_contact_Sense real (oculto rs1):     62623 Ohm
+# === FREQ:     50.35 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 10011.72 Ohm | Fase:   0.00 deg
+#   [SUJETO 1: POST-INV] Mag: 10011.72 Ohm | Fase:   0.00 deg | Err_M:  0.12% | Err_F:  0.17 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9999.95 Ohm | Fase:  -0.17 deg
+# 
+#   [FLASH EXTRACTION] Freq:  56.5 Hz
+#     -> Z Bucle Total Medida:    114292 Ohm
+#     -> R_contact Dinámica Extraída:     52115 Ohm
+#     -> R_contact_Force real (promedio):     54416 Ohm (rf1: 48492, rf2: 60339)
+#     -> R_contact_Sense real (oculto rs1):     62574 Ohm
+# === FREQ:     56.49 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 10011.72 Ohm | Fase:   0.00 deg
+#   [SUJETO 1: POST-INV] Mag: 10011.72 Ohm | Fase:   0.00 deg | Err_M:  0.12% | Err_F:  0.19 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9999.93 Ohm | Fase:  -0.19 deg
+# 
+#   [FLASH EXTRACTION] Freq:  63.4 Hz
+#     -> Z Bucle Total Medida:    114203 Ohm
+#     -> R_contact Dinámica Extraída:     52070 Ohm
+#     -> R_contact_Force real (promedio):     54416 Ohm (rf1: 48493, rf2: 60339)
+#     -> R_contact_Sense real (oculto rs1):     62575 Ohm
+# === FREQ:     63.39 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 10011.72 Ohm | Fase:   0.00 deg
+#   [SUJETO 1: POST-INV] Mag: 10011.72 Ohm | Fase:   0.00 deg | Err_M:  0.12% | Err_F:  0.22 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9999.91 Ohm | Fase:  -0.21 deg
+# 
+#   [FLASH EXTRACTION] Freq:  71.1 Hz
+#     -> Z Bucle Total Medida:    114203 Ohm
+#     -> R_contact Dinámica Extraída:     52070 Ohm
+#     -> R_contact_Force real (promedio):     54444 Ohm (rf1: 48518, rf2: 60370)
+#     -> R_contact_Sense real (oculto rs1):     62607 Ohm
+# === FREQ:     71.13 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 10011.72 Ohm | Fase:   0.00 deg
+#   [SUJETO 1: POST-INV] Mag: 10011.72 Ohm | Fase:   0.00 deg | Err_M:  0.12% | Err_F:  0.24 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9999.89 Ohm | Fase:  -0.24 deg
+# 
+#   [FLASH EXTRACTION] Freq:  79.8 Hz
+#     -> Z Bucle Total Medida:    114252 Ohm
+#     -> R_contact Dinámica Extraída:     52095 Ohm
+#     -> R_contact_Force real (promedio):     54487 Ohm (rf1: 48556, rf2: 60418)
+#     -> R_contact_Sense real (oculto rs1):     62656 Ohm
+# === FREQ:     79.80 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 10011.72 Ohm | Fase:   0.00 deg
+#   [SUJETO 1: POST-INV] Mag: 10011.72 Ohm | Fase:   0.01 deg | Err_M:  0.12% | Err_F:  0.27 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9999.86 Ohm | Fase:  -0.27 deg
+# === FREQ:     89.55 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 10007.81 Ohm | Fase:   0.00 deg
+#   [SUJETO 1: POST-INV] Mag: 10007.81 Ohm | Fase:   0.01 deg | Err_M:  0.08% | Err_F:  0.31 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9999.83 Ohm | Fase:  -0.30 deg
+# === FREQ:    100.47 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 10007.81 Ohm | Fase:   0.00 deg
+#   [SUJETO 1: POST-INV] Mag: 10007.81 Ohm | Fase:   0.01 deg | Err_M:  0.08% | Err_F:  0.35 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9999.78 Ohm | Fase:  -0.34 deg
+# === FREQ:    112.75 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 10003.91 Ohm | Fase:   0.00 deg
+#   [SUJETO 1: POST-INV] Mag: 10003.91 Ohm | Fase:   0.01 deg | Err_M:  0.04% | Err_F:  0.39 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9999.73 Ohm | Fase:  -0.38 deg
+# === FREQ:    126.49 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 10003.91 Ohm | Fase:   0.00 deg
+#   [SUJETO 1: POST-INV] Mag: 10003.91 Ohm | Fase:   0.01 deg | Err_M:  0.04% | Err_F:  0.44 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9999.66 Ohm | Fase:  -0.43 deg
+# === FREQ:    141.94 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 10000.00 Ohm | Fase:   0.00 deg
+#   [SUJETO 1: POST-INV] Mag: 10000.00 Ohm | Fase:   0.01 deg | Err_M:  0.00% | Err_F:  0.49 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9999.57 Ohm | Fase:  -0.48 deg
+# === FREQ:    159.26 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 10000.00 Ohm | Fase:   0.00 deg
+#   [SUJETO 1: POST-INV] Mag: 10000.00 Ohm | Fase:   0.01 deg | Err_M:  0.01% | Err_F:  0.55 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9999.46 Ohm | Fase:  -0.54 deg
+# === FREQ:    178.67 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 10000.00 Ohm | Fase:   0.00 deg
+#   [SUJETO 1: POST-INV] Mag: 10000.00 Ohm | Fase:   0.01 deg | Err_M:  0.01% | Err_F:  0.61 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9999.32 Ohm | Fase:  -0.60 deg
+# === FREQ:    200.47 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 10000.00 Ohm | Fase:   0.00 deg
+#   [SUJETO 1: POST-INV] Mag: 10000.00 Ohm | Fase:   0.01 deg | Err_M:  0.01% | Err_F:  0.69 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9999.14 Ohm | Fase:  -0.67 deg
+# === FREQ:    224.94 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  9996.09 Ohm | Fase:   0.00 deg
+#   [SUJETO 1: POST-INV] Mag:  9996.09 Ohm | Fase:   0.02 deg | Err_M:  0.03% | Err_F:  0.77 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9998.92 Ohm | Fase:  -0.76 deg
+# === FREQ:    252.39 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  9996.09 Ohm | Fase:   0.00 deg
+#   [SUJETO 1: POST-INV] Mag:  9996.09 Ohm | Fase:   0.02 deg | Err_M:  0.03% | Err_F:  0.87 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9998.64 Ohm | Fase:  -0.85 deg
+# === FREQ:    283.18 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  9996.09 Ohm | Fase:   0.00 deg
+#   [SUJETO 1: POST-INV] Mag:  9996.09 Ohm | Fase:   0.02 deg | Err_M:  0.02% | Err_F:  0.97 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9998.28 Ohm | Fase:  -0.95 deg
+# === FREQ:    317.73 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  9996.09 Ohm | Fase:   0.00 deg
+#   [SUJETO 1: POST-INV] Mag:  9996.09 Ohm | Fase:   0.02 deg | Err_M:  0.02% | Err_F:  1.09 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9997.84 Ohm | Fase:  -1.07 deg
+# === FREQ:    356.49 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  9996.09 Ohm | Fase:  -0.88 deg
+#   [SUJETO 1: POST-INV] Mag:  9996.09 Ohm | Fase:  -0.85 deg | Err_M:  0.01% | Err_F:  0.35 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9997.28 Ohm | Fase:  -1.20 deg
+# === FR
+#     -> R_contact_Sense real (oculto rs1):     62607 Ohm
+# === FREQ:     71.13 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 10011.72 Ohm | Fase:   0.00 deg
+#   [SUJETO 1: POST-INV] Mag: 10011.72 Ohm | Fase:   0.00 deg | Err_M:  0.12% | Err_F:  0.24 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9999.89 Ohm | Fase:  -0.24 deg
+# 
+#   [FLASH EXTRACTION] Freq:  79.8 Hz
+#     -> Z Bucle Total Medida:    114252 Ohm
+#     -> R_contact Dinámica Extraída:     52095 Ohm
+#     -> R_contact_Force real (promedio):     54487 Ohm (rf1: 48556, rf2: 60418)
+#     -> R_contact_Sense real (oculto rs1):     62656 Ohm
+# === FREQ:     79.80 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 10011.72 Ohm | Fase:   0.00 deg
+#   [SUJETO 1: POST-INV] Mag: 10011.72 Ohm | Fase:   0.01 deg | Err_M:  0.12% | Err_F:  0.27 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9999.86 Ohm | Fase:  -0.27 deg
+# === FREQ:     89.55 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 10007.81 Ohm | Fase:   0.00 deg
+#   [SUJETO 1: POST-INV] Mag: 10007.81 Ohm | Fase:   0.01 deg | Err_M:  0.08% | Err_F:  0.31 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9999.83 Ohm | Fase:  -0.30 deg
+# === FREQ:    100.47 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 10007.81 Ohm | Fase:   0.00 deg
+#   [SUJETO 1: POST-INV] Mag: 10007.81 Ohm | Fase:   0.01 deg | Err_M:  0.08% | Err_F:  0.35 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9999.78 Ohm | Fase:  -0.34 deg
+# === FREQ:    112.75 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 10003.91 Ohm | Fase:   0.00 deg
+#   [SUJETO 1: POST-INV] Mag: 10003.91 Ohm | Fase:   0.01 deg | Err_M:  0.04% | Err_F:  0.39 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9999.73 Ohm | Fase:  -0.38 deg
+# === FREQ:    126.49 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 10003.91 Ohm | Fase:   0.00 deg
+#   [SUJETO 1: POST-INV] Mag: 10003.91 Ohm | Fase:   0.01 deg | Err_M:  0.04% | Err_F:  0.44 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9999.66 Ohm | Fase:  -0.43 deg
+# === FREQ:    141.94 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 10000.00 Ohm | Fase:   0.00 deg
+#   [SUJETO 1: POST-INV] Mag: 10000.00 Ohm | Fase:   0.01 deg | Err_M:  0.00% | Err_F:  0.49 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9999.57 Ohm | Fase:  -0.48 deg
+# === FREQ:    159.26 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 10000.00 Ohm | Fase:   0.00 deg
+#   [SUJETO 1: POST-INV] Mag: 10000.00 Ohm | Fase:   0.01 deg | Err_M:  0.01% | Err_F:  0.55 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9999.46 Ohm | Fase:  -0.54 deg
+# === FREQ:    178.67 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 10000.00 Ohm | Fase:   0.00 deg
+#   [SUJETO 1: POST-INV] Mag: 10000.00 Ohm | Fase:   0.01 deg | Err_M:  0.01% | Err_F:  0.61 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9999.32 Ohm | Fase:  -0.60 deg
+# === FREQ:    200.47 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 10000.00 Ohm | Fase:   0.00 deg
+#   [SUJETO 1: POST-INV] Mag: 10000.00 Ohm | Fase:   0.01 deg | Err_M:  0.01% | Err_F:  0.69 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9999.14 Ohm | Fase:  -0.67 deg
+# === FREQ:    224.94 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  9996.09 Ohm | Fase:   0.00 deg
+#   [SUJETO 1: POST-INV] Mag:  9996.09 Ohm | Fase:   0.02 deg | Err_M:  0.03% | Err_F:  0.77 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9998.92 Ohm | Fase:  -0.76 deg
+# === FREQ:    252.39 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  9996.09 Ohm | Fase:   0.00 deg
+#   [SUJETO 1: POST-INV] Mag:  9996.09 Ohm | Fase:   0.02 deg | Err_M:  0.03% | Err_F:  0.87 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9998.64 Ohm | Fase:  -0.85 deg
+# === FREQ:    283.18 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  9996.09 Ohm | Fase:   0.00 deg
+#   [SUJETO 1: POST-INV] Mag:  9996.09 Ohm | Fase:   0.02 deg | Err_M:  0.02% | Err_F:  0.97 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9998.28 Ohm | Fase:  -0.95 deg
+# === FREQ:    317.73 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  9996.09 Ohm | Fase:   0.00 deg
+#   [SUJETO 1: POST-INV] Mag:  9996.09 Ohm | Fase:   0.02 deg | Err_M:  0.02% | Err_F:  1.09 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9997.84 Ohm | Fase:  -1.07 deg
+# === FREQ:    356.49 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  9996.09 Ohm | Fase:  -0.88 deg
+#   [SUJETO 1: POST-INV] Mag:  9996.09 Ohm | Fase:  -0.85 deg | Err_M:  0.01% | Err_F:  0.35 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9997.28 Ohm | Fase:  -1.20 deg
+# === FREQ:    400.00 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  9992.19 Ohm | Fase:  -0.88 deg
+#   [SUJETO 1: POST-INV] Mag:  9992.19 Ohm | Fase:  -0.85 deg | Err_M:  0.04% | Err_F:  0.50 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9996.58 Ohm | Fase:  -1.35 deg
+# === FREQ:    448.81 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  9992.19 Ohm | Fase:  -0.88 deg
+#   [SUJETO 1: POST-INV] Mag:  9992.19 Ohm | Fase:  -0.84 deg | Err_M:  0.04% | Err_F:  0.67 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9995.69 Ohm | Fase:  -1.51 deg
+# === FREQ:    503.58 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  9992.19 Ohm | Fase:  -0.88 deg
+#   [SUJETO 1: POST-INV] Mag:  9992.19 Ohm | Fase:  -0.84 deg | Err_M:  0.02% | Err_F:  0.86 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9994.58 Ohm | Fase:  -1.69 deg
+# === FREQ:    565.02 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  9992.19 Ohm | Fase:  -0.88 deg
+#   [SUJETO 1: POST-INV] Mag:  9992.19 Ohm | Fase:  -0.83 deg | Err_M:  0.01% | Err_F:  1.07 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9993.18 Ohm | Fase:  -1.90 deg
+# === FREQ:    633.97 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  9988.28 Ohm | Fase:  -0.88 deg
+#   [SUJETO 1: POST-INV] Mag:  9988.28 Ohm | Fase:  -0.83 deg | Err_M:  0.03% | Err_F:  1.30 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9991.41 Ohm | Fase:  -2.13 deg
+# === FREQ:    711.30 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  9988.28 Ohm | Fase:  -1.75 deg
+#   [SUJETO 1: POST-INV] Mag:  9988.28 Ohm | Fase:  -1.70 deg | Err_M:  0.01% | Err_F:  0.69 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9989.19 Ohm | Fase:  -2.39 deg
+# === FREQ:    798.11 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  9984.38 Ohm | Fase:  -1.75 deg
+#   [SUJETO 1: POST-INV] Mag:  9984.38 Ohm | Fase:  -1.69 deg | Err_M:  0.02% | Err_F:  0.99 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9986.40 Ohm | Fase:  -2.68 deg
+# === FREQ:    895.50 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  9984.38 Ohm | Fase:  -1.75 deg
+#   [SUJETO 1: POST-INV] Mag:  9984.38 Ohm | Fase:  -1.68 deg | Err_M:  0.01% | Err_F:  1.33 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9982.89 Ohm | Fase:  -3.01 deg
+# === FREQ:   1004.75 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  9960.94 Ohm | Fase:  -2.62 deg
+#   [SUJETO 1: POST-INV] Mag:  9960.94 Ohm | Fase:  -2.55 deg | Err_M:  0.18% | Err_F:  0.83 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9978.47 Ohm | Fase:  -3.38 deg
+# === FREQ:   1127.37 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  9953.12 Ohm | Fase:  -2.62 deg
+#   [SUJETO 1: POST-INV] Mag:  9953.12 Ohm | Fase:  -2.54 deg | Err_M:  0.20% | Err_F:  1.25 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9972.92 Ohm | Fase:  -3.79 deg
+# === FREQ:   1264.91 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  9953.12 Ohm | Fase:  -2.62 deg
+#   [SUJETO 1: POST-INV] Mag:  9953.12 Ohm | Fase:  -2.53 deg | Err_M:  0.13% | Err_F:  1.72 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9965.94 Ohm | Fase:  -4.25 deg
+# === FREQ:   1419.25 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  9945.31 Ohm | Fase:  -3.50 deg
+#   [SUJETO 1: POST-INV] Mag:  9945.31 Ohm | Fase:  -3.39 deg | Err_M:  0.12% | Err_F:  1.37 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9957.18 Ohm | Fase:  -4.76 deg
+# === FREQ:   1592.42 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  9937.50 Ohm | Fase:  -3.50 deg
+#   [SUJETO 1: POST-INV] Mag:  9937.50 Ohm | Fase:  -3.38 deg | Err_M:  0.09% | Err_F:  1.96 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9946.18 Ohm | Fase:  -5.34 deg
+# === FREQ:   1786.74 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  9921.88 Ohm | Fase:  -4.50 deg
+#   [SUJETO 1: POST-INV] Mag:  9921.88 Ohm | Fase:  -4.36 deg | Err_M:  0.11% | Err_F:  1.62 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9932.39 Ohm | Fase:  -5.98 deg
+# === FREQ:   2004.76 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  9914.06 Ohm | Fase:  -5.38 deg
+#   [SUJETO 1: POST-INV] Mag:  9914.06 Ohm | Fase:  -5.22 deg | Err_M:  0.01% | Err_F:  1.48 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9915.11 Ohm | Fase:  -6.70 deg
+# === FREQ:   2249.38 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  9898.44 Ohm | Fase:  -6.25 deg
+#   [SUJETO 1: POST-INV] Mag:  9898.44 Ohm | Fase:  -6.08 deg | Err_M:  0.05% | Err_F:  1.43 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9893.48 Ohm | Fase:  -7.51 deg
+# === FREQ:   2523.83 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  9875.00 Ohm | Fase:  -6.25 deg
+#   [SUJETO 1: POST-INV] Mag:  9875.00 Ohm | Fase:  -6.06 deg | Err_M:  0.09% | Err_F:  2.35 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9866.46 Ohm | Fase:  -8.41 deg
+# === FREQ:   2831.77 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  9851.56 Ohm | Fase:  -7.12 deg
+#   [SUJETO 1: POST-INV] Mag:  9851.56 Ohm | Fase:  -6.91 deg | Err_M:  0.19% | Err_F:  2.50 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9832.76 Ohm | Fase:  -9.41 deg
+# === FREQ:   3177.32 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  9812.50 Ohm | Fase:  -8.00 deg
+#   [SUJETO 1: POST-INV] Mag:  9812.50 Ohm | Fase:  -7.76 deg | Err_M:  0.22% | Err_F:  2.77 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9790.83 Ohm | Fase: -10.53 deg
+# === FREQ:   3565.02 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  9773.44 Ohm | Fase:  -9.75 deg
+#   [SUJETO 1: POST-INV] Mag:  9773.44 Ohm | Fase:  -9.48 deg | Err_M:  0.36% | Err_F:  2.28 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9738.81 Ohm | Fase: -11.76 deg
+# === FREQ:   4000.00 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  9726.56 Ohm | Fase: -10.62 deg
+#   [SUJETO 1: POST-INV] Mag:  9726.56 Ohm | Fase: -10.32 deg | Err_M:  0.54% | Err_F:  2.81 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9674.50 Ohm | Fase: -13.13 deg
+# === FREQ:   4488.07 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  9664.06 Ohm | Fase: -13.25 deg
+#   [SUJETO 1: POST-INV] Mag:  9664.06 Ohm | Fase: -12.91 deg | Err_M:  0.72% | Err_F:  1.73 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9595.36 Ohm | Fase: -14.64 deg
+# === FREQ:   5035.69 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  9585.94 Ohm | Fase: -14.12 deg
+#   [SUJETO 1: POST-INV] Mag:  9585.94 Ohm | Fase: -13.74 deg | Err_M:  0.92% | Err_F:  2.56 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9498.47 Ohm | Fase: -16.30 deg
+# === FREQ:   5650.16 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  9492.19 Ohm | Fase: -15.75 deg
+#   [SUJETO 1: POST-INV] Mag:  9492.19 Ohm | Fase: -15.32 deg | Err_M:  1.19% | Err_F:  2.79 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9380.64 Ohm | Fase: -18.11 deg
+# === FREQ:   6339.57 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  9375.00 Ohm | Fase: -17.38 deg
+#   [SUJETO 1: POST-INV] Mag:  9375.00 Ohm | Fase: -16.89 deg | Err_M:  1.48% | Err_F:  3.19 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9238.45 Ohm | Fase: -20.08 deg
+# === FREQ:   7113.12 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  9242.19 Ohm | Fase: -19.88 deg
+#   [SUJETO 1: POST-INV] Mag:  9242.19 Ohm | Fase: -19.34 deg | Err_M:  1.92% | Err_F:  2.88 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9068.46 Ohm | Fase: -22.21 deg
+# === FREQ:   7981.06 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  9078.12 Ohm | Fase: -21.38 deg
+#   [SUJETO 1: POST-INV] Mag:  9078.12 Ohm | Fase: -20.77 deg | Err_M:  2.38% | Err_F:  3.72 deg
+#   [SUJETO 2: GOLDEN]   Mag:  8867.47 Ohm | Fase: -24.49 deg
+# === FREQ:   8954.87 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  8875.00 Ohm | Fase: -23.75 deg
+#   [SUJETO 1: POST-INV] Mag:  8875.00 Ohm | Fase: -23.07 deg | Err_M:  2.81% | Err_F:  3.82 deg
+#   [SUJETO 2: GOLDEN]   Mag:  8632.79 Ohm | Fase: -26.90 deg
+# === FREQ:  10047.54 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  8598.09 Ohm | Fase: -26.00 deg
+#   [SUJETO 1: POST-INV] Mag:  8598.09 Ohm | Fase: -25.23 deg | Err_M:  2.81% | Err_F:  4.19 deg
+#   [SUJETO 2: GOLDEN]   Mag:  8362.72 Ohm | Fase: -29.42 deg
+# === FREQ:  11273.54 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  8330.23 Ohm | Fase: -29.75 deg
+#   [SUJETO 1: POST-INV] Mag:  8330.23 Ohm | Fase: -28.88 deg | Err_M:  3.39% | Err_F:  3.14 deg
+#   [SUJETO 2: GOLDEN]   Mag:  8056.89 Ohm | Fase: -32.02 deg
+# === FREQ:  12649.11 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  8035.59 Ohm | Fase: -32.50 deg
+#   [SUJETO 1: POST-INV] Mag:  8035.59 Ohm | Fase: -31.53 deg | Err_M:  4.13% | Err_F:  3.15 deg
+#   [SUJETO 2: GOLDEN]   Mag:  7716.64 Ohm | Fase: -34.67 deg
+# === FREQ:  14192.54 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  7705.24 Ohm | Fase: -35.00 deg
+#   [SUJETO 1: POST-INV] Mag:  7705.24 Ohm | Fase: -33.91 deg | Err_M:  4.90% | Err_F:  3.42 deg
+#   [SUJETO 2: GOLDEN]   Mag:  7345.17 Ohm | Fase: -37.33 deg
+# === FREQ:  15924.28 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  7339.18 Ohm | Fase: -37.50 deg
+#   [SUJETO 1: POST-INV] Mag:  7339.18 Ohm | Fase: -36.28 deg | Err_M:  5.64% | Err_F:  3.66 deg
+#   [SUJETO 2: GOLDEN]   Mag:  6947.52 Ohm | Fase: -39.93 deg
+# === FREQ:  17867.34 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  6946.32 Ohm | Fase: -40.25 deg
+#   [SUJETO 1: POST-INV] Mag:  6946.32 Ohm | Fase: -38.88 deg | Err_M:  6.37% | Err_F:  3.56 deg
+#   [SUJETO 2: GOLDEN]   Mag:  6530.32 Ohm | Fase: -42.44 deg
+# === FREQ:  20047.48 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  6535.62 Ohm | Fase: -42.88 deg
+#   [SUJETO 1: POST-INV] Mag:  6535.62 Ohm | Fase: -41.33 deg | Err_M:  7.12% | Err_F:  3.46 deg
+#   [SUJETO 2: GOLDEN]   Mag:  6101.24 Ohm | Fase: -44.79 deg
+# === FREQ:  22493.65 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  6115.98 Ohm | Fase: -45.38 deg
+#   [SUJETO 1: POST-INV] Mag:  6115.98 Ohm | Fase: -43.65 deg | Err_M:  7.90% | Err_F:  3.30 deg
+#   [SUJETO 2: GOLDEN]   Mag:  5668.40 Ohm | Fase: -46.94 deg
+# === FREQ:  25238.29 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  5696.34 Ohm | Fase: -47.12 deg
+#   [SUJETO 1: POST-INV] Mag:  5696.34 Ohm | Fase: -45.19 deg | Err_M:  8.72% | Err_F:  3.67 deg
+#   [SUJETO 2: GOLDEN]   Mag:  5239.68 Ohm | Fase: -48.86 deg
+# === FREQ:  28317.82 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  5267.78 Ohm | Fase: -49.25 deg
+#   [SUJETO 1: POST-INV] Mag:  5267.78 Ohm | Fase: -47.07 deg | Err_M:  9.24% | Err_F:  3.41 deg
+#   [SUJETO 2: GOLDEN]   Mag:  4822.21 Ohm | Fase: -50.49 deg
+# === FREQ:  31773.12 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  4857.07 Ohm | Fase: -51.12 deg
+#   [SUJETO 1: POST-INV] Mag:  4857.07 Ohm | Fase: -48.68 deg | Err_M:  9.84% | Err_F:  3.13 deg
+#   [SUJETO 2: GOLDEN]   Mag:  4421.95 Ohm | Fase: -51.81 deg
+# === FREQ:  35650.04 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  4473.15 Ohm | Fase: -52.88 deg
+#   [SUJETO 1: POST-INV] Mag:  4473.15 Ohm | Fase: -50.14 deg | Err_M: 10.62% | Err_F:  2.67 deg
+#   [SUJETO 2: GOLDEN]   Mag:  4043.55 Ohm | Fase: -52.80 deg
+# === FREQ:  40000.01 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  4089.22 Ohm | Fase: -54.50 deg
+#   [SUJETO 1: POST-INV] Mag:  4089.22 Ohm | Fase: -51.43 deg | Err_M: 10.81% | Err_F:  2.02 deg
+#   [SUJETO 2: GOLDEN]   Mag:  3690.27 Ohm | Fase: -53.45 deg
+# === FREQ:  44880.73 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  3741.02 Ohm | Fase: -54.88 deg
+#   [SUJETO 1: POST-INV] Mag:  3741.02 Ohm | Fase: -51.43 deg | Err_M: 11.20% | Err_F:  2.31 deg
+#   [SUJETO 2: GOLDEN]   Mag:  3364.10 Ohm | Fase: -53.73 deg
+# === FREQ:  50357.02 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  3419.59 Ohm | Fase: -55.75 deg
+#   [SUJETO 1: POST-INV] Mag:  3419.59 Ohm | Fase: -51.88 deg | Err_M: 11.53% | Err_F:  1.78 deg
+#   [SUJETO 2: GOLDEN]   Mag:  3065.98 Ohm | Fase: -53.66 deg
+# === FREQ:  56501.51 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  3107.10 Ohm | Fase: -56.25 deg
+#   [SUJETO 1: POST-INV] Mag:  3107.10 Ohm | Fase: -51.91 deg | Err_M: 11.13% | Err_F:  1.31 deg
+#   [SUJETO 2: GOLDEN]   Mag:  2795.98 Ohm | Fase: -53.23 deg
+# === FREQ:  63395.74 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  2848.17 Ohm | Fase: -56.62 deg
+#   [SUJETO 1: POST-INV] Mag:  2848.17 Ohm | Fase: -51.76 deg | Err_M: 11.54% | Err_F:  0.68 deg
+#   [SUJETO 2: GOLDEN]   Mag:  2553.49 Ohm | Fase: -52.44 deg
+# === FREQ:  71131.19 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  2598.18 Ohm | Fase: -56.62 deg
+#   [SUJETO 1: POST-INV] Mag:  2598.18 Ohm | Fase: -51.17 deg | Err_M: 11.15% | Err_F:  0.14 deg
+#   [SUJETO 2: GOLDEN]   Mag:  2337.44 Ohm | Fase: -51.31 deg
+# === FREQ:  79810.50 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  2374.96 Ohm | Fase: -56.25 deg
+#   [SUJETO 1: POST-INV] Mag:  2374.96 Ohm | Fase: -50.14 deg | Err_M: 10.65% | Err_F:  0.28 deg
+#   [SUJETO 2: GOLDEN]   Mag:  2146.41 Ohm | Fase: -49.85 deg
+# === FREQ:  89548.85 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  2196.40 Ohm | Fase: -56.00 deg
+#   [SUJETO 1: POST-INV] Mag:  2196.40 Ohm | Fase: -49.15 deg | Err_M: 11.00% | Err_F:  1.04 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1978.77 Ohm | Fase: -48.10 deg
+# === FREQ: 100475.44 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1956.25 Ohm | Fase: -55.75 deg
+#   [SUJETO 1: POST-INV] Mag:  1956.25 Ohm | Fase: -47.98 deg | Err_M:  6.74% | Err_F:  1.89 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1832.77 Ohm | Fase: -46.09 deg
+# === FREQ: 112735.32 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1800.00 Ohm | Fase: -54.25 deg
+#   [SUJETO 1: POST-INV] Mag:  1800.00 Ohm | Fase: -45.55 deg | Err_M:  5.47% | Err_F:  1.70 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1706.58 Ohm | Fase: -43.85 deg
+# === FREQ: 126491.10 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1662.50 Ohm | Fase: -53.75 deg
+#   [SUJETO 1: POST-INV] Mag:  1662.50 Ohm | Fase: -44.00 deg | Err_M:  4.01% | Err_F:  2.58 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1598.34 Ohm | Fase: -41.42 deg
+# === FREQ: 141925.35 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1537.50 Ohm | Fase: -53.38 deg
+#   [SUJETO 1: POST-INV] Mag:  1537.50 Ohm | Fase: -42.46 deg | Err_M:  2.08% | Err_F:  3.59 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1506.20 Ohm | Fase: -38.87 deg
+# === FREQ: 159242.86 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1418.75 Ohm | Fase: -52.25 deg
+#   [SUJETO 1: POST-INV] Mag:  1418.75 Ohm | Fase: -40.04 deg | Err_M:  0.67% | Err_F:  3.80 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1428.36 Ohm | Fase: -36.24 deg
+# === FREQ: 178673.45 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1306.25 Ohm | Fase: -52.25 deg
+#   [SUJETO 1: POST-INV] Mag:  1306.25 Ohm | Fase: -38.60 deg | Err_M:  4.17% | Err_F:  5.01 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1363.10 Ohm | Fase: -33.58 deg
+# === FREQ: 200474.90 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1200.00 Ohm | Fase: -52.50 deg
+#   [SUJETO 1: POST-INV] Mag:  1200.00 Ohm | Fase: -37.25 deg | Err_M:  8.31% | Err_F:  6.30 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1308.75 Ohm | Fase: -30.95 deg
+# === FREQ: 224936.52 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1087.50 Ohm | Fase: -52.25 deg
+#   [SUJETO 1: POST-INV] Mag:  1087.50 Ohm | Fase: -35.23 deg | Err_M: 13.95% | Err_F:  6.86 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1263.79 Ohm | Fase: -28.37 deg
+# === FREQ: 252382.95 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:   968.75 Ohm | Fase: -53.12 deg
+#   [SUJETO 1: POST-INV] Mag:   968.75 Ohm | Fase: -34.16 deg | Err_M: 21.04% | Err_F:  8.27 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1226.83 Ohm | Fase: -25.89 deg
+# === FREQ: 283178.32 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:   843.75 Ohm | Fase: -53.62 deg
+#   [SUJETO 1: POST-INV] Mag:   843.75 Ohm | Fase: -32.52 deg | Err_M: 29.49% | Err_F:  8.98 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1196.61 Ohm | Fase: -23.53 deg
+# === FREQ: 317731.29 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:   706.25 Ohm | Fase: -54.88 deg
+#   [SUJETO 1: POST-INV] Mag:   706.25 Ohm | Fase: -31.43 deg | Err_M: 39.74% | Err_F: 10.11 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1172.01 Ohm | Fase: -21.32 deg
+# === FREQ: 356500.39 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:   556.25 Ohm | Fase: -55.25 deg
+#   [SUJETO 1: POST-INV] Mag:   556.25 Ohm | Fase: -29.27 deg | Err_M: 51.72% | Err_F: 10.02 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1152.08 Ohm | Fase: -19.26 deg
+# === FREQ: 399999.99 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:   387.50 Ohm | Fase: -54.88 deg
+#   [SUJETO 1: POST-INV] Mag:   387.50 Ohm | Fase: -26.17 deg | Err_M: 65.89% | Err_F:  8.82 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1135.98 Ohm | Fase: -17.35 deg
+# === FREQ: 448807.38 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:   206.25 Ohm | Fase: -49.25 deg
+#   [SUJETO 1: POST-INV] Mag:   206.25 Ohm | Fase: -17.62 deg | Err_M: 81.63% | Err_F:  2.02 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1123.02 Ohm | Fase: -15.60 deg
+# === FREQ: 503570.16 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:    62.50 Ohm | Fase:  25.25 deg
+#   [SUJETO 1: POST-INV] Mag:    62.50 Ohm | Fase:  59.98 deg | Err_M: 94.38% | Err_F: 73.98 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1112.62 Ohm | Fase: -14.00 deg
+# === FREQ: 565015.01 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:   231.25 Ohm | Fase:  90.88 deg
+#   [SUJETO 1: POST-INV] Mag:   231.25 Ohm | Fase: 128.85 deg | Err_M: 79.06% | Err_F: 141.40 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1104.28 Ohm | Fase: -12.55 deg
+# === FREQ: 633957.27 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:   462.50 Ohm | Fase:  95.50 deg
+#   [SUJETO 1: POST-INV] Mag:   462.50 Ohm | Fase: 136.84 deg | Err_M: 57.86% | Err_F: 148.08 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1097.61 Ohm | Fase: -11.24 deg
+# === FREQ: 711311.76 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:   718.75 Ohm | Fase:  94.25 deg
+#   [SUJETO 1: POST-INV] Mag:   718.75 Ohm | Fase: 139.05 deg | Err_M: 34.20% | Err_F: 149.11 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1092.28 Ohm | Fase: -10.05 deg
+# === FREQ: 798104.91 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:   987.50 Ohm | Fase:  92.38 deg
+#   [SUJETO 1: POST-INV] Mag:   987.50 Ohm | Fase: 140.68 deg | Err_M:  9.24% | Err_F: 149.67 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1088.02 Ohm | Fase:  -8.99 deg
+# === FREQ: 895488.45 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1231.25 Ohm | Fase:  89.88 deg
+#   [SUJETO 1: POST-INV] Mag:  1231.25 Ohm | Fase: 141.70 deg | Err_M: 13.50% | Err_F: 149.76 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1084.76 Ohm | Fase:  -8.07 deg
+# === FREQ: 999999.99 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1487.50 Ohm | Fase:  86.38 deg
+#   [SUJETO 1: POST-INV] Mag:  1487.50 Ohm | Fase: 141.53 deg | Err_M: 37.13% | Err_F: 149.60 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1084.76 Ohm | Fase:  -8.07 deg
+# 
+# Simulación finalizada. Procesando datos en Python...
+# ** Note: $finish    : ../src/tb_correlacion_ina_2adcs_configurable_to_fpga_v3.sv(522)
+#    Time: 1203658708 ns  Iteration: 0  Instance: /tb_correlacion_portable_python_to_fpga_configurable
+# End time: 11:15:15 on Sep 27,2026, Elapsed time: 0:10:02
+# Errors: 0, Warnings: 4
+End time: 11:15:15 on Sep 27,2026, Elapsed time: 0:10:04
+*** Summary *********************************************
+    qrun: Errors:   0, Warnings:   0
+    vlog: Errors:   0, Warnings:   1
+    vopt: Errors:   0, Warnings:   1
+    vsim: Errors:   0, Warnings:   4
+  Totals: Errors:   0, Warnings:   6
+EQ:    400.00 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  9992.19 Ohm | Fase:  -0.88 deg
+#   [SUJETO 1: POST-INV] Mag:  9992.19 Ohm | Fase:  -0.85 deg | Err_M:  0.04% | Err_F:  0.50 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9996.58 Ohm | Fase:  -1.35 deg
+# === FREQ:    448.81 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  9992.19 Ohm | Fase:  -0.88 deg
+#   [SUJETO 1: POST-INV] Mag:  9992.19 Ohm | Fase:  -0.84 deg | Err_M:  0.04% | Err_F:  0.67 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9995.69 Ohm | Fase:  -1.51 deg
+# === FREQ:    503.58 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  9992.19 Ohm | Fase:  -0.88 deg
+#   [SUJETO 1: POST-INV] Mag:  9992.19 Ohm | Fase:  -0.84 deg | Err_M:  0.02% | Err_F:  0.86 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9994.58 Ohm | Fase:  -1.69 deg
+# === FREQ:    565.02 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  9992.19 Ohm | Fase:  -0.88 deg
+#   [SUJETO 1: POST-INV] Mag:  9992.19 Ohm | Fase:  -0.83 deg | Err_M:  0.01% | Err_F:  1.07 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9993.18 Ohm | Fase:  -1.90 deg
+# === FREQ:    633.97 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  9988.28 Ohm | Fase:  -0.88 deg
+#   [SUJETO 1: POST-INV] Mag:  9988.28 Ohm | Fase:  -0.83 deg | Err_M:  0.03% | Err_F:  1.30 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9991.41 Ohm | Fase:  -2.13 deg
+# === FREQ:    711.30 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  9988.28 Ohm | Fase:  -1.75 deg
+#   [SUJETO 1: POST-INV] Mag:  9988.28 Ohm | Fase:  -1.70 deg | Err_M:  0.01% | Err_F:  0.69 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9989.19 Ohm | Fase:  -2.39 deg
+# === FREQ:    798.11 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  9984.38 Ohm | Fase:  -1.75 deg
+#   [SUJETO 1: POST-INV] Mag:  9984.38 Ohm | Fase:  -1.69 deg | Err_M:  0.02% | Err_F:  0.99 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9986.40 Ohm | Fase:  -2.68 deg
+# === FREQ:    895.50 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  9984.38 Ohm | Fase:  -1.75 deg
+#   [SUJETO 1: POST-INV] Mag:  9984.38 Ohm | Fase:  -1.68 deg | Err_M:  0.01% | Err_F:  1.33 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9982.89 Ohm | Fase:  -3.01 deg
+# === FREQ:   1004.75 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  9960.94 Ohm | Fase:  -2.62 deg
+#   [SUJETO 1: POST-INV] Mag:  9960.94 Ohm | Fase:  -2.55 deg | Err_M:  0.18% | Err_F:  0.83 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9978.47 Ohm | Fase:  -3.38 deg
+# === FREQ:   1127.37 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  9953.12 Ohm | Fase:  -2.62 deg
+#   [SUJETO 1: POST-INV] Mag:  9953.12 Ohm | Fase:  -2.54 deg | Err_M:  0.20% | Err_F:  1.25 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9972.92 Ohm | Fase:  -3.79 deg
+# === FREQ:   1264.91 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  9953.12 Ohm | Fase:  -2.62 deg
+#   [SUJETO 1: POST-INV] Mag:  9953.12 Ohm | Fase:  -2.53 deg | Err_M:  0.13% | Err_F:  1.72 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9965.94 Ohm | Fase:  -4.25 deg
+# === FREQ:   1419.25 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  9945.31 Ohm | Fase:  -3.50 deg
+#   [SUJETO 1: POST-INV] Mag:  9945.31 Ohm | Fase:  -3.39 deg | Err_M:  0.12% | Err_F:  1.37 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9957.18 Ohm | Fase:  -4.76 deg
+# === FREQ:   1592.42 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  9937.50 Ohm | Fase:  -3.50 deg
+#   [SUJETO 1: POST-INV] Mag:  9937.50 Ohm | Fase:  -3.38 deg | Err_M:  0.09% | Err_F:  1.96 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9946.18 Ohm | Fase:  -5.34 deg
+# === FREQ:   1786.74 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  9921.88 Ohm | Fase:  -4.50 deg
+#   [SUJETO 1: POST-INV] Mag:  9921.88 Ohm | Fase:  -4.36 deg | Err_M:  0.11% | Err_F:  1.62 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9932.39 Ohm | Fase:  -5.98 deg
+# === FREQ:   2004.76 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  9914.06 Ohm | Fase:  -5.38 deg
+#   [SUJETO 1: POST-INV] Mag:  9914.06 Ohm | Fase:  -5.22 deg | Err_M:  0.01% | Err_F:  1.48 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9915.11 Ohm | Fase:  -6.70 deg
+# === FREQ:   2249.38 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  9898.44 Ohm | Fase:  -6.25 deg
+#   [SUJETO 1: POST-INV] Mag:  9898.44 Ohm | Fase:  -6.08 deg | Err_M:  0.05% | Err_F:  1.43 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9893.48 Ohm | Fase:  -7.51 deg
+# === FREQ:   2523.83 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  9875.00 Ohm | Fase:  -6.25 deg
+#   [SUJETO 1: POST-INV] Mag:  9875.00 Ohm | Fase:  -6.06 deg | Err_M:  0.09% | Err_F:  2.35 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9866.46 Ohm | Fase:  -8.41 deg
+# === FREQ:   2831.77 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  9851.56 Ohm | Fase:  -7.12 deg
+#   [SUJETO 1: POST-INV] Mag:  9851.56 Ohm | Fase:  -6.91 deg | Err_M:  0.19% | Err_F:  2.50 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9832.76 Ohm | Fase:  -9.41 deg
+# === FREQ:   3177.32 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  9812.50 Ohm | Fase:  -8.00 deg
+#   [SUJETO 1: POST-INV] Mag:  9812.50 Ohm | Fase:  -7.76 deg | Err_M:  0.22% | Err_F:  2.77 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9790.83 Ohm | Fase: -10.53 deg
+# === FREQ:   3565.02 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  9773.44 Ohm | Fase:  -9.75 deg
+#   [SUJETO 1: POST-INV] Mag:  9773.44 Ohm | Fase:  -9.48 deg | Err_M:  0.36% | Err_F:  2.28 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9738.81 Ohm | Fase: -11.76 deg
+# === FREQ:   4000.00 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  9726.56 Ohm | Fase: -10.62 deg
+#   [SUJETO 1: POST-INV] Mag:  9726.56 Ohm | Fase: -10.32 deg | Err_M:  0.54% | Err_F:  2.81 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9674.50 Ohm | Fase: -13.13 deg
+# === FREQ:   4488.07 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  9664.06 Ohm | Fase: -13.25 deg
+#   [SUJETO 1: POST-INV] Mag:  9664.06 Ohm | Fase: -12.91 deg | Err_M:  0.72% | Err_F:  1.73 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9595.36 Ohm | Fase: -14.64 deg
+# === FREQ:   5035.69 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  9585.94 Ohm | Fase: -14.12 deg
+#   [SUJETO 1: POST-INV] Mag:  9585.94 Ohm | Fase: -13.74 deg | Err_M:  0.92% | Err_F:  2.56 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9498.47 Ohm | Fase: -16.30 deg
+# === FREQ:   5650.16 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  9492.19 Ohm | Fase: -15.75 deg
+#   [SUJETO 1: POST-INV] Mag:  9492.19 Ohm | Fase: -15.32 deg | Err_M:  1.19% | Err_F:  2.79 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9380.64 Ohm | Fase: -18.11 deg
+# === FREQ:   6339.57 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  9375.00 Ohm | Fase: -17.38 deg
+#   [SUJETO 1: POST-INV] Mag:  9375.00 Ohm | Fase: -16.89 deg | Err_M:  1.48% | Err_F:  3.19 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9238.45 Ohm | Fase: -20.08 deg
+# === FREQ:   7113.12 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  9242.19 Ohm | Fase: -19.88 deg
+#   [SUJETO 1: POST-INV] Mag:  9242.19 Ohm | Fase: -19.34 deg | Err_M:  1.92% | Err_F:  2.88 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9068.46 Ohm | Fase: -22.21 deg
+# === FREQ:   7981.06 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  9078.12 Ohm | Fase: -21.38 deg
+#   [SUJETO 1: POST-INV] Mag:  9078.12 Ohm | Fase: -20.77 deg | Err_M:  2.38% | Err_F:  3.72 deg
+#   [SUJETO 2: GOLDEN]   Mag:  8867.47 Ohm | Fase: -24.49 deg
+# === FREQ:   8954.87 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  8875.00 Ohm | Fase: -23.75 deg
+#   [SUJETO 1: POST-INV] Mag:  8875.00 Ohm | Fase: -23.07 deg | Err_M:  2.81% | Err_F:  3.82 deg
+#   [SUJETO 2: GOLDEN]   Mag:  8632.79 Ohm | Fase: -26.90 deg
+# === FREQ:  10047.54 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  8598.09 Ohm | Fase: -26.00 deg
+#   [SUJETO 1: POST-INV] Mag:  8598.09 Ohm | Fase: -25.23 deg | Err_M:  2.81% | Err_F:  4.19 deg
+#   [SUJETO 2: GOLDEN]   Mag:  8362.72 Ohm | Fase: -29.42 deg
+# === FREQ:  11273.54 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  8330.23 Ohm | Fase: -29.75 deg
+#   [SUJETO 1: POST-INV] Mag:  8330.23 Ohm | Fase: -28.88 deg | Err_M:  3.39% | Err_F:  3.14 deg
+#   [SUJETO 2: GOLDEN]   Mag:  8056.89 Ohm | Fase: -32.02 deg
+# === FREQ:  12649.11 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  8035.59 Ohm | Fase: -32.50 deg
+#   [SUJETO 1: POST-INV] Mag:  8035.59 Ohm | Fase: -31.53 deg | Err_M:  4.13% | Err_F:  3.15 deg
+#   [SUJETO 2: GOLDEN]   Mag:  7716.64 Ohm | Fase: -34.67 deg
+# === FREQ:  14192.54 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  7705.24 Ohm | Fase: -35.00 deg
+#   [SUJETO 1: POST-INV] Mag:  7705.24 Ohm | Fase: -33.91 deg | Err_M:  4.90% | Err_F:  3.42 deg
+#   [SUJETO 2: GOLDEN]   Mag:  7345.17 Ohm | Fase: -37.33 deg
+# === FREQ:  15924.28 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  7339.18 Ohm | Fase: -37.50 deg
+#   [SUJETO 1: POST-INV] Mag:  7339.18 Ohm | Fase: -36.28 deg | Err_M:  5.64% | Err_F:  3.66 deg
+#   [SUJETO 2: GOLDEN]   Mag:  6947.52 Ohm | Fase: -39.93 deg
+# === FREQ:  17867.34 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  6946.32 Ohm | Fase: -40.25 deg
+#   [SUJETO 1: POST-INV] Mag:  6946.32 Ohm | Fase: -38.88 deg | Err_M:  6.37% | Err_F:  3.56 deg
+#   [SUJETO 2: GOLDEN]   Mag:  6530.32 Ohm | Fase: -42.44 deg
+# === FREQ:  20047.48 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  6535.62 Ohm | Fase: -42.88 deg
+#   [SUJETO 1: POST-INV] Mag:  6535.62 Ohm | Fase: -41.33 deg | Err_M:  7.12% | Err_F:  3.46 deg
+#   [SUJETO 2: GOLDEN]   Mag:  6101.24 Ohm | Fase: -44.79 deg
+# === FREQ:  22493.65 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  6115.98 Ohm | Fase: -45.38 deg
+#   [SUJETO 1: POST-INV] Mag:  6115.98 Ohm | Fase: -43.65 deg | Err_M:  7.90% | Err_F:  3.30 deg
+#   [SUJETO 2: GOLDEN]   Mag:  5668.40 Ohm | Fase: -46.94 deg
+# === FREQ:  25238.29 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  5696.34 Ohm | Fase: -47.12 deg
+#   [SUJETO 1: POST-INV] Mag:  5696.34 Ohm | Fase: -45.19 deg | Err_M:  8.72% | Err_F:  3.67 deg
+#   [SUJETO 2: GOLDEN]   Mag:  5239.68 Ohm | Fase: -48.86 deg
+# === FREQ:  28317.82 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  5267.78 Ohm | Fase: -49.25 deg
+#   [SUJETO 1: POST-INV] Mag:  5267.78 Ohm | Fase: -47.07 deg | Err_M:  9.24% | Err_F:  3.41 deg
+#   [SUJETO 2: GOLDEN]   Mag:  4822.21 Ohm | Fase: -50.49 deg
+# === FREQ:  31773.12 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  4857.07 Ohm | Fase: -51.12 deg
+#   [SUJETO 1: POST-INV] Mag:  4857.07 Ohm | Fase: -48.68 deg | Err_M:  9.84% | Err_F:  3.13 deg
+#   [SUJETO 2: GOLDEN]   Mag:  4421.95 Ohm | Fase: -51.81 deg
+# === FREQ:  35650.04 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  4473.15 Ohm | Fase: -52.88 deg
+#   [SUJETO 1: POST-INV] Mag:  4473.15 Ohm | Fase: -50.14 deg | Err_M: 10.62% | Err_F:  2.67 deg
+#   [SUJETO 2: GOLDEN]   Mag:  4043.55 Ohm | Fase: -52.80 deg
+# === FREQ:  40000.01 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  4089.22 Ohm | Fase: -54.50 deg
+#   [SUJETO 1: POST-INV] Mag:  4089.22 Ohm | Fase: -51.43 deg | Err_M: 10.81% | Err_F:  2.02 deg
+#   [SUJETO 2: GOLDEN]   Mag:  3690.27 Ohm | Fase: -53.45 deg
+# === FREQ:  44880.73 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  3741.02 Ohm | Fase: -54.88 deg
+#   [SUJETO 1: POST-INV] Mag:  3741.02 Ohm | Fase: -51.43 deg | Err_M: 11.20% | Err_F:  2.31 deg
+#   [SUJETO 2: GOLDEN]   Mag:  3364.10 Ohm | Fase: -53.73 deg
+# === FREQ:  50357.02 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  3419.59 Ohm | Fase: -55.75 deg
+#   [SUJETO 1: POST-INV] Mag:  3419.59 Ohm | Fase: -51.88 deg | Err_M: 11.53% | Err_F:  1.78 deg
+#   [SUJETO 2: GOLDEN]   Mag:  3065.98 Ohm | Fase: -53.66 deg
+# === FREQ:  56501.51 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  3107.10 Ohm | Fase: -56.25 deg
+#   [SUJETO 1: POST-INV] Mag:  3107.10 Ohm | Fase: -51.91 deg | Err_M: 11.13% | Err_F:  1.31 deg
+#   [SUJETO 2: GOLDEN]   Mag:  2795.98 Ohm | Fase: -53.23 deg
+# === FREQ:  63395.74 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  2848.17 Ohm | Fase: -56.62 deg
+#   [SUJETO 1: POST-INV] Mag:  2848.17 Ohm | Fase: -51.76 deg | Err_M: 11.54% | Err_F:  0.68 deg
+#   [SUJETO 2: GOLDEN]   Mag:  2553.49 Ohm | Fase: -52.44 deg
+# === FREQ:  71131.19 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  2598.18 Ohm | Fase: -56.62 deg
+#   [SUJETO 1: POST-INV] Mag:  2598.18 Ohm | Fase: -51.17 deg | Err_M: 11.15% | Err_F:  0.14 deg
+#   [SUJETO 2: GOLDEN]   Mag:  2337.44 Ohm | Fase: -51.31 deg
+# === FREQ:  79810.50 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  2374.96 Ohm | Fase: -56.25 deg
+#   [SUJETO 1: POST-INV] Mag:  2374.96 Ohm | Fase: -50.14 deg | Err_M: 10.65% | Err_F:  0.28 deg
+#   [SUJETO 2: GOLDEN]   Mag:  2146.41 Ohm | Fase: -49.85 deg
+# === FREQ:  89548.85 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  2196.40 Ohm | Fase: -56.00 deg
+#   [SUJETO 1: POST-INV] Mag:  2196.40 Ohm | Fase: -49.15 deg | Err_M: 11.00% | Err_F:  1.04 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1978.77 Ohm | Fase: -48.10 deg
+# === FREQ: 100475.44 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1956.25 Ohm | Fase: -55.75 deg
+#   [SUJETO 1: POST-INV] Mag:  1956.25 Ohm | Fase: -47.98 deg | Err_M:  6.74% | Err_F:  1.89 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1832.77 Ohm | Fase: -46.09 deg
+# === FREQ: 112735.32 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1800.00 Ohm | Fase: -54.25 deg
+#   [SUJETO 1: POST-INV] Mag:  1800.00 Ohm | Fase: -45.55 deg | Err_M:  5.47% | Err_F:  1.70 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1706.58 Ohm | Fase: -43.85 deg
+# === FREQ: 126491.10 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1662.50 Ohm | Fase: -53.75 deg
+#   [SUJETO 1: POST-INV] Mag:  1662.50 Ohm | Fase: -44.00 deg | Err_M:  4.01% | Err_F:  2.58 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1598.34 Ohm | Fase: -41.42 deg
+# === FREQ: 141925.35 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1537.50 Ohm | Fase: -53.38 deg
+#   [SUJETO 1: POST-INV] Mag:  1537.50 Ohm | Fase: -42.46 deg | Err_M:  2.08% | Err_F:  3.59 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1506.20 Ohm | Fase: -38.87 deg
+# === FREQ: 159242.86 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1418.75 Ohm | Fase: -52.25 deg
+#   [SUJETO 1: POST-INV] Mag:  1418.75 Ohm | Fase: -40.04 deg | Err_M:  0.67% | Err_F:  3.80 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1428.36 Ohm | Fase: -36.24 deg
+# === FREQ: 178673.45 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1306.25 Ohm | Fase: -52.25 deg
+#   [SUJETO 1: POST-INV] Mag:  1306.25 Ohm | Fase: -38.60 deg | Err_M:  4.17% | Err_F:  5.01 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1363.10 Ohm | Fase: -33.58 deg
+# === FREQ: 200474.90 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1200.00 Ohm | Fase: -52.50 deg
+#   [SUJETO 1: POST-INV] Mag:  1200.00 Ohm | Fase: -37.25 deg | Err_M:  8.31% | Err_F:  6.30 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1308.75 Ohm | Fase: -30.95 deg
+# === FREQ: 224936.52 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1087.50 Ohm | Fase: -52.25 deg
+#   [SUJETO 1: POST-INV] Mag:  1087.50 Ohm | Fase: -35.23 deg | Err_M: 13.95% | Err_F:  6.86 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1263.79 Ohm | Fase: -28.37 deg
+# === FREQ: 252382.95 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:   968.75 Ohm | Fase: -53.12 deg
+#   [SUJETO 1: POST-INV] Mag:   968.75 Ohm | Fase: -34.16 deg | Err_M: 21.04% | Err_F:  8.27 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1226.83 Ohm | Fase: -25.89 deg
+# === FREQ: 283178.32 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:   843.75 Ohm | Fase: -53.62 deg
+#   [SUJETO 1: POST-INV] Mag:   843.75 Ohm | Fase: -32.52 deg | Err_M: 29.49% | Err_F:  8.98 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1196.61 Ohm | Fase: -23.53 deg
+# === FREQ: 317731.29 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:   706.25 Ohm | Fase: -54.88 deg
+#   [SUJETO 1: POST-INV] Mag:   706.25 Ohm | Fase: -31.43 deg | Err_M: 39.74% | Err_F: 10.11 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1172.01 Ohm | Fase: -21.32 deg
+# === FREQ: 356500.39 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:   556.25 Ohm | Fase: -55.25 deg
+#   [SUJETO 1: POST-INV] Mag:   556.25 Ohm | Fase: -29.27 deg | Err_M: 51.72% | Err_F: 10.02 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1152.08 Ohm | Fase: -19.26 deg
+# === FREQ: 399999.99 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:   387.50 Ohm | Fase: -54.88 deg
+#   [SUJETO 1: POST-INV] Mag:   387.50 Ohm | Fase: -26.17 deg | Err_M: 65.89% | Err_F:  8.82 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1135.98 Ohm | Fase: -17.35 deg
+# === FREQ: 448807.38 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:   206.25 Ohm | Fase: -49.25 deg
+#   [SUJETO 1: POST-INV] Mag:   206.25 Ohm | Fase: -17.62 deg | Err_M: 81.63% | Err_F:  2.02 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1123.02 Ohm | Fase: -15.60 deg
+# === FREQ: 503570.16 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:    62.50 Ohm | Fase:  25.25 deg
+#   [SUJETO 1: POST-INV] Mag:    62.50 Ohm | Fase:  59.98 deg | Err_M: 94.38% | Err_F: 73.98 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1112.62 Ohm | Fase: -14.00 deg
+# === FREQ: 565015.01 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:   231.25 Ohm | Fase:  90.88 deg
+#   [SUJETO 1: POST-INV] Mag:   231.25 Ohm | Fase: 128.85 deg | Err_M: 79.06% | Err_F: 141.40 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1104.28 Ohm | Fase: -12.55 deg
+# === FREQ: 633957.27 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:   462.50 Ohm | Fase:  95.50 deg
+#   [SUJETO 1: POST-INV] Mag:   462.50 Ohm | Fase: 136.84 deg | Err_M: 57.86% | Err_F: 148.08 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1097.61 Ohm | Fase: -11.24 deg
+# === FREQ: 711311.76 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:   718.75 Ohm | Fase:  94.25 deg
+#   [SUJETO 1: POST-INV] Mag:   718.75 Ohm | Fase: 139.05 deg | Err_M: 34.20% | Err_F: 149.11 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1092.28 Ohm | Fase: -10.05 deg
+# === FREQ: 798104.91 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:   987.50 Ohm | Fase:  92.38 deg
+#   [SUJETO 1: POST-INV] Mag:   987.50 Ohm | Fase: 140.68 deg | Err_M:  9.24% | Err_F: 149.67 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1088.02 Ohm | Fase:  -8.99 deg
+# === FREQ: 895488.45 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1231.25 Ohm | Fase:  89.88 deg
+#   [SUJETO 1: POST-INV] Mag:  1231.25 Ohm | Fase: 141.70 deg | Err_M: 13.50% | Err_F: 149.76 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1084.76 Ohm | Fase:  -8.07 deg
+# === FREQ: 999999.99 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1487.50 Ohm | Fase:  86.38 deg
+#   [SUJETO 1: POST-INV] Mag:  1487.50 Ohm | Fase: 141.53 deg | Err_M: 37.13% | Err_F: 149.60 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1084.76 Ohm | Fase:  -8.07 deg
+# 
+# Simulación finalizada. Procesando datos en Python...
+# ** Note: $finish    : ../src/tb_correlacion_ina_2adcs_configurable_to_fpga_v3.sv(522)
+#    Time: 1203658708 ns  Iteration: 0  Instance: /tb_correlacion_portable_python_to_fpga_configurable
+# End time: 11:15:38 on Sep 27,2026, Elapsed time: 0:10:07
+# Errors: 0, Warnings: 4
+End time: 11:15:38 on Sep 27,2026, Elapsed time: 0:10:07
+*** Summary *********************************************
+    qrun: Errors:   0, Warnings:   0
+    vsim: Errors:   0, Warnings:   4
+  Totals: Errors:   0, Warnings:   4

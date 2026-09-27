@@ -1,0 +1,36 @@
+`include "disciplines.vams"
+
+module dac_ams_wrapper(
+    input logic [13:0] digital_in,
+    input logic use_digital,
+    input integer analog_in_uv,
+    input integer r_load_mohm,
+    output electrical node_gen
+);
+    parameter real VREF = 1.0;
+    parameter real R_OUT = 50.0;
+    parameter real TRISE = 1.0e-9;
+
+    integer signed_code;
+    real v_ana;
+    real analog_in_v;
+    real r_load_ohm;
+
+    always @(*) begin
+        analog_in_v = analog_in_uv * 1.0e-6;
+        r_load_ohm = r_load_mohm * 1.0e-3;
+    end
+
+    analog begin
+        signed_code = digital_in;
+        if (digital_in[13] == 1'b1)
+            signed_code = digital_in - 16384;
+
+        if (use_digital)
+            v_ana = ((signed_code / 8192.0) * VREF) * (r_load_ohm / (R_OUT + r_load_ohm));
+        else
+            v_ana = analog_in_v;
+
+        V(node_gen) <+ transition(v_ana, 0.0, TRISE);
+    end
+endmodule

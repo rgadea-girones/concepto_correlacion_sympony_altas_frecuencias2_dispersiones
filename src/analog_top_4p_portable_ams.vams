@@ -1,0 +1,72 @@
+`include "constants.vams"
+`include "disciplines.vams"
+
+module analog_top_4p_portable_ams(
+    inout electrical node_gen,
+    inout electrical node_adc1,
+    inout electrical node_adc2,
+    inout electrical node_adc3,
+    input electrical ctrl_r_cont,
+    input electrical ctrl_c_contact,
+    input electrical ctrl_autoshunt,
+    input electrical ctrl_rext,
+    input electrical ctrl_rint,
+    input electrical ctrl_c_mem
+);
+    // Parámetros de parásitos
+    parameter real C_LEAK = 30.0e-12;
+    parameter real MUTUAL_L = 2.5e-6;
+
+    // Nodos internos topológicos (Basados en el esquema de 4 puntas)
+    electrical node_A, node_B;             // Fronteras internas del tejido (Nodos A y B)
+    electrical node_s1_int, node_s2_int;   // Nodos intermedios para la inductancia mutua
+
+    real r_cont_ohm;
+    real c_contact_f;
+    real autoshunt_ohm;
+
+    // Declaración de rama para medir la corriente inyectada y calcular la inducción magnética
+    branch (node_gen, node_A) b_force_p;
+
+    analog begin
+        r_cont_ohm = V(ctrl_r_cont);
+        c_contact_f = V(ctrl_c_contact);
+        autoshunt_ohm = V(ctrl_autoshunt);
+
+        if (r_cont_ohm < 1.0e-3) r_cont_ohm = 1.0e-3;
+        if (c_contact_f < 0.0) c_contact_f = 0.0;
+        if (autoshunt_ohm < 1.0e-3) autoshunt_ohm = 1.0e-3;
+
+        // 1. Rama Force+ (Inyección)
+        I(b_force_p) <+ V(b_force_p) / r_cont_ohm + c_contact_f * ddt(V(b_force_p));
+
+        // 2. Rama Force- (Retorno hacia Shunt)
+        I(node_B, node_adc3) <+ V(node_B, node_adc3) / r_cont_ohm + c_contact_f * ddt(V(node_B, node_adc3));
+
+        // 3. Shunt a Masa
+        I(node_adc3) <+ V(node_adc3) / autoshunt_ohm;
+
+        // 4. Fugas Capacitivas en los Cables (C_leak)
+        I(node_gen) <+ C_LEAK * ddt(V(node_gen));
+        I(node_adc3) <+ C_LEAK * ddt(V(node_adc3));
+
+        // 5. Rama Sense+ (Lectura ADC1)
+        I(node_A, node_s1_int) <+ V(node_A, node_s1_int) / r_cont_ohm + c_contact_f * ddt(V(node_A, node_s1_int));
+
+        // 6. Rama Sense- (Lectura ADC2)
+        I(node_B, node_s2_int) <+ V(node_B, node_s2_int) / r_cont_ohm + c_contact_f * ddt(V(node_B, node_s2_int));
+
+        // 7. Inductancia Mutua (V = M * di/dt) inducida por la corriente de Force+
+        V(node_s1_int, node_adc1) <+ -MUTUAL_L * ddt(I(b_force_p));
+        V(node_s2_int, node_adc2) <+  MUTUAL_L * ddt(I(b_force_p));
+    end
+
+    // Modelo de Bioimpedancia del Tejido (Aislado perfectamente entre los nodos A y B)
+    bioz_block_portable_va bioz (
+        .node_p(node_A),
+        .node_n(node_B),
+        .ctrl_rext(ctrl_rext),
+        .ctrl_rint(ctrl_rint),
+        .ctrl_cmem(ctrl_c_mem)
+    );
+endmodule

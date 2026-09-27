@@ -1,0 +1,61 @@
+# ==============================================================================
+# GitIgnore para Proyecto de Correlación y Simulación Bioimpedancia
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# 1. Ficheros pesados y generados automáticamente (Reglas Generales)
+# ------------------------------------------------------------------------------
+*.csv
+*.png
+*.jpg
+*.jpeg
+*.svg
+*.log
+*.tmp
+*.TMP
+
+# Ficheros de metadata de Windows
+*:Zone.Identifier
+*.Zone.Identifier
+
+# ------------------------------------------------------------------------------
+# 2. Excepciones: CONSERVAR carpetas de resultados organizadas y documentación
+# ------------------------------------------------------------------------------
+# Mantiene todos los ficheros (CSV, PNG, .f, .log) dentro de sim/resultados/
+!sim/resultados/**
+!sim/resultados/**/
+
+# Mantiene imágenes de esquema y documentación en imagenes/
+!imagenes/**
+!imagenes/**/
+
+# ------------------------------------------------------------------------------
+# 3. Artefactos de compilación EDA (QuestaSim / ModelSim / Symphony)
+# ------------------------------------------------------------------------------
+qrun.out/
+symphony.out/
+work/
+.afs/
+.ams_work/
+.visualizer/
+transcript
+*.wlf
+*.ucdb
+*.vstf
+*.ses
+*.bak
+*~
+
+# ------------------------------------------------------------------------------
+# 4. Entornos virtuales Python y Caché
+# ------------------------------------------------------------------------------
+.venv/
+venv/
+.venv*/
+.shap_venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.vscode/

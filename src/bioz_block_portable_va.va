@@ -1,0 +1,32 @@
+`include "constants.vams"
+`include "disciplines.vams"
+
+module bioz_block_portable_va(
+    inout electrical node_p,
+    inout electrical node_n,
+    input electrical ctrl_rext,
+    input electrical ctrl_rint,
+    input electrical ctrl_cmem
+);
+    electrical node_int;
+    real r_ext_ohm;
+    real r_int_ohm;
+    real c_mem_f;
+
+    analog begin
+        r_ext_ohm = V(ctrl_rext);
+        r_int_ohm = V(ctrl_rint);
+        c_mem_f = V(ctrl_cmem);
+
+        if (r_ext_ohm < 1.0e-3)
+            r_ext_ohm = 1.0e-3;
+        if (r_int_ohm < 1.0e-3)
+            r_int_ohm = 1.0e-3;
+        if (c_mem_f < 0.0)
+            c_mem_f = 0.0;
+
+        I(node_p, node_n) <+ V(node_p, node_n) / r_ext_ohm;
+        I(node_p, node_int) <+ c_mem_f * ddt(V(node_p, node_int));
+        I(node_int, node_n) <+ V(node_int, node_n) / r_int_ohm;
+    end
+endmodule

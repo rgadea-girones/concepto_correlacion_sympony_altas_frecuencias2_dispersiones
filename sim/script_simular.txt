@@ -1,0 +1,16 @@
+qrun \
+  -uvm \
+  -sv \
+   -gui\
+   -visualizer\
+   +livecov\
+   -debug\
+   -qwavedb=+signal+class+transaction+msg=error,pa\
+  -top top\
+  +incdir+./ \
+  -f run.f\
+  +UVM_TESTNAME=fifo_parallel_test \
+  +UVM_VERBOSITY=UVM_MEDIUM \
+  +UVM_RECORDING_SETUP
+  -l qrun.log \
+

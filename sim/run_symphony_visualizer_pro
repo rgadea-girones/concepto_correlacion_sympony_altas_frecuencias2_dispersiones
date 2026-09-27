@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+cd "$(dirname "$0")"
+
+RESULTS_DIR="results/symphony.out/default_snapshot"
+
+if [[ ! -d "$RESULTS_DIR" ]]; then
+	echo "[ERROR] No se encontró: $RESULTS_DIR"
+	echo "Ejecuta primero la simulación: ./run_symphony_questa_pro afs"
+	exit 1
+fi
+
+# Solo necesario para aplicación gráfica en X11
+export DISPLAY=:0
+
+# Lanzar ezwave
+ezwave -i "$RESULTS_DIR"

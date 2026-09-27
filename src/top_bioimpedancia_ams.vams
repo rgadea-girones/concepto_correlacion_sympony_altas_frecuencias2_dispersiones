@@ -1,0 +1,125 @@
+`include "constants.vams"
+`include "disciplines.vams"
+
+module top_bioimpedancia_ams #(
+    parameter real C_IN     = 20.0e-12,
+    parameter real R_IN     = 1.0e6,
+    parameter real C_LEAK   = 30.0e-12,
+    parameter real MUTUAL_L = 2.5e-6
+)(
+    input logic clk,
+    input logic cuantificacion,
+    input logic [13:0] dac_data,
+    input integer senoide_uv,
+    input integer dac_load_mohm,
+    input integer autoshunt_mohm,
+    input integer r_cont_mohm,
+    input integer c_contact_ff,
+    input integer rext_mohm,
+    input integer rint_mohm,
+    input integer c_mem_ff,
+    output logic [13:0] adc1_data,
+    output logic [13:0] adc2_data,
+    output logic [13:0] adc3_data
+);
+    electrical node_gen;
+    electrical node_adc1;
+    electrical node_adc2;
+    electrical node_adc3;
+    electrical ctrl_r_cont;
+    electrical ctrl_c_contact;
+    electrical ctrl_autoshunt;
+    electrical ctrl_rext;
+    electrical ctrl_rint;
+    electrical ctrl_c_mem;
+
+    real r_cont_ohm;
+    real c_contact_f;
+    real autoshunt_ohm;
+    real rext_ohm;
+    real rint_ohm;
+    real c_mem_f;
+
+    function real mohms_to_ohms;
+        input integer value;
+        begin
+            mohms_to_ohms = value * 1.0e-3;
+        end
+    endfunction
+
+    function real ff_to_f;
+        input integer value;
+        begin
+            ff_to_f = value * 1.0e-15;
+        end
+    endfunction
+
+    always @(*) begin
+        r_cont_ohm = mohms_to_ohms(r_cont_mohm);
+        c_contact_f = ff_to_f(c_contact_ff);
+        autoshunt_ohm = mohms_to_ohms(autoshunt_mohm);
+        rext_ohm = mohms_to_ohms(rext_mohm);
+        rint_ohm = mohms_to_ohms(rint_mohm);
+        c_mem_f = ff_to_f(c_mem_ff);
+    end
+
+    analog begin
+        V(ctrl_r_cont) <+ transition(r_cont_ohm, 0.0, 1.0e-9);
+        V(ctrl_c_contact) <+ transition(c_contact_f, 0.0, 1.0e-9);
+        V(ctrl_autoshunt) <+ transition(autoshunt_ohm, 0.0, 1.0e-9);
+        V(ctrl_rext) <+ transition(rext_ohm, 0.0, 1.0e-9);
+        V(ctrl_rint) <+ transition(rint_ohm, 0.0, 1.0e-9);
+        V(ctrl_c_mem) <+ transition(c_mem_f, 0.0, 1.0e-9);
+    end
+
+    dac_ams_wrapper dac_inst (
+        .digital_in(dac_data),
+        .use_digital(cuantificacion),
+        .analog_in_uv(senoide_uv),
+        .r_load_mohm(dac_load_mohm),
+        .node_gen(node_gen)
+    );
+
+    analog_top_4p_portable_ams #(
+        .C_LEAK(C_LEAK),
+        .MUTUAL_L(MUTUAL_L)
+    ) analog_top_inst (
+        .node_gen(node_gen),
+        .node_adc1(node_adc1),
+        .node_adc2(node_adc2),
+        .node_adc3(node_adc3),
+        .ctrl_r_cont(ctrl_r_cont),
+        .ctrl_c_contact(ctrl_c_contact),
+        .ctrl_autoshunt(ctrl_autoshunt),
+        .ctrl_rext(ctrl_rext),
+        .ctrl_rint(ctrl_rint),
+        .ctrl_c_mem(ctrl_c_mem)
+    );
+
+    adc_ams_wrapper #(
+        .C_IN(C_IN),
+        .R_IN(R_IN)
+    ) adc1_inst (
+        .node_adc(node_adc1),
+        .clk(clk),
+        .digital_out(adc1_data)
+    );
+
+    adc_ams_wrapper #(
+        .C_IN(C_IN),
+        .R_IN(R_IN)
+    ) adc2_inst (
+        .node_adc(node_adc2),
+        .clk(clk),
+        .digital_out(adc2_data)
+    );
+
+    adc_ams_wrapper #(
+        .C_IN(C_IN),
+        .R_IN(R_IN)
+    ) adc3_inst (
+        .node_adc(node_adc3),
+        .clk(clk),
+        .digital_out(adc3_data)
+    );
+endmodule

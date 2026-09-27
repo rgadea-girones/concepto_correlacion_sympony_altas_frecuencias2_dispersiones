@@ -1,0 +1,129 @@
+`include "constants.vams"
+`include "disciplines.vams"
+
+module analog_top_4p_portable_ams_configurable (
+    inout electrical node_gen,
+    inout electrical node_adc1,
+    inout electrical node_adc2,
+    input electrical ctrl_r_f1,
+    input electrical ctrl_r_f2,
+    input electrical ctrl_r_s1,
+    input electrical ctrl_r_s2,
+    input electrical ctrl_c_f1,
+    input electrical ctrl_c_f2,
+    input electrical ctrl_c_s1,
+    input electrical ctrl_c_s2,
+    input electrical ctrl_autoshunt,
+    input electrical ctrl_rext,
+    input electrical ctrl_rint,
+    input electrical ctrl_c_mem
+);
+    parameter real C_LEAK = 30.0e-12;
+    parameter real MUTUAL_L = 2.5e-6;
+
+    parameter real R_IN_INA = 1.0e12;
+    parameter real C_IN_INA = 3.0e-12;
+
+    // Nodos internos topológicos
+    electrical node_A, node_B;             // Fronteras del tejido
+    electrical node_s1_int, node_s2_int;   // Nodos de lectura intermedia para inductancia mutua
+    electrical node_ina_in1, node_ina_in2; // Nodos de entrada física del INA (después de inductancia mutua)
+    electrical node_tia_in;                // Tierra virtual del TIA AD844
+    electrical node_tia_filt;              // Nodo intermedio para el filtro del TIA
+
+    real r_f1_ohm, r_f2_ohm, r_s1_ohm, r_s2_ohm;
+    real c_f1_f, c_f2_f, c_s1_f, c_s2_f;
+    real autoshunt_ohm;
+
+    // Declaración de arrays analógicos para filtros de Laplace
+    real num_tia[0:0];
+    real den_tia[0:1];
+    real num_m1[0:1]; // Numerador para Sense+ (-M*s)
+    real num_m2[0:1]; // Numerador para Sense- (+M*s)
+    real den_m[0:2];  // Denominador común de segundo orden (1 + 2*s*tau + s^2*tau^2)
+
+    // Solo declaramos la rama entre puertos para la inductancia mutua
+    branch (node_gen, node_A) b_force_p;
+
+    analog begin
+        r_f1_ohm = V(ctrl_r_f1);
+        r_f2_ohm = V(ctrl_r_f2);
+        r_s1_ohm = V(ctrl_r_s1);
+        r_s2_ohm = V(ctrl_r_s2);
+        
+        c_f1_f = V(ctrl_c_f1);
+        c_f2_f = V(ctrl_c_f2);
+        c_s1_f = V(ctrl_c_s1);
+        c_s2_f = V(ctrl_c_s2);
+        
+        autoshunt_ohm = V(ctrl_autoshunt);
+
+        if (r_f1_ohm < 1.0e-3) r_f1_ohm = 1.0e-3;
+        if (r_f2_ohm < 1.0e-3) r_f2_ohm = 1.0e-3;
+        if (r_s1_ohm < 1.0e-3) r_s1_ohm = 1.0e-3;
+        if (r_s2_ohm < 1.0e-3) r_s2_ohm = 1.0e-3;
+        
+        if (c_f1_f < 0.0) c_f1_f = 0.0;
+        if (c_f2_f < 0.0) c_f2_f = 0.0;
+        if (c_s1_f < 0.0) c_s1_f = 0.0;
+        if (c_s2_f < 0.0) c_s2_f = 0.0;
+        
+        if (autoshunt_ohm < 1.0e-3) autoshunt_ohm = 1.0e-3;
+
+        // 1. Lazo de inyección de corriente (Force)
+        // Rama Force+ (Inyección con r_f1 y c_f1)
+        I(b_force_p) <+ V(b_force_p) / r_f1_ohm + c_f1_f * ddt(V(b_force_p));
+
+        // Rama Force- (Retorno hacia entrada del TIA con r_f2 y c_f2)
+        I(node_B, node_tia_in) <+ V(node_B, node_tia_in) / r_f2_ohm + c_f2_f * ddt(V(node_B, node_tia_in));
+
+        // 2. Modelo de la Entrada del TIA (Tierra Virtual de 50 Ohm del AD844)
+        I(node_tia_in) <+ V(node_tia_in) / 50.0;
+
+        // 3. Etapa de Salida activa del TIA (AD844 Output en node_adc2)
+        num_tia[0] = 1.0;
+        den_tia[0] = 1.0;
+        den_tia[1] = autoshunt_ohm * 2.0e-12;
+        V(node_tia_filt) <+ -(V(node_tia_in) / 50.0) * autoshunt_ohm;
+        V(node_adc2) <+ laplace_nd(V(node_tia_filt), num_tia, den_tia);
+
+        // 4. Fugas Capacitivas en los Cables de excitación (C_leak)
+        I(node_gen) <+ C_LEAK * ddt(V(node_gen));
+
+        // 5. Rama Sense+ (Hacia entrada no inversora del INA con r_s1 y c_s1)
+        I(node_A, node_s1_int) <+ V(node_A, node_s1_int) / r_s1_ohm + c_s1_f * ddt(V(node_A, node_s1_int));
+
+        // 6. Rama Sense- (Hacia entrada inversora del INA con r_s2 y c_s2)
+        I(node_B, node_s2_int) <+ V(node_B, node_s2_int) / r_s2_ohm + c_s2_f * ddt(V(node_B, node_s2_int));
+
+        // 7. Inductancia Mutua modelada directamente en Laplace (Filtro paso bajo de 2º orden)
+        num_m1[0] = 0.0;
+        num_m1[1] = -MUTUAL_L;
+        
+        num_m2[0] = 0.0;
+        num_m2[1] = MUTUAL_L;
+        
+        den_m[0] = 1.0;
+        den_m[1] = 2.0e-9;   // 2 * tau
+        den_m[2] = 1.0e-18;  // tau^2 (con tau = 1ns)
+
+        V(node_s1_int, node_ina_in1) <+ laplace_nd(I(b_force_p), num_m1, den_m);
+        V(node_s2_int, node_ina_in2) <+ laplace_nd(I(b_force_p), num_m2, den_m);
+
+        // 8. Impedancia de Entrada del INA cargando los nodos de Sense a tierra
+        I(node_ina_in1) <+ V(node_ina_in1) / R_IN_INA + C_IN_INA * ddt(V(node_ina_in1));
+        I(node_ina_in2) <+ V(node_ina_in2) / R_IN_INA + C_IN_INA * ddt(V(node_ina_in2));
+
+        // 9. Etapa de salida de tensión del INA (node_adc1 es salida diferencial ideal de baja impedancia)
+        V(node_adc1) <+ V(node_ina_in1, node_ina_in2);
+    end
+
+    // Modelo de Bioimpedancia del Tejido (conectada entre node_A y node_B)
+    bioz_block_portable_va bioz (
+        .node_p(node_A),
+        .node_n(node_B),
+        .ctrl_rext(ctrl_rext),
+        .ctrl_rint(ctrl_rint),
+        .ctrl_cmem(ctrl_c_mem)
+    );
+endmodule
