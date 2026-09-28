@@ -22,8 +22,15 @@ if [[ "$CONFIG_FILE" =~ v[0-9]+ ]]; then
     VERSION="$(echo "$CONFIG_FILE" | grep -oP 'v[0-9]+')"
 fi
 
-# 2. Lanzar la simulación qrun
-qrun -f "$CONFIG_FILE"
+# 2. Lanzar la simulación qrun / symphony
+if [[ "$CONFIG_FILE" =~ "symphony" ]]; then
+    cp -f modelsim.ini questa.ini 2>/dev/null || true
+    rm -f qwave.db.lock
+    rm -rf qrun.out qrun_opt*
+    symphony -deluxe -anaformat psf -conf symphony_v3.conf -lconfig all -lconfigname symphony_v3.log -afs -l analog_v3.log -j 60 symphony_v3_input.scs -f psfbin --offrunobj --escchars -end -qrun -f "$CONFIG_FILE" -end -vams +incdir+/root/solido_symphony/solidosim/questasim/verilog_src/adms_vlams/ ../src/dac_ams_wrapper.vams ../src/adc_ams_wrapper.vams ../src/analog_top_4p_portable_to_fpga_ina_v3_ams.vams ../src/top_bioimpedancia_ams_v3.vams -end
+else
+    qrun -f "$CONFIG_FILE"
+fi
 
 # 3. Detectar el CSV generado por la simulación
 CSV=$(ls -t datos_simulacion_*.csv 2>/dev/null | head -n 1)

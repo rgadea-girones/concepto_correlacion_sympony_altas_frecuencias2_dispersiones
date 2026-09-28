@@ -1,0 +1,161 @@
+`include "constants.vams"
+`include "disciplines.vams"
+
+// =============================================================================
+// Top-Level Mixed-Signal Verilog-AMS para la Arquitectura v3 en Symphony
+// (2-DAC Balanced Excitation + INA AD8421 + TIA AD844 + 2 ADCs)
+// =============================================================================
+
+module top_bioimpedancia_ams_v3 #(
+    parameter real C_IN     = 10.0e-12,
+    parameter real R_IN     = 1.0e6,
+    parameter real C_LEAK   = 10.0e-12,
+    parameter real MUTUAL_L = 2.5e-7
+)(
+    input clk,
+    input cuantificacion,
+    input [13:0] dac_data,
+    input integer senoide_uv,
+    input integer dac_load_mohm,
+    input integer autoshunt_mohm,
+    input integer r_f1_mohm,
+    input integer r_f2_mohm,
+    input integer r_s1_mohm,
+    input integer r_s2_mohm,
+    input integer c_f1_ff,
+    input integer c_f2_ff,
+    input integer c_s1_ff,
+    input integer c_s2_ff,
+    input integer rext_mohm,
+    input integer rint_mohm,
+    input integer c_mem_ff,
+    output [13:0] adc1_data,
+    output [13:0] adc2_data
+);
+    electrical node_gen_p, node_gen_n;
+    electrical node_adc1, node_adc2;
+    
+    electrical ctrl_r_f1, ctrl_r_f2, ctrl_r_s1, ctrl_r_s2;
+    electrical ctrl_c_f1, ctrl_c_f2, ctrl_c_s1, ctrl_c_s2;
+    
+    electrical ctrl_autoshunt;
+    electrical ctrl_rext;
+    electrical ctrl_rint;
+    electrical ctrl_c_mem;
+
+    real r_f1_ohm, r_f2_ohm, r_s1_ohm, r_s2_ohm;
+    real c_f1_f, c_f2_f, c_s1_f, c_s2_f;
+    real autoshunt_ohm, rext_ohm, rint_ohm, c_mem_f;
+    integer senoide_p_uv, senoide_n_uv;
+
+    function real mohms_to_ohms;
+        input integer value;
+        begin
+            mohms_to_ohms = value * 1.0e-3;
+        end
+    endfunction
+
+    function real ff_to_f;
+        input integer value;
+        begin
+            ff_to_f = value * 1.0e-15;
+        end
+    endfunction
+
+    always @(*) begin
+        r_f1_ohm      = mohms_to_ohms(r_f1_mohm);
+        r_f2_ohm      = mohms_to_ohms(r_f2_mohm);
+        r_s1_ohm      = mohms_to_ohms(r_s1_mohm);
+        r_s2_ohm      = mohms_to_ohms(r_s2_mohm);
+        
+        c_f1_f        = ff_to_f(c_f1_ff);
+        c_f2_f        = ff_to_f(c_f2_ff);
+        c_s1_f        = ff_to_f(c_s1_ff);
+        c_s2_f        = ff_to_f(c_s2_ff);
+        
+        autoshunt_ohm = mohms_to_ohms(autoshunt_mohm);
+        rext_ohm      = mohms_to_ohms(rext_mohm);
+        rint_ohm      = mohms_to_ohms(rint_mohm);
+        c_mem_f       = ff_to_f(c_mem_ff);
+
+        senoide_p_uv  = senoide_uv / 2;
+        senoide_n_uv  = -senoide_uv / 2;
+    end
+
+    analog begin
+        V(ctrl_r_f1)      <+ transition(r_f1_ohm, 0.0, 1.0e-9);
+        V(ctrl_r_f2)      <+ transition(r_f2_ohm, 0.0, 1.0e-9);
+        V(ctrl_r_s1)      <+ transition(r_s1_ohm, 0.0, 1.0e-9);
+        V(ctrl_r_s2)      <+ transition(r_s2_ohm, 0.0, 1.0e-9);
+        
+        V(ctrl_c_f1)      <+ transition(c_f1_f, 0.0, 1.0e-9);
+        V(ctrl_c_f2)      <+ transition(c_f2_f, 0.0, 1.0e-9);
+        V(ctrl_c_s1)      <+ transition(c_s1_f, 0.0, 1.0e-9);
+        V(ctrl_c_s2)      <+ transition(c_s2_f, 0.0, 1.0e-9);
+        
+        V(ctrl_autoshunt) <+ transition(autoshunt_ohm, 0.0, 1.0e-9);
+        V(ctrl_rext)      <+ transition(rext_ohm, 0.0, 1.0e-9);
+        V(ctrl_rint)      <+ transition(rint_ohm, 0.0, 1.0e-9);
+        V(ctrl_c_mem)     <+ transition(c_mem_f, 0.0, 1.0e-9);
+    end
+
+    // DAC Excitación Diferencial 1 (+)
+    dac_ams_wrapper dac_p_inst (
+        .digital_in(dac_data),
+        .use_digital(cuantificacion),
+        .analog_in_uv(senoide_p_uv),
+        .r_load_mohm(dac_load_mohm),
+        .node_gen(node_gen_p)
+    );
+
+    // DAC Excitación Diferencial 2 (-)
+    dac_ams_wrapper dac_n_inst (
+        .digital_in(dac_data),
+        .use_digital(cuantificacion),
+        .analog_in_uv(senoide_n_uv),
+        .r_load_mohm(dac_load_mohm),
+        .node_gen(node_gen_n)
+    );
+
+    // Topológico Analógico v3
+    analog_top_4p_portable_to_fpga_ina_v3_ams #(
+        .C_LEAK(C_LEAK),
+        .MUTUAL_L(MUTUAL_L)
+    ) analog_top_inst (
+        .node_gen_p(node_gen_p),
+        .node_gen_n(node_gen_n),
+        .node_adc1(node_adc1),
+        .node_adc2(node_adc2),
+        .ctrl_r_f1(ctrl_r_f1),
+        .ctrl_r_f2(ctrl_r_f2),
+        .ctrl_r_s1(ctrl_r_s1),
+        .ctrl_r_s2(ctrl_r_s2),
+        .ctrl_c_f1(ctrl_c_f1),
+        .ctrl_c_f2(ctrl_c_f2),
+        .ctrl_c_s1(ctrl_c_s1),
+        .ctrl_c_s2(ctrl_c_s2),
+        .ctrl_autoshunt(ctrl_autoshunt),
+        .ctrl_rext(ctrl_rext),
+        .ctrl_rint(ctrl_rint),
+        .ctrl_c_mem(ctrl_c_mem)
+    );
+
+    // Muestreadores ADC en nodos 1 y 2
+    adc_ams_wrapper #(
+        .C_IN(C_IN),
+        .R_IN(R_IN)
+    ) adc1_inst (
+        .node_adc(node_adc1),
+        .clk(clk),
+        .digital_out(adc1_data)
+    );
+
+    adc_ams_wrapper #(
+        .C_IN(C_IN),
+        .R_IN(R_IN)
+    ) adc2_inst (
+        .node_adc(node_adc2),
+        .clk(clk),
+        .digital_out(adc2_data)
+    );
+endmodule

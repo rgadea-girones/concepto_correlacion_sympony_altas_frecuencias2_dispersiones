@@ -28,7 +28,11 @@ module tb_correlacion_portable_python_to_fpga_configurable;
     localparam string CSV_SIMULADOR = "questa";
 `endif
 
-`ifdef EXPERIMENTO_K_EXTREMOS
+`ifdef EXPERIMENTO_K_MIN
+    localparam string STR_K = "k_min";
+`elsif EXPERIMENTO_K_MAX
+    localparam string STR_K = "k_max";
+`elsif EXPERIMENTO_K_EXTREMOS
     localparam string STR_K = "k_extremos";
 `else
     localparam string STR_K = "todos_k";
@@ -47,7 +51,11 @@ module tb_correlacion_portable_python_to_fpga_configurable;
     localparam real ADC_SCALE=8192.0; // Para mapear ±1V a ±8192 (14 bits)
     localparam bit  ENABLE_ADC3_NOISE = 1'b1;
     localparam int NUMERO_MEDIDAS_BASE = 5;
-`ifdef EXPERIMENTO_K_EXTREMOS
+`ifdef EXPERIMENTO_K_MIN
+    localparam int NUMERO_MEDIDAS_EJECUCION = 1;
+`elsif EXPERIMENTO_K_MAX
+    localparam int NUMERO_MEDIDAS_EJECUCION = 1;
+`elsif EXPERIMENTO_K_EXTREMOS
     localparam int NUMERO_MEDIDAS_EJECUCION = 2;
 `else
     localparam int NUMERO_MEDIDAS_EJECUCION = NUMERO_MEDIDAS_BASE;
@@ -115,7 +123,10 @@ module tb_correlacion_portable_python_to_fpga_configurable;
     // =============================================================================
     parameter real F_MIN = 40.0;
     parameter real F_MAX = 1000000.0;
-    parameter int  PTS_POR_DECADA = 20;
+`ifndef PTS_POR_DECADA_VAL
+    `define PTS_POR_DECADA_VAL 10
+`endif
+    parameter int  PTS_POR_DECADA = `PTS_POR_DECADA_VAL;
 
     function automatic int calcular_num_puntos(real fmin, real fmax, int pts_dec);
         real ratio;
@@ -285,7 +296,11 @@ module tb_correlacion_portable_python_to_fpga_configurable;
     // MODELO FÍSICO (V2 con AD8421 Bias Return y AD844 Nodo TZ)
     // =============================================================================
 
+`ifdef USE_VAMS_MIXED
+    top_bioimpedancia_circuito_medida_portable_mixed_v3 #(
+`else
     top_bioimpedancia_circuito_medida_portable_to_fpga_ina_v3 #(
+`endif
       .C_in_ina(INV_C_INA),
       .R_in_ina(INV_R_INA),
       .R_bias_ina(INV_R_BIAS_INA),
@@ -452,7 +467,11 @@ module tb_correlacion_portable_python_to_fpga_configurable;
 
         for (int idx_loop = 0; idx_loop < NUMERO_MEDIDAS_EJECUCION; idx_loop++) begin
             int idx_k_real;
-`ifdef EXPERIMENTO_K_EXTREMOS
+`ifdef EXPERIMENTO_K_MIN
+            idx_k_real = 0;
+`elsif EXPERIMENTO_K_MAX
+            idx_k_real = NUMERO_MEDIDAS_BASE - 1;
+`elsif EXPERIMENTO_K_EXTREMOS
             idx_k_real = (idx_loop == 0) ? 0 : (NUMERO_MEDIDAS_BASE - 1);
 `else
             idx_k_real = idx_loop;

@@ -1,0 +1,11 @@
+simulator lang=spectre
+global 0
+
+parameters vdummy=0 tstop=601
+
+V0 (dummy 0) vsource dc=vdummy
+R0 (dummy 0) resistor r=1e12
+
+simulatorOptions options reltol=1e-3 vabstol=1e-6 iabstol=1e-12 temp=27 tnom=27 gmin=1e-12
+tran tran stop=tstop
+saveOptions options save=all
