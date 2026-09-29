@@ -75,6 +75,14 @@ module top_bioimpedancia_circuito_medida_portable_mixed_v3
         c_mem_ff       = $rtoi(c_mem_instant * CAP_SCALE);
     end
 
+    logic [13:0] dac_data_p;
+    logic [13:0] dac_data_n;
+
+    always_comb begin
+        dac_data_p = dds_bus;
+        dac_data_n = 14'( -signed'(dds_bus) );
+    end
+
     top_bioimpedancia_ams_v3 #(
         .C_IN(C_in_adc),
         .R_IN(R_in_adc),
@@ -83,7 +91,8 @@ module top_bioimpedancia_circuito_medida_portable_mixed_v3
     ) analog_4p_mixed_v3 (
         .clk(clk),
         .cuantificacion(cuantificacion),
-        .dac_data(dds_bus),
+        .dac_data_p(dac_data_p),
+        .dac_data_n(dac_data_n),
         .senoide_uv(senoide_uv),
         .dac_load_mohm(dac_load_mohm),
         .autoshunt_mohm(autoshunt_mohm),

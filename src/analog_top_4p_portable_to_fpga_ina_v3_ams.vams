@@ -80,8 +80,8 @@ module analog_top_4p_portable_to_fpga_ina_v3_ams (
         if (c_mem_f < 1.0e-15) c_mem_f = 1.0e-15;
 
         // 2. Acoplamiento de Excitación Balanceada (Bloqueo DC C_dc + R_dc)
-        I(node_gen_p, node_cdc_p) <+ C_DC * ddt(V(node_gen_p, node_cdc_p));
-        I(node_gen_n, node_cdc_n) <+ C_DC * ddt(V(node_gen_n, node_cdc_n));
+        I(node_gen_p, node_cdc_p) <+ C_DC * ddt(V(node_gen_p, node_cdc_p)) + V(node_gen_p, node_cdc_p) / 1.0e6;
+        I(node_gen_n, node_cdc_n) <+ C_DC * ddt(V(node_gen_n, node_cdc_n)) + V(node_gen_n, node_cdc_n) / 1.0e6;
         I(node_cdc_p) <+ V(node_cdc_p) / R_DC;
         I(node_cdc_n) <+ V(node_cdc_n) / R_DC;
 
@@ -115,6 +115,6 @@ module analog_top_4p_portable_to_fpga_ina_v3_ams (
         // 8. Etapa TIA AD844 (Tierra Virtual de 50 Ohm en node_tia_in y Salida TZ en node_adc2)
         I(node_tia_in) <+ V(node_tia_in) / R_IN_TIA_INV;
         I(node_adc2) <+ V(node_adc2) / autoshunt_ohm + C_F * ddt(V(node_adc2));
-        I(node_adc2) <+ (V(node_tia_in) / R_IN_TIA_INV);
+        I(node_adc2) <+ -(V(node_tia_in) / R_IN_TIA_INV);
     end
 endmodule

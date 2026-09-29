@@ -14,7 +14,8 @@ module top_bioimpedancia_ams_v3 #(
 )(
     input clk,
     input cuantificacion,
-    input [13:0] dac_data,
+    input [13:0] dac_data_p,
+    input [13:0] dac_data_n,
     input integer senoide_uv,
     input integer dac_load_mohm,
     input integer autoshunt_mohm,
@@ -101,7 +102,7 @@ module top_bioimpedancia_ams_v3 #(
 
     // DAC Excitación Diferencial 1 (+)
     dac_ams_wrapper dac_p_inst (
-        .digital_in(dac_data),
+        .digital_in(dac_data_p),
         .use_digital(cuantificacion),
         .analog_in_uv(senoide_p_uv),
         .r_load_mohm(dac_load_mohm),
@@ -110,7 +111,7 @@ module top_bioimpedancia_ams_v3 #(
 
     // DAC Excitación Diferencial 2 (-)
     dac_ams_wrapper dac_n_inst (
-        .digital_in(dac_data),
+        .digital_in(dac_data_n),
         .use_digital(cuantificacion),
         .analog_in_uv(senoide_n_uv),
         .r_load_mohm(dac_load_mohm),
