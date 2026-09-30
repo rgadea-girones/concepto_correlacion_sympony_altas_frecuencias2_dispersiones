@@ -16,7 +16,8 @@ module top_bioimpedancia_ams_v3 #(
     input cuantificacion,
     input [13:0] dac_data_p,
     input [13:0] dac_data_n,
-    input integer senoide_uv,
+    input integer senoide_p_uv,
+    input integer senoide_n_uv,
     input integer dac_load_mohm,
     input integer autoshunt_mohm,
     input integer r_f1_mohm,
@@ -47,7 +48,6 @@ module top_bioimpedancia_ams_v3 #(
     real r_f1_ohm, r_f2_ohm, r_s1_ohm, r_s2_ohm;
     real c_f1_f, c_f2_f, c_s1_f, c_s2_f;
     real autoshunt_ohm, rext_ohm, rint_ohm, c_mem_f;
-    integer senoide_p_uv, senoide_n_uv;
 
     function real mohms_to_ohms;
         input integer value;
@@ -62,11 +62,6 @@ module top_bioimpedancia_ams_v3 #(
             ff_to_f = value * 1.0e-15;
         end
     endfunction
-
-    always @(*) begin
-        senoide_p_uv = senoide_uv / 2;
-        senoide_n_uv = -senoide_uv / 2;
-    end
 
     analog begin
         r_f1_ohm      = r_f1_mohm * 1.0e-3;
