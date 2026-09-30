@@ -1,7 +1,7 @@
 # Experimento 2 ADCs con INA - Versión 3 (Calibración por Resistencia Pura / Opción 2)
 -O5
 -sv
-+define+EXPERIMENTO_CONTACTO_5K+ALTAS_FRECUENCIAS+DISPERSION_CONTACTOS+EXPERIMENTO_K_MIN+F_MIN_VAL=1000.0+F_MAX_VAL=10000.0
++define+EXPERIMENTO_CONTACTO_5K+ALTAS_FRECUENCIAS+DISPERSION_CONTACTOS+EXPERIMENTO_K_MIN
 -top tb_correlacion_portable_python_to_fpga_configurable
 +incdir+../src/
 -l qrun_experimento_k_extremos_to_fpga_ina_configurable_v3.log

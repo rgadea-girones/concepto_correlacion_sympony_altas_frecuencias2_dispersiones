@@ -64,26 +64,26 @@ module top_bioimpedancia_ams_v3 #(
     endfunction
 
     always @(*) begin
-        r_f1_ohm      = mohms_to_ohms(r_f1_mohm);
-        r_f2_ohm      = mohms_to_ohms(r_f2_mohm);
-        r_s1_ohm      = mohms_to_ohms(r_s1_mohm);
-        r_s2_ohm      = mohms_to_ohms(r_s2_mohm);
-        
-        c_f1_f        = ff_to_f(c_f1_ff);
-        c_f2_f        = ff_to_f(c_f2_ff);
-        c_s1_f        = ff_to_f(c_s1_ff);
-        c_s2_f        = ff_to_f(c_s2_ff);
-        
-        autoshunt_ohm = mohms_to_ohms(autoshunt_mohm);
-        rext_ohm      = mohms_to_ohms(rext_mohm);
-        rint_ohm      = mohms_to_ohms(rint_mohm);
-        c_mem_f       = ff_to_f(c_mem_ff);
-
-        senoide_p_uv  = senoide_uv / 2;
-        senoide_n_uv  = -senoide_uv / 2;
+        senoide_p_uv = senoide_uv / 2;
+        senoide_n_uv = -senoide_uv / 2;
     end
 
     analog begin
+        r_f1_ohm      = r_f1_mohm * 1.0e-3;
+        r_f2_ohm      = r_f2_mohm * 1.0e-3;
+        r_s1_ohm      = r_s1_mohm * 1.0e-3;
+        r_s2_ohm      = r_s2_mohm * 1.0e-3;
+        
+        c_f1_f        = c_f1_ff * 1.0e-15;
+        c_f2_f        = c_f2_ff * 1.0e-15;
+        c_s1_f        = c_s1_ff * 1.0e-15;
+        c_s2_f        = c_s2_ff * 1.0e-15;
+        
+        autoshunt_ohm = autoshunt_mohm * 1.0e-3;
+        rext_ohm      = rext_mohm * 1.0e-3;
+        rint_ohm      = rint_mohm * 1.0e-3;
+        c_mem_f       = c_mem_ff * 1.0e-15;
+
         V(ctrl_r_f1)      <+ transition(r_f1_ohm, 0.0, 1.0e-9);
         V(ctrl_r_f2)      <+ transition(r_f2_ohm, 0.0, 1.0e-9);
         V(ctrl_r_s1)      <+ transition(r_s1_ohm, 0.0, 1.0e-9);

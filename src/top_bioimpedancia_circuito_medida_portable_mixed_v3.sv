@@ -55,8 +55,12 @@ module top_bioimpedancia_circuito_medida_portable_mixed_v3
     integer rint_mohm;
     integer c_mem_ff;
 
+    integer senoide_p_uv, senoide_n_uv;
+
     always_comb begin
         senoide_uv     = $rtoi(senoide * VOLT_SCALE);
+        senoide_p_uv   = $rtoi((senoide * 0.5) * VOLT_SCALE);
+        senoide_n_uv   = $rtoi((-senoide * 0.5) * VOLT_SCALE);
         dac_load_mohm  = $rtoi((R_contact1 + R_ext) * RES_SCALE);
         autoshunt_mohm = $rtoi(autoshunt_value * RES_SCALE);
         
@@ -93,7 +97,8 @@ module top_bioimpedancia_circuito_medida_portable_mixed_v3
         .cuantificacion(cuantificacion),
         .dac_data_p(dac_data_p),
         .dac_data_n(dac_data_n),
-        .senoide_uv(senoide_uv),
+        .senoide_p_uv(senoide_p_uv),
+        .senoide_n_uv(senoide_n_uv),
         .dac_load_mohm(dac_load_mohm),
         .autoshunt_mohm(autoshunt_mohm),
         .r_f1_mohm(r_f1_mohm),

@@ -121,8 +121,14 @@ module tb_correlacion_portable_python_to_fpga_configurable;
     // =============================================================================
     // CONFIGURACIÓN DINÁMICA DEL BARRIDO DE FRECUENCIAS
     // =============================================================================
-    parameter real F_MIN = 40.0;
-    parameter real F_MAX = 1000000.0;
+`ifndef F_MIN_VAL
+    `define F_MIN_VAL 40.0
+`endif
+`ifndef F_MAX_VAL
+    `define F_MAX_VAL 1000000.0
+`endif
+    parameter real F_MIN = `F_MIN_VAL;
+    parameter real F_MAX = `F_MAX_VAL;
 `ifndef PTS_POR_DECADA_VAL
     `define PTS_POR_DECADA_VAL 10
 `endif
