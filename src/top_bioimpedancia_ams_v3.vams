@@ -79,20 +79,20 @@ module top_bioimpedancia_ams_v3 #(
         rint_ohm      = rint_mohm * 1.0e-3;
         c_mem_f       = c_mem_ff * 1.0e-15;
 
-        V(ctrl_r_f1)      <+ transition(r_f1_ohm, 0.0, 1.0e-9);
-        V(ctrl_r_f2)      <+ transition(r_f2_ohm, 0.0, 1.0e-9);
-        V(ctrl_r_s1)      <+ transition(r_s1_ohm, 0.0, 1.0e-9);
-        V(ctrl_r_s2)      <+ transition(r_s2_ohm, 0.0, 1.0e-9);
+        V(ctrl_r_f1)      <+ transition(r_f1_ohm, 0.0, 10.0e-9, 10.0e-9);
+        V(ctrl_r_f2)      <+ transition(r_f2_ohm, 0.0, 10.0e-9, 10.0e-9);
+        V(ctrl_r_s1)      <+ transition(r_s1_ohm, 0.0, 10.0e-9, 10.0e-9);
+        V(ctrl_r_s2)      <+ transition(r_s2_ohm, 0.0, 10.0e-9, 10.0e-9);
         
-        V(ctrl_c_f1)      <+ transition(c_f1_f, 0.0, 1.0e-9);
-        V(ctrl_c_f2)      <+ transition(c_f2_f, 0.0, 1.0e-9);
-        V(ctrl_c_s1)      <+ transition(c_s1_f, 0.0, 1.0e-9);
-        V(ctrl_c_s2)      <+ transition(c_s2_f, 0.0, 1.0e-9);
+        V(ctrl_c_f1)      <+ transition(c_f1_f, 0.0, 10.0e-9, 10.0e-9);
+        V(ctrl_c_f2)      <+ transition(c_f2_f, 0.0, 10.0e-9, 10.0e-9);
+        V(ctrl_c_s1)      <+ transition(c_s1_f, 0.0, 10.0e-9, 10.0e-9);
+        V(ctrl_c_s2)      <+ transition(c_s2_f, 0.0, 10.0e-9, 10.0e-9);
         
-        V(ctrl_autoshunt) <+ transition(autoshunt_ohm, 0.0, 1.0e-9);
-        V(ctrl_rext)      <+ transition(rext_ohm, 0.0, 1.0e-9);
-        V(ctrl_rint)      <+ transition(rint_ohm, 0.0, 1.0e-9);
-        V(ctrl_c_mem)     <+ transition(c_mem_f, 0.0, 1.0e-9);
+        V(ctrl_autoshunt) <+ transition(autoshunt_ohm, 0.0, 10.0e-9, 10.0e-9);
+        V(ctrl_rext)      <+ transition(rext_ohm, 0.0, 10.0e-9, 10.0e-9);
+        V(ctrl_rint)      <+ transition(rint_ohm, 0.0, 10.0e-9, 10.0e-9);
+        V(ctrl_c_mem)     <+ transition(c_mem_f, 0.0, 10.0e-9, 10.0e-9);
     end
 
     // DAC Excitación Diferencial 1 (+)

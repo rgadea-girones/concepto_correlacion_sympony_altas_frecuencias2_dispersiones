@@ -10,11 +10,11 @@
         "AFS_ROOT": "/root/solido_symphony/solidosim/",
         "MGC_AMS_HOME": "/root/solido_symphony/solidosim/"
     },
-    "Execution_Start_Time": "2026-09-30 07:37:30 GMT",
+    "Execution_Start_Time": "2026-10-01 17:42:10 GMT",
     "Design_Info": {
         "Netlist": "/home/eda/concepto_correlacion_sympony_altas_frecuencias2_dispersiones/sim/symphony_v3_input.scs",
         "Circuit": {
-            "Node_Count": 31,
+            "Node_Count": 29,
             "Device_Count": 8
         },
         "Setup": {
@@ -22,8 +22,8 @@
                 "Resident_MB": 232,
                 "Peak_MB": 233
             },
-            "Wall_Clock_Time_ms": 23997,
-            "CPU_Time_ms": 44
+            "Wall_Clock_Time_ms": 24980,
+            "CPU_Time_ms": 154
         }
     },
     "Job1": {
@@ -33,12 +33,16 @@
             "Architecture": "x86_64",
             "Cores": 8,
             "Hyperthreading": "ON",
-            "Physical_Memory_MB": 15905,
-            "Available_Memory_MB": 12858,
+            "Physical_Memory_MB": 15908,
+            "Available_Memory_MB": 13710,
             "OS_Distribution": "Rocky Linux 8.10 (Green Obsidian)",
-            "OS_Kernel": "6.18.33.2-microsoft-standard-WSL2"
+            "OS_Kernel": "6.18.40.1-microsoft-standard-WSL2"
         },
         "Cores_Used": 1,
         "Execution_directory": "/home/eda/concepto_correlacion_sympony_altas_frecuencias2_dispersiones/sim",
         "License": {
             "AFS": 1
+        },
+        "Note_Count": 7
+    }
+}

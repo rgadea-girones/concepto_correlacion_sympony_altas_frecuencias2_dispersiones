@@ -1,0 +1,2 @@
+flujo,simulador,configuracion,run_id,sujeto,medida,frecuencia,modulo,fase,modulo_a,fase_a,modulo_b,fase_b,tiempo_pc_s,tiempo_hardware_s
+symphony_mixed,questa_symphony,150K_con_autoshunt_symphony_k_extremos,,2,0,39.988663,19992.744065,-1.439216,0.000000,0.000000,0.000000,0.000000,0.012,0.000000020000

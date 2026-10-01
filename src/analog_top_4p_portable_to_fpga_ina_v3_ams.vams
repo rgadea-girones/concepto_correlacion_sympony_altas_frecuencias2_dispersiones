@@ -74,14 +74,14 @@ module analog_top_4p_portable_to_fpga_ina_v3_ams (
         if (c_f2_f < 0.0) c_f2_f = 0.0;
         if (c_s1_f < 0.0) c_s1_f = 0.0;
         if (c_s2_f < 0.0) c_s2_f = 0.0;
-        if (autoshunt_ohm < 1.0e-3) autoshunt_ohm = 1.0e-3;
+        if (autoshunt_ohm < 1.0) autoshunt_ohm = 1.0;
         if (rext_ohm < 1.0e-3) rext_ohm = 1.0e-3;
         if (rint_ohm < 1.0e-3) rint_ohm = 1.0e-3;
         if (c_mem_f < 1.0e-15) c_mem_f = 1.0e-15;
 
         // 2. Acoplamiento de Excitación Balanceada (Bloqueo DC C_dc + R_dc)
-        I(node_gen_p, node_cdc_p) <+ C_DC * ddt(V(node_gen_p, node_cdc_p)) + V(node_gen_p, node_cdc_p) / 1.0e6;
-        I(node_gen_n, node_cdc_n) <+ C_DC * ddt(V(node_gen_n, node_cdc_n)) + V(node_gen_n, node_cdc_n) / 1.0e6;
+        I(node_gen_p, node_cdc_p) <+ C_DC * ddt(V(node_gen_p, node_cdc_p));
+        I(node_gen_n, node_cdc_n) <+ C_DC * ddt(V(node_gen_n, node_cdc_n));
         I(node_cdc_p) <+ V(node_cdc_p) / R_DC;
         I(node_cdc_n) <+ V(node_cdc_n) / R_DC;
 
@@ -99,18 +99,14 @@ module analog_top_4p_portable_to_fpga_ina_v3_ams (
         I(node_tissue_int, node_B) <+ V(node_tissue_int, node_B) / rint_ohm;
 
         // 5. Lazo Sense (Contactos R_s1||C_s1 y R_s2||C_s2)
-        I(node_A, node_s1_int) <+ V(node_A, node_s1_int) / r_s1_ohm + c_s1_f * ddt(V(node_A, node_s1_int));
-        I(node_B, node_s2_int) <+ V(node_B, node_s2_int) / r_s2_ohm + c_s2_f * ddt(V(node_B, node_s2_int));
+        I(node_A, node_ina_in1) <+ V(node_A, node_ina_in1) / r_s1_ohm + c_s1_f * ddt(V(node_A, node_ina_in1));
+        I(node_B, node_ina_in2) <+ V(node_B, node_ina_in2) / r_s2_ohm + c_s2_f * ddt(V(node_B, node_ina_in2));
 
-        // 6. Inductancia Mutua (Coupling entre la corriente Force+ y la tensión Sense)
-        V(node_s1_int, node_ina_in1) <+  MUTUAL_L * ddt(V(b_force_p) / r_f1_ohm);
-        V(node_s2_int, node_ina_in2) <+ -MUTUAL_L * ddt(V(b_force_p) / r_f1_ohm);
-
-        // 7. Etapa de Entrada INA AD8421 (C_in_ina, R_in_ina, R_bias_ina) y Salida (node_adc1)
+        // 6. Etapa de Entrada y Salida INA AD8421 (con Inductancia Mutua M*di/dt)
         I(node_ina_in1, node_ina_in2) <+ V(node_ina_in1, node_ina_in2) / R_IN_INA + C_IN_INA * ddt(V(node_ina_in1, node_ina_in2));
         I(node_ina_in1) <+ V(node_ina_in1) / R_BIAS_INA;
         I(node_ina_in2) <+ V(node_ina_in2) / R_BIAS_INA;
-        V(node_adc1) <+ INA_GAIN * (V(node_ina_in1) - V(node_ina_in2));
+        V(node_adc1) <+ INA_GAIN * ((V(node_ina_in1) - V(node_ina_in2)) + MUTUAL_L * ddt(I(b_force_p)));
 
         // 8. Etapa TIA AD844 (Tierra Virtual de 50 Ohm en node_tia_in y Salida TZ en node_adc2)
         I(node_tia_in) <+ V(node_tia_in) / R_IN_TIA_INV;
