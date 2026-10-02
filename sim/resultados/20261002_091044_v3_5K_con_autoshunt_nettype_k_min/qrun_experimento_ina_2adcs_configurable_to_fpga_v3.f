@@ -1,10 +1,10 @@
-# Experimento 2 ADCs con INA - Versión 3 con Symphony (K_MIN solo: 1 sweep)
+# Experimento 2 ADCs con INA - Versión 3 (Calibración por Resistencia Pura / Opción 2)
 -O5
 -sv
-+define+EXPERIMENTO_CONTACTO_5K+ALTAS_FRECUENCIAS+DISPERSION_CONTACTOS+EXPERIMENTO_K_MIN+USE_VAMS_MIXED
++define+EXPERIMENTO_CONTACTO_5K+ALTAS_FRECUENCIAS+DISPERSION_CONTACTOS+EXPERIMENTO_K_MIN+F_MIN_VAL=1000.0+F_MAX_VAL=10000.0
 -top tb_correlacion_portable_python_to_fpga_configurable
 +incdir+../src/
--l qrun_experimento_k_min_to_fpga_ina_configurable_v3_symphony.log
+-l qrun_experimento_k_extremos_to_fpga_ina_configurable_v3.log
  -batch
 -do "run -all; quit -f"
 
@@ -16,7 +16,7 @@
 ../src/bioz_block_portable_to_fpga_ina_v3.sv
 ../src/rp_adc_model_nettype.sv
 ../src/rp_dac_model_nettype.sv
-../src/top_bioimpedancia_circuito_medida_portable_mixed_v3.sv
+../src/top_bioimpedancia_circuito_medida_portable_to_fpga_ina_v3.sv
 
 ../src/Fixed2Float.v
 ../src/Float2Fixed.v

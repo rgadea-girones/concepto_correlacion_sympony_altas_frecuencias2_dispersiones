@@ -19,16 +19,17 @@ module adc_ams_wrapper(
     // --- CARGA FÍSICA DEL INSTRUMENTO ---
     // Aquí es donde ocurre la "magia" del artefacto. El ADC ya no es un observador ideal.
     analog begin
-        v_sampled = V(node_adc);
         I(node_adc) <+ (V(node_adc) / R_IN) + C_IN * ddt(V(node_adc));
     end
 
     initial begin
         digital_out = 14'd0;
         v_filtered = 0.0;
+        v_sampled = 0.0;
     end
 
     always @(posedge clk) begin
+        v_sampled = V(node_adc);
         v_filtered = v_filtered + ALPHA * (v_sampled - v_filtered);
         v_norm = v_filtered / V_REF;
 

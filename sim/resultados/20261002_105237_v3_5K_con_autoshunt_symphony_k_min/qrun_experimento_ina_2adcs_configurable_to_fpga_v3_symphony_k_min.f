@@ -1,7 +1,7 @@
 # Experimento 2 ADCs con INA - Versión 3 con Symphony (K_MIN solo: 1 sweep)
 -O5
 -sv
-+define+EXPERIMENTO_CONTACTO_5K+ALTAS_FRECUENCIAS+DISPERSION_CONTACTOS+EXPERIMENTO_K_MIN+USE_VAMS_MIXED
++define+EXPERIMENTO_CONTACTO_5K+ALTAS_FRECUENCIAS+DISPERSION_CONTACTOS+EXPERIMENTO_K_MIN+USE_VAMS_MIXED+F_MIN_VAL=1000.0+F_MAX_VAL=10000.0
 -top tb_correlacion_portable_python_to_fpga_configurable
 +incdir+../src/
 -l qrun_experimento_k_min_to_fpga_ina_configurable_v3_symphony.log
