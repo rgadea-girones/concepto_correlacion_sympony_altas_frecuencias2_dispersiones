@@ -38,3 +38,5 @@ Para facilitar la revisión por pares, el alojamiento en repositorios y la organ
 ### Entorno Virtual
 
 Se recomienda usar el entorno virtual creado (`sim/.venv_articulo_plots`) para ejecutar los scripts de visualización, ya que cuenta con dependencias clave como `pandas`, `numpy` y `matplotlib`.
+### Zenodo
+[![DOI](https://zenodo.org/badge/1390574957.svg)](https://doi.org/10.5281/zenodo.23155325)
