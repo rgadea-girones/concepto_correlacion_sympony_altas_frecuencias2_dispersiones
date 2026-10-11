@@ -1,0 +1,8 @@
+flujo,simulador,configuracion,run_id,sujeto,medida,frecuencia,modulo,fase,modulo_a,fase_a,modulo_b,fase_b,tiempo_pc_s,tiempo_hardware_s
+symphony_mixed,questa_symphony,150K_con_autoshunt_symphony_k_min,,2,0,39.988663,19992.744065,-1.439216,0.000000,0.000000,0.000000,0.000000,0.007,0.000000020000
+symphony_mixed,questa_symphony,150K_con_autoshunt_symphony_k_min,,2,0,50.349627,17997.884560,-0.815595,0.000000,0.000000,0.000000,0.000000,3606.050,0.062517780000
+symphony_mixed,questa_symphony,150K_con_autoshunt_symphony_k_min,,0,0,39.988663,18433.593750,0.000000,1322171.000000,0.000000,71.720000,0.000000,3606.172,0.062518864000
+symphony_mixed,questa_symphony,150K_con_autoshunt_symphony_k_min,,1,0,39.988663,18433.593750,0.008830,1324251.028317,0.006779,71.863440,0.000374,3606.172,0.062518864000
+symphony_mixed,questa_symphony,150K_con_autoshunt_symphony_k_min,,2,0,63.388143,17996.647421,-1.026749,0.000000,0.000000,0.000000,0.000000,6357.586,0.102240028000
+symphony_mixed,questa_symphony,150K_con_autoshunt_symphony_k_min,,0,0,50.349627,18417.968750,0.000000,1066580.000000,0.000000,57.907000,0.000000,6357.711,0.102241112000
+symphony_mixed,questa_symphony,150K_con_autoshunt_symphony_k_min,,1,0,50.349627,18417.968750,0.010950,1068229.016166,0.008389,58.022814,0.000470,6357.711,0.102241112000

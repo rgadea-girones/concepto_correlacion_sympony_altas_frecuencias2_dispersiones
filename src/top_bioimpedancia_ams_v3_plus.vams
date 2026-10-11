@@ -1,0 +1,182 @@
+`include "constants.vams"
+`include "disciplines.vams"
+
+// =============================================================================
+// Top-Level Mixed-Signal Verilog-AMS para la Arquitectura v3 Plus en Symphony
+// (2-DAC Balanced Excitation + INA AD8421 + TIA AD844 con Autoshunt ADG4612 + 2 ADCs)
+// Conmutación en Paralelo (2000, 1000, 500, 200 Ohm):
+// - Decadas 10-100Hz y 100-1kHz: sw = 4'b0001 -> R_sh = 2000 Ohm (SW1)
+// - Década 1k-10kHz           : sw = 4'b0011 -> R_sh = 666.67 Ohm (SW1 + SW2)
+// - Década 10k-100kHz         : sw = 4'b0110 -> R_sh = 333.33 Ohm (SW2 + SW3)
+// - Década 100k-1MHz          : sw = 4'b1110 -> R_sh = 125.0 Ohm (SW2 + SW3 + SW4)
+// =============================================================================
+
+module top_bioimpedancia_ams_v3_plus #(
+    parameter real C_IN     = 10.0e-12,
+    parameter real R_IN     = 1.0e6,
+    parameter real C_LEAK   = 10.0e-12,
+    parameter real MUTUAL_L = 2.5e-7
+)(
+    input clk,
+    input cuantificacion,
+    input [13:0] dac_data_p,
+    input [13:0] dac_data_n,
+    input signed [31:0] senoide_p_uv,
+    input signed [31:0] senoide_n_uv,
+    input signed [31:0] dac_load_mohm,
+    input [3:0] sw_autoshunt,           // Control digital de 4 bits para las entradas IN1..IN4 del ADG4612
+    input signed [31:0] autoshunt_mohm, // Fallback/Compatibilidad con valor escalar autoshunt
+    input signed [31:0] r_f1_mohm,
+    input signed [31:0] r_f2_mohm,
+    input signed [31:0] r_s1_mohm,
+    input signed [31:0] r_s2_mohm,
+    input signed [31:0] c_f1_ff,
+    input signed [31:0] c_f2_ff,
+    input signed [31:0] c_s1_ff,
+    input signed [31:0] c_s2_ff,
+    input signed [31:0] rext_mohm,
+    input signed [31:0] rint_mohm,
+    input signed [31:0] c_mem_ff,
+    output [13:0] adc1_data,
+    output [13:0] adc2_data
+);
+    electrical node_gen_p, node_gen_n;
+    electrical node_adc1, node_adc2;
+    
+    electrical ctrl_r_f1, ctrl_r_f2, ctrl_r_s1, ctrl_r_s2;
+    electrical ctrl_c_f1, ctrl_c_f2, ctrl_c_s1, ctrl_c_s2;
+    
+    electrical ctrl_sw1, ctrl_sw2, ctrl_sw3, ctrl_sw4;
+    electrical ctrl_rext;
+    electrical ctrl_rint;
+    electrical ctrl_c_mem;
+
+    real r_f1_ohm, r_f2_ohm, r_s1_ohm, r_s2_ohm;
+    real c_f1_f, c_f2_f, c_s1_f, c_s2_f;
+    real autoshunt_ohm, rext_ohm, rint_ohm, c_mem_f;
+
+    real sw1_target, sw2_target, sw3_target, sw4_target;
+
+    analog begin
+        r_f1_ohm      = r_f1_mohm * 1.0e-3;
+        r_f2_ohm      = r_f2_mohm * 1.0e-3;
+        r_s1_ohm      = r_s1_mohm * 1.0e-3;
+        r_s2_ohm      = r_s2_mohm * 1.0e-3;
+        
+        c_f1_f        = c_f1_ff * 1.0e-15;
+        c_f2_f        = c_f2_ff * 1.0e-15;
+        c_s1_f        = c_s1_ff * 1.0e-15;
+        c_s2_f        = c_s2_ff * 1.0e-15;
+        
+        autoshunt_ohm = autoshunt_mohm * 1.0e-3;
+        rext_ohm      = rext_mohm * 1.0e-3;
+        rint_ohm      = rint_mohm * 1.0e-3;
+        c_mem_f       = c_mem_ff * 1.0e-15;
+
+        // Decodificación de selección de interruptores ADG4612
+        if (sw_autoshunt != 4'b0000) begin
+            sw1_target = sw_autoshunt[0] ? 1.0 : 0.0;
+            sw2_target = sw_autoshunt[1] ? 1.0 : 0.0;
+            sw3_target = sw_autoshunt[2] ? 1.0 : 0.0;
+            sw4_target = sw_autoshunt[3] ? 1.0 : 0.0;
+        end else begin
+            // Mapeo automático de resistencia deseada a combinación de switches en paralelo:
+            // 2000 Ohm    -> sw = 4'b0001 -> SW1 ON (R1 = 2000 Ohm)
+            // 666.67 Ohm  -> sw = 4'b0011 -> SW1 + SW2 ON (2000 || 1000 = 666.67 Ohm)
+            // 333.33 Ohm  -> sw = 4'b0110 -> SW2 + SW3 ON (1000 || 500 = 333.33 Ohm)
+            // 125.0 Ohm   -> sw = 4'b1110 -> SW2 + SW3 + SW4 ON (1000 || 500 || 200 = 125.0 Ohm)
+            if (autoshunt_ohm >= 1200.0) begin
+                sw1_target = 1.0; sw2_target = 0.0; sw3_target = 0.0; sw4_target = 0.0;
+            end else if (autoshunt_ohm >= 450.0) begin
+                sw1_target = 1.0; sw2_target = 1.0; sw3_target = 0.0; sw4_target = 0.0;
+            end else if (autoshunt_ohm >= 200.0) begin
+                sw1_target = 0.0; sw2_target = 1.0; sw3_target = 1.0; sw4_target = 0.0;
+            end else begin
+                sw1_target = 0.0; sw2_target = 1.0; sw3_target = 1.0; sw4_target = 1.0;
+            end
+        end
+
+        V(ctrl_r_f1)  <+ transition(r_f1_ohm, 0.0, 10.0e-9, 10.0e-9);
+        V(ctrl_r_f2)  <+ transition(r_f2_ohm, 0.0, 10.0e-9, 10.0e-9);
+        V(ctrl_r_s1)  <+ transition(r_s1_ohm, 0.0, 10.0e-9, 10.0e-9);
+        V(ctrl_r_s2)  <+ transition(r_s2_ohm, 0.0, 10.0e-9, 10.0e-9);
+        
+        V(ctrl_c_f1)  <+ transition(c_f1_f, 0.0, 10.0e-9, 10.0e-9);
+        V(ctrl_c_f2)  <+ transition(c_f2_f, 0.0, 10.0e-9, 10.0e-9);
+        V(ctrl_c_s1)  <+ transition(c_s1_f, 0.0, 10.0e-9, 10.0e-9);
+        V(ctrl_c_s2)  <+ transition(c_s2_f, 0.0, 10.0e-9, 10.0e-9);
+        
+        // Transiciones analógicas suaves para la conmutación del ADG4612 (30 ns de tiempo de conmutación)
+        V(ctrl_sw1)   <+ transition(sw1_target, 0.0, 30.0e-9, 30.0e-9);
+        V(ctrl_sw2)   <+ transition(sw2_target, 0.0, 30.0e-9, 30.0e-9);
+        V(ctrl_sw3)   <+ transition(sw3_target, 0.0, 30.0e-9, 30.0e-9);
+        V(ctrl_sw4)   <+ transition(sw4_target, 0.0, 30.0e-9, 30.0e-9);
+
+        V(ctrl_rext)  <+ transition(rext_ohm, 0.0, 10.0e-9, 10.0e-9);
+        V(ctrl_rint)  <+ transition(rint_ohm, 0.0, 10.0e-9, 10.0e-9);
+        V(ctrl_c_mem) <+ transition(c_mem_f, 0.0, 10.0e-9, 10.0e-9);
+    end
+
+    // DAC Excitación Diferencial 1 (+)
+    dac_ams_wrapper dac_p_inst (
+        .digital_in(dac_data_p),
+        .use_digital(cuantificacion),
+        .analog_in_uv(senoide_p_uv),
+        .r_load_mohm(dac_load_mohm),
+        .node_gen(node_gen_p)
+    );
+
+    // DAC Excitación Diferencial 2 (-)
+    dac_ams_wrapper dac_n_inst (
+        .digital_in(dac_data_n),
+        .use_digital(cuantificacion),
+        .analog_in_uv(senoide_n_uv),
+        .r_load_mohm(dac_load_mohm),
+        .node_gen(node_gen_n)
+    );
+
+    // Topológico Analógico v3 Plus
+    analog_top_4p_portable_to_fpga_ina_v3_plus_ams #(
+        .C_LEAK(C_LEAK),
+        .MUTUAL_L(MUTUAL_L)
+    ) analog_top_inst (
+        .node_gen_p(node_gen_p),
+        .node_gen_n(node_gen_n),
+        .node_adc1(node_adc1),
+        .node_adc2(node_adc2),
+        .ctrl_r_f1(ctrl_r_f1),
+        .ctrl_r_f2(ctrl_r_f2),
+        .ctrl_r_s1(ctrl_r_s1),
+        .ctrl_r_s2(ctrl_r_s2),
+        .ctrl_c_f1(ctrl_c_f1),
+        .ctrl_c_f2(ctrl_c_f2),
+        .ctrl_c_s1(ctrl_c_s1),
+        .ctrl_c_s2(ctrl_c_s2),
+        .ctrl_sw1(ctrl_sw1),
+        .ctrl_sw2(ctrl_sw2),
+        .ctrl_sw3(ctrl_sw3),
+        .ctrl_sw4(ctrl_sw4),
+        .ctrl_rext(ctrl_rext),
+        .ctrl_rint(ctrl_rint),
+        .ctrl_c_mem(ctrl_c_mem)
+    );
+
+    // Muestreadores ADC en nodos 1 y 2
+    adc_ams_wrapper #(
+        .C_IN(C_IN),
+        .R_IN(R_IN)
+    ) adc1_inst (
+        .node_adc(node_adc1),
+        .clk(clk),
+        .digital_out(adc1_data)
+    );
+
+    adc_ams_wrapper #(
+        .C_IN(C_IN),
+        .R_IN(R_IN)
+    ) adc2_inst (
+        .node_adc(node_adc2),
+        .clk(clk),
+        .digital_out(adc2_data)
+    );
+endmodule

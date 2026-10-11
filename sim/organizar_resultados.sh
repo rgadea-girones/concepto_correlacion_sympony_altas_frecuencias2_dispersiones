@@ -18,7 +18,9 @@ echo "=========================================================="
 
 # 1. Extraer versión si existe en el nombre de archivo
 VERSION="v3"
-if [[ "$CONFIG_FILE" =~ v[0-9]+ ]]; then
+if [[ "$CONFIG_FILE" =~ v[0-9]+_plus ]]; then
+    VERSION="v3_plus"
+elif [[ "$CONFIG_FILE" =~ v[0-9]+ ]]; then
     VERSION="$(echo "$CONFIG_FILE" | grep -oP 'v[0-9]+')"
 fi
 
@@ -27,7 +29,23 @@ if [[ "$CONFIG_FILE" =~ "symphony" ]]; then
     cp -f modelsim.ini questa.ini 2>/dev/null || true
     rm -f qwave.db.lock
     rm -rf qrun.out qrun_opt* symphony.out
-    symphony -deluxe -anaformat psf -conf symphony_v3.conf -lconfig all -lconfigname symphony_v3.log -afs -l analog_v3.log -j 60 symphony_v3_input.scs -f psfbin --offrunobj --escchars -end -qrun -f "$CONFIG_FILE" -end -vams +incdir+/root/solido_symphony/solidosim/questasim/verilog_src/adms_vlams/ ../src/dac_ams_wrapper.vams ../src/adc_ams_wrapper.vams ../src/analog_top_4p_portable_to_fpga_ina_v3_ams.vams ../src/top_bioimpedancia_ams_v3.vams -end
+
+    CONF_FILE="symphony_${VERSION}.conf"
+    [ ! -f "$CONF_FILE" ] && CONF_FILE="symphony_v3.conf"
+
+    INPUT_SCS="symphony_${VERSION}_input.scs"
+    [ ! -f "$INPUT_SCS" ] && INPUT_SCS="symphony_v3_input.scs"
+
+    LOG_NAME="symphony_${VERSION}.log"
+    ANALOG_LOG="analog_${VERSION}.log"
+
+    TOP_VAMS="../src/top_bioimpedancia_ams_${VERSION}.vams"
+    [ ! -f "$TOP_VAMS" ] && TOP_VAMS="../src/top_bioimpedancia_ams_v3.vams"
+
+    ANALOG_TOP_VAMS="../src/analog_top_4p_portable_to_fpga_ina_${VERSION}_ams.vams"
+    [ ! -f "$ANALOG_TOP_VAMS" ] && ANALOG_TOP_VAMS="../src/analog_top_4p_portable_to_fpga_ina_v3_ams.vams"
+
+    symphony -deluxe -anaformat psf -conf "$CONF_FILE" -lconfig all -lconfigname "$LOG_NAME" -afs -l "$ANALOG_LOG" -j 60 "$INPUT_SCS" -f psfbin --offrunobj --escchars -end -qrun -f "$CONFIG_FILE" -end -vams +incdir+/root/solido_symphony/solidosim/questasim/verilog_src/adms_vlams/ ../src/dac_ams_wrapper.vams ../src/adc_ams_wrapper.vams "$ANALOG_TOP_VAMS" "$TOP_VAMS" -end
 else
     qrun -f "$CONFIG_FILE"
 fi
