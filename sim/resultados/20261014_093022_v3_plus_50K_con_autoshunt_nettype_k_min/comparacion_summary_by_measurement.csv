@@ -1,0 +1,3 @@
+method,medida,n_points,mae_magnitude_ohm,mae_magnitude_pct,mae_phase
+Calibrated Correlation (Subject 1),0,44,92.38936256818182,5.201309953616312,11.582762704545454
+Correlation (Subject 0),0,44,92.38936256818182,5.201309953616312,4.678973045454545

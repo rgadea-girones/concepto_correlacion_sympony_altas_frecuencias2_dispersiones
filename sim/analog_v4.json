@@ -1,0 +1,44 @@
+{
+    "Telemetry_File_Version": 1,
+    "Product_Name": "AFS",
+    "Product_Version": "2026.1 update1",
+    "Build_Date": "Thu Mar 12 11:02:08 PDT 2026",
+    "User_Name": "eda",
+    "UID": 1000,
+    "ExecutableName": "/root/solido_symphony/solidosim//bin/Linux_x86_64/simulator",
+    "Env_Variables": {
+        "AFS_ROOT": "/root/solido_symphony/solidosim/",
+        "MGC_AMS_HOME": "/root/solido_symphony/solidosim/"
+    },
+    "Execution_Start_Time": "2026-10-18 09:56:50 GMT",
+    "Design_Info": {
+        "Netlist": "/home/eda/concepto_correlacion_sympony_altas_frecuencias2_dispersiones/sim/symphony_v4_input.scs",
+        "Circuit": {
+            "Node_Count": 36,
+            "Device_Count": 8
+        },
+        "Setup": {
+            "Memory_Info": {
+                "Resident_MB": 233,
+                "Peak_MB": 235
+            },
+            "Wall_Clock_Time_ms": 23557,
+            "CPU_Time_ms": 85
+        }
+    },
+    "Job1": {
+        "Machine_Info": {
+            "Host_Name": "hyperion8",
+            "Model_Name": "Intel(R) Xeon(R) E-2174G CPU @ 3.80GHz",
+            "Architecture": "x86_64",
+            "Cores": 8,
+            "Hyperthreading": "ON",
+            "Physical_Memory_MB": 15907,
+            "Available_Memory_MB": 13764,
+            "OS_Distribution": "Rocky Linux 8.10 (Green Obsidian)",
+            "OS_Kernel": "6.18.54.1-microsoft-standard-WSL2"
+        },
+        "Cores_Used": 1,
+        "Execution_directory": "/home/eda/concepto_correlacion_sympony_altas_frecuencias2_dispersiones/sim",
+        "License": {
+            "AFS": 1

@@ -1,0 +1,518 @@
+QuestaSim-64 qrun 2026.1_1 Utility 2026.03 Mar  2 2026
+Start time: 13:33:39 on Oct 11,2026
+qrun -ini symphony.out/default_snapshot/questa.ini -reflib ./work -64 -do "symphony.out/default_snapshot/.init.tcl" -O5 -sv "+define+EXPERIMENTO_CONTACTO_50K+ALTAS_FRECUENCIAS+DISPERSION_CONTACTOS+USE_VAMS_MIXED+EXPERIMENTO_K_MIN" -top tb_correlacion_portable_python_to_fpga_configurable "+incdir+../src/" -l qrun_experimento_k_extremos_to_fpga_ina_configurable_v3_plus_symphony.log -batch -do "run -all; quit -f" ../src/FFT_mariposa.c ../src/dpi_guardar_datos_detalle_tiempos.c ../src/dpi_pkg_tiempos.sv ../src/electrical_pkg.sv ../src/bioz_block_portable_to_fpga_ina_v3_plus.sv ../src/rp_adc_model_nettype.sv ../src/rp_dac_model_nettype.sv ../src/top_bioimpedancia_circuito_medida_portable_mixed_v3_plus.sv ../src/Fixed2Float.v ../src/Float2Fixed.v ../src/NormalCases.v ../src/Overflow.v ../src/SpecialCases.v ../src/FixedShifter.v ../src/FixedShiftCalc.v ../src/Divisor_Alg_ali2.sv ../src/arctan8b.sv ../src/arctan8better2.sv ../src/arctan8best.sv ../src/DDS_rafa_red_cuarto.sv ../src/fixed_pkg.vhd ../src/memoria_dual_port.sv ../src/memoria_single_port_vhdl_2008_arctan.vhd ../src/nuevo_radicador_rapido2.sv ../src/premodulo_generico_best.sv ../src/Control_path_dds_configurable_mejora_correlacion8_autoshunt_sweep_updown_4p_mejorado_quiza_final.sv ../src/tb_correlacion_ina_2adcs_configurable_to_fpga_v3_plus.sv -L symphonycelllib -L symphonyvamscelllib -voptargs="-designfile symphony.out/design.bin"  -qwavedb=+wavedir=symphony.out/default_snapshot/symphony.qdb -suppress 12130 -voptargs="-access=rw+/. -cellaccess=rw+/. -bitscalars -inlineFactor=0  -noSharedArchs "  "+plusarg_save" "+symphony=symphony.out/default_snapshot/.symphonycmdline" -rnmconfigfile symphony_v3_plus.conf -rnmconfiglib /root/solido_symphony/solidosim/symphony/lib.linux_x86_64/libconf_reader.so -symphony -pli "/root/solido_symphony/solidosim/symphony/lib.linux_x86_64/libsymphonyelabvpi.so"
+
+Formatted qrun command:
+qrun
+    -ini symphony.out/default_snapshot/questa.ini
+    -reflib ./work
+    -64
+    -do "symphony.out/default_snapshot/.init.tcl"
+    -O5
+    -sv
+    "+define+EXPERIMENTO_CONTACTO_50K+ALTAS_FRECUENCIAS+DISPERSION_CONTACTOS+USE_VAMS_MIXED+EXPERIMENTO_K_MIN"
+    -top tb_correlacion_portable_python_to_fpga_configurable
+    "+incdir+../src/"
+    -l qrun_experimento_k_extremos_to_fpga_ina_configurable_v3_plus_symphony.log
+    -batch
+    -do "run -all; quit -f"
+    ../src/FFT_mariposa.c
+    ../src/dpi_guardar_datos_detalle_tiempos.c
+    ../src/dpi_pkg_tiempos.sv
+    ../src/electrical_pkg.sv
+    ../src/bioz_block_portable_to_fpga_ina_v3_plus.sv
+    ../src/rp_adc_model_nettype.sv
+    ../src/rp_dac_model_nettype.sv
+    ../src/top_bioimpedancia_circuito_medida_portable_mixed_v3_plus.sv
+    ../src/Fixed2Float.v
+    ../src/Float2Fixed.v
+    ../src/NormalCases.v
+    ../src/Overflow.v
+    ../src/SpecialCases.v
+    ../src/FixedShifter.v
+    ../src/FixedShiftCalc.v
+    ../src/Divisor_Alg_ali2.sv
+    ../src/arctan8b.sv
+    ../src/arctan8better2.sv
+    ../src/arctan8best.sv
+    ../src/DDS_rafa_red_cuarto.sv
+    ../src/fixed_pkg.vhd
+    ../src/memoria_dual_port.sv
+    ../src/memoria_single_port_vhdl_2008_arctan.vhd
+    ../src/nuevo_radicador_rapido2.sv
+    ../src/premodulo_generico_best.sv
+    ../src/Control_path_dds_configurable_mejora_correlacion8_autoshunt_sweep_updown_4p_mejorado_quiza_final.sv
+    ../src/tb_correlacion_ina_2adcs_configurable_to_fpga_v3_plus.sv
+    -L symphonycelllib
+    -L symphonyvamscelllib
+    -voptargs="-designfile symphony.out/design.bin" 
+    -qwavedb=+wavedir=symphony.out/default_snapshot/symphony.qdb
+    -suppress 12130
+    -voptargs="-access=rw+/. -cellaccess=rw+/. -bitscalars -inlineFactor=0  -noSharedArchs " 
+    "+plusarg_save"
+    "+symphony=symphony.out/default_snapshot/.symphonycmdline"
+    -rnmconfigfile symphony_v3_plus.conf
+    -rnmconfiglib /root/solido_symphony/solidosim/symphony/lib.linux_x86_64/libconf_reader.so
+    -symphony
+    -pli "/root/solido_symphony/solidosim/symphony/lib.linux_x86_64/libsymphonyelabvpi.so"
+
+** Note: (qrun-220) 'symphony.out/default_snapshot/questa.ini' is used as the ini file.
+** Note: (qrun-20238) Reinvoking vlog command and creating a new session as an old vlog session has been found with common files but different arguments passed:
+- New Command: vlog -ini symphony.out/default_snapshot/questa.ini -64 -O5 -sv +define+EXPERIMENTO_CONTACTO_50K+ALTAS_FRECUENCIAS+DISPERSION_CONTACTOS+USE_VAMS_MIXED+EXPERIMENTO_K_MIN +incdir+../src/ -L symphonycelllib -L symphonyvamscelllib -L ./work -suppress 12130 ../src/FFT_mariposa.c ../src/dpi_guardar_datos_detalle_tiempos.c ../src/dpi_pkg_tiempos.sv ../src/electrical_pkg.sv ../src/bioz_block_portable_to_fpga_ina_v3_plus.sv ../src/rp_adc_model_nettype.sv ../src/rp_dac_model_nettype.sv ../src/top_bioimpedancia_circuito_medida_portable_mixed_v3_plus.sv ../src/Fixed2Float.v ../src/Float2Fixed.v ../src/NormalCases.v ../src/Overflow.v ../src/SpecialCases.v ../src/FixedShifter.v ../src/FixedShiftCalc.v ../src/Divisor_Alg_ali2.sv ../src/arctan8b.sv ../src/arctan8better2.sv ../src/arctan8best.sv ../src/DDS_rafa_red_cuarto.sv ../src/memoria_dual_port.sv ../src/nuevo_radicador_rapido2.sv ../src/premodulo_generico_best.sv ../src/Control_path_dds_configurable_mejora_correlacion8_autoshunt_sweep_updown_4p_mejorado_quiza_final.sv ../src/tb_correlacion_ina_2adcs_configurable_to_fpga_v3_plus.sv -work qrun.out/work -statslog qrun.out/stats_log0xGMi8 -csession=incr 
+- Old Command: vlog -64 -O5 -sv +define+EXPERIMENTO_CONTACTO_50K+ALTAS_FRECUENCIAS+DISPERSION_CONTACTOS+USE_VAMS_MIXED+EXPERIMENTO_K_MIN +incdir+../src/ ../src/FFT_mariposa.c ../src/dpi_guardar_datos_detalle_tiempos.c ../src/dpi_pkg_tiempos.sv ../src/electrical_pkg.sv ../src/bioz_block_portable_to_fpga_ina_v3_plus.sv ../src/rp_adc_model_nettype.sv ../src/rp_dac_model_nettype.sv ../src/top_bioimpedancia_circuito_medida_portable_mixed_v3_plus.sv ../src/Fixed2Float.v ../src/Float2Fixed.v ../src/NormalCases.v ../src/Overflow.v ../src/SpecialCases.v ../src/FixedShifter.v ../src/FixedShiftCalc.v ../src/Divisor_Alg_ali2.sv ../src/arctan8b.sv ../src/arctan8better2.sv ../src/arctan8best.sv ../src/DDS_rafa_red_cuarto.sv ../src/memoria_dual_port.sv ../src/nuevo_radicador_rapido2.sv ../src/premodulo_generico_best.sv ../src/Control_path_dds_configurable_mejora_correlacion8_autoshunt_sweep_updown_4p_mejorado_quiza_final.sv ../src/tb_correlacion_ina_2adcs_configurable_to_fpga_v3_plus.sv -work qrun.out/work -statslog qrun.out/stats_logAwf7T7 -csession=incr 
+QuestaSim-64 vlog 2026.1_1 Compiler 2026.03 Mar  2 2026
+** Warning: (vlog-13288) Multiple macros defined in +define+ command line switch.
+Start time: 13:33:39 on Oct 11,2026
+vlog -ini symphony.out/default_snapshot/questa.ini -64 -O5 -sv "+define+EXPERIMENTO_CONTACTO_50K+ALTAS_FRECUENCIAS+DISPERSION_CONTACTOS+USE_VAMS_MIXED+EXPERIMENTO_K_MIN" "+incdir+../src/" -L symphonycelllib -L symphonyvamscelllib -L ./work -suppress 12130 ../src/FFT_mariposa.c ../src/dpi_guardar_datos_detalle_tiempos.c ../src/dpi_pkg_tiempos.sv ../src/electrical_pkg.sv ../src/bioz_block_portable_to_fpga_ina_v3_plus.sv ../src/rp_adc_model_nettype.sv ../src/rp_dac_model_nettype.sv ../src/top_bioimpedancia_circuito_medida_portable_mixed_v3_plus.sv ../src/Fixed2Float.v ../src/Float2Fixed.v ../src/NormalCases.v ../src/Overflow.v ../src/SpecialCases.v ../src/FixedShifter.v ../src/FixedShiftCalc.v ../src/Divisor_Alg_ali2.sv ../src/arctan8b.sv ../src/arctan8better2.sv ../src/arctan8best.sv ../src/DDS_rafa_red_cuarto.sv ../src/memoria_dual_port.sv ../src/nuevo_radicador_rapido2.sv ../src/premodulo_generico_best.sv ../src/Control_path_dds_configurable_mejora_correlacion8_autoshunt_sweep_updown_4p_mejorado_quiza_final.sv ../src/tb_correlacion_ina_2adcs_configurable_to_fpga_v3_plus.sv -work qrun.out/work -statslog qrun.out/stats_log0xGMi8 -csession=incr 
+** Note: (vlog-220) 'symphony.out/default_snapshot/questa.ini' is used as the ini file.
+** Note: (vlog-20238) Reinvoking vlog command and creating a new session as an old vlog session has been found with common files but different arguments passed:
+- New Command: vlog -ini symphony.out/default_snapshot/questa.ini -64 -O5 -sv +define+EXPERIMENTO_CONTACTO_50K+ALTAS_FRECUENCIAS+DISPERSION_CONTACTOS+USE_VAMS_MIXED+EXPERIMENTO_K_MIN +incdir+../src/ -L symphonycelllib -L symphonyvamscelllib -L ./work -suppress 12130 ../src/FFT_mariposa.c ../src/dpi_guardar_datos_detalle_tiempos.c ../src/dpi_pkg_tiempos.sv ../src/electrical_pkg.sv ../src/bioz_block_portable_to_fpga_ina_v3_plus.sv ../src/rp_adc_model_nettype.sv ../src/rp_dac_model_nettype.sv ../src/top_bioimpedancia_circuito_medida_portable_mixed_v3_plus.sv ../src/Fixed2Float.v ../src/Float2Fixed.v ../src/NormalCases.v ../src/Overflow.v ../src/SpecialCases.v ../src/FixedShifter.v ../src/FixedShiftCalc.v ../src/Divisor_Alg_ali2.sv ../src/arctan8b.sv ../src/arctan8better2.sv ../src/arctan8best.sv ../src/DDS_rafa_red_cuarto.sv ../src/memoria_dual_port.sv ../src/nuevo_radicador_rapido2.sv ../src/premodulo_generico_best.sv ../src/Control_path_dds_configurable_mejora_correlacion8_autoshunt_sweep_updown_4p_mejorado_quiza_final.sv ../src/tb_correlacion_ina_2adcs_configurable_to_fpga_v3_plus.sv -work qrun.out/work -statslog qrun.out/stats_log0xGMi8 -csession=incr 
+- Old Command: vlog -64 -O5 -sv +define+EXPERIMENTO_CONTACTO_50K+ALTAS_FRECUENCIAS+DISPERSION_CONTACTOS+USE_VAMS_MIXED+EXPERIMENTO_K_MIN +incdir+../src/ ../src/FFT_mariposa.c ../src/dpi_guardar_datos_detalle_tiempos.c ../src/dpi_pkg_tiempos.sv ../src/electrical_pkg.sv ../src/bioz_block_portable_to_fpga_ina_v3_plus.sv ../src/rp_adc_model_nettype.sv ../src/rp_dac_model_nettype.sv ../src/top_bioimpedancia_circuito_medida_portable_mixed_v3_plus.sv ../src/Fixed2Float.v ../src/Float2Fixed.v ../src/NormalCases.v ../src/Overflow.v ../src/SpecialCases.v ../src/FixedShifter.v ../src/FixedShiftCalc.v ../src/Divisor_Alg_ali2.sv ../src/arctan8b.sv ../src/arctan8better2.sv ../src/arctan8best.sv ../src/DDS_rafa_red_cuarto.sv ../src/memoria_dual_port.sv ../src/nuevo_radicador_rapido2.sv ../src/premodulo_generico_best.sv ../src/Control_path_dds_configurable_mejora_correlacion8_autoshunt_sweep_updown_4p_mejorado_quiza_final.sv ../src/tb_correlacion_ina_2adcs_configurable_to_fpga_v3_plus.sv -work qrun.out/work -statslog qrun.out/stats_logAwf7T7 -csession=incr 
+-- Compiling package dpi_pkg_tiempos
+-- Compiling package electrical_pkg
+-- Compiling package bioz_block_portable_to_fpga_ina_v3_plus_sv_unit
+-- Importing package electrical_pkg
+-- Compiling module bioz_block_portable_to_fpga_ina_v3_plus
+-- Compiling package rp_adc_model_nettype_sv_unit
+-- Compiling module rp_adc_model_nettype
+-- Compiling package rp_dac_model_nettype_sv_unit
+-- Compiling module rp_dac_model_nettype
+-- Compiling package top_bioimpedancia_circuito_medida_portable_mixed_v3_plus_sv_unit
+-- Compiling module top_bioimpedancia_circuito_medida_portable_mixed_v3_plus
+-- Compiling module Fixed2Float
+-- Compiling module Float2Fixed
+-- Compiling module NormalCases
+-- Compiling module Overflow
+-- Compiling module SpecialCases
+-- Compiling module FixedShifter
+-- Compiling module FixedShiftCalc
+-- Compiling module Divisor_Alg_ali
+-- Compiling module arctan8b
+-- Compiling module arctan8better
+-- Compiling module arctan8best
+-- Compiling module DDS_rafa_cuarto
+-- Compiling module memoria_dual_port
+-- Compiling module radicador_64_32
+-- Compiling module premodulo_best
+-- Compiling module Control_path_best_rafa_mejora_correlacion_autoshunt_4p_mejorado
+-- Compiling package tb_correlacion_ina_2adcs_configurable_to_fpga_v3_plus_sv_unit
+-- Importing package dpi_pkg_tiempos
+-- Compiling module tb_correlacion_portable_python_to_fpga_configurable
+
+Top level modules:
+	bioz_block_portable_to_fpga_ina_v3_plus
+	rp_adc_model_nettype
+	rp_dac_model_nettype
+	Fixed2Float
+	Float2Fixed
+	arctan8b
+	arctan8better
+	tb_correlacion_portable_python_to_fpga_configurable
+-- Compiling DPI/PLI C file ../src/FFT_mariposa.c
+-- Compiling DPI/PLI C file ../src/dpi_guardar_datos_detalle_tiempos.c
+End time: 13:33:39 on Oct 11,2026, Elapsed time: 0:00:00
+Errors: 0, Warnings: 1
+** Note: (qrun-20238) Reinvoking vcom command and creating a new session as an old vcom session has been found with common files but different arguments passed:
+- New Command: vcom -ini symphony.out/default_snapshot/questa.ini -64 -O5 -suppress 12130 ../src/fixed_pkg.vhd ../src/memoria_single_port_vhdl_2008_arctan.vhd -work qrun.out/work -autoorder -statslog qrun.out/stats_log0xGMi8 -csession=incr 
+- Old Command: vcom -64 -O5 ../src/fixed_pkg.vhd ../src/memoria_single_port_vhdl_2008_arctan.vhd -work qrun.out/work -autoorder -statslog qrun.out/stats_logAwf7T7 -csession=incr 
+QuestaSim-64 vcom 2026.1_1 Compiler 2026.03 Mar  2 2026
+Start time: 13:33:39 on Oct 11,2026
+vcom -ini symphony.out/default_snapshot/questa.ini -64 -O5 -suppress 12130 ../src/fixed_pkg.vhd ../src/memoria_single_port_vhdl_2008_arctan.vhd -work qrun.out/work -autoorder -statslog qrun.out/stats_log0xGMi8 -csession=incr 
+** Note: (vcom-220) 'symphony.out/default_snapshot/questa.ini' is used as the ini file.
+** Note: (vcom-20238) Reinvoking vcom command and creating a new session as an old vcom session has been found with common files but different arguments passed:
+- New Command: vcom -ini symphony.out/default_snapshot/questa.ini -64 -O5 -suppress 12130 ../src/fixed_pkg.vhd ../src/memoria_single_port_vhdl_2008_arctan.vhd -work qrun.out/work -autoorder -statslog qrun.out/stats_log0xGMi8 -csession=incr 
+- Old Command: vcom -64 -O5 ../src/fixed_pkg.vhd ../src/memoria_single_port_vhdl_2008_arctan.vhd -work qrun.out/work -autoorder -statslog qrun.out/stats_logAwf7T7 -csession=incr 
+-- Loading package STANDARD
+-- Scanning package fixed_pkg
+-- Scanning package body fixed_pkg
+-- Loading package fixed_pkg
+-- Scanning entity memoria_single_port_mejorado
+-- Scanning architecture inferencia of memoria_single_port_mejorado
+End time: 13:33:40 on Oct 11,2026, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0
+QuestaSim-64 vcom 2026.1_1 Compiler 2026.03 Mar  2 2026
+Start time: 13:33:40 on Oct 11,2026
+vcom -refresh_marked -work qrun.out/work -csession=incr -statslog qrun.out/stats_log0xGMi8 
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling package fixed_pkg
+-- Loading package MATH_REAL
+-- Compiling package body fixed_pkg
+-- Loading package fixed_pkg
+** Warning: ../src/fixed_pkg.vhd(1494): (vcom-1246) Range 0 downto 1 is null.
+** Warning: ../src/fixed_pkg.vhd(1495): (vcom-1246) Range 0 downto 1 is null.
+** Warning: ../src/fixed_pkg.vhd(1496): (vcom-1246) Range 0 downto 1 is null.
+** Warning: ../src/fixed_pkg.vhd(6907): (vcom-1246) Range 2 to 1 is null.
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package fixed_pkg
+-- Compiling entity memoria_single_port_mejorado
+-- Compiling architecture inferencia of memoria_single_port_mejorado
+End time: 13:33:40 on Oct 11,2026, Elapsed time: 0:00:00
+Errors: 0, Warnings: 4
+QuestaSim-64 vopt 2026.1_1 Compiler 2026.03 Mar  2 2026
+** Note: (vopt-14495) '-O' option is obsolete, and will be ignored.
+Start time: 13:33:40 on Oct 11,2026
+vopt -ini symphony.out/default_snapshot/questa.ini -O5 -L symphonycelllib -L symphonyvamscelllib -rnmconfigfile symphony_v3_plus.conf -rnmconfiglib /root/solido_symphony/solidosim/symphony/lib.linux_x86_64/libconf_reader.so -symphony -L ./work -designfile symphony.out/design.bin -access=rw+/. -cellaccess=rw+/. -bitscalars -inlineFactor=0 -noSharedArchs tb_correlacion_portable_python_to_fpga_configurable -suppress 12130 -work qrun.out/work -statslog qrun.out/stats_log0xGMi8 -csession=incr -o qrun_opt -csessionid=6 
+** Note: (vopt-220) 'symphony.out/default_snapshot/questa.ini' is used as the ini file.
+
+Top level modules:
+	tb_correlacion_portable_python_to_fpga_configurable
+
+Analyzing design...
+-- Loading module tb_correlacion_portable_python_to_fpga_configurable
+-- Loading module top_bioimpedancia_circuito_medida_portable_mixed_v3_plus
+-- Loading module symphonyvamscelllib.top_bioimpedancia_ams_v3_plus
+-- Importing package mtiRnm.mgc_rnm_pkg
+-- Loading module symphonyvamscelllib.dac_ams_wrapper
+-- Loading module symphonyvamscelllib.analog_top_4p_portable_to_fpga_ina_v3_plus_ams
+-- Loading module symphonyvamscelllib.adc_ams_wrapper
+-- Loading module Control_path_best_rafa_mejora_correlacion_autoshunt_4p_mejorado
+-- Loading module premodulo_best
+-- Loading module radicador_64_32
+-- Loading module Divisor_Alg_ali
+-- Loading module arctan8best
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package NUMERIC_STD
+-- Loading package fixed_pkg
+-- Loading package MATH_REAL
+-- Loading entity memoria_single_port_mejorado
+-- Loading architecture inferencia of memoria_single_port_mejorado
+-- Loading package body fixed_pkg
+-- Loading module DDS_rafa_cuarto
+-- Loading module memoria_dual_port
+** Warning: ../src/tb_correlacion_ina_2adcs_configurable_to_fpga_v3_plus.sv(332): (vopt-2241) Connection width does not match width of port 'numero_rep'. The port definition is at: ../src/Control_path_dds_configurable_mejora_correlacion8_autoshunt_sweep_updown_4p_mejorado_quiza_final.sv(12). Formal Port width: 9 and Actual Port width: 32.
+Optimizing 21 design-units (inlining 0/18 module instances, 0/2 architecture instances):
+-- Optimizing package dpi_pkg_tiempos(fast)
+-- Optimizing package electrical_pkg(fast)
+-- Optimizing package tb_correlacion_ina_2adcs_configurable_to_fpga_v3_plus_sv_unit(fast)
+-- Optimizing package top_bioimpedancia_circuito_medida_portable_mixed_v3_plus_sv_unit(fast)
+-- Optimizing package mtiRnm.mgc_rnm_pkg(fast)
+-- Optimizing module tb_correlacion_portable_python_to_fpga_configurable(fast)
+** Warning: ../src/tb_correlacion_ina_2adcs_configurable_to_fpga_v3_plus.sv(334): (vopt-2958) Implicit wire 'clk65' does not have any driver.
+-- Optimizing module Control_path_best_rafa_mejora_correlacion_autoshunt_4p_mejorado(fast)
+-- Optimizing module arctan8best(fast)
+-- Optimizing module symphonyvamscelllib.top_bioimpedancia_ams_v3_plus(fast)
+-- Optimizing module top_bioimpedancia_circuito_medida_portable_mixed_v3_plus(fast)
+-- Optimizing module premodulo_best(fast)
+-- Optimizing module Divisor_Alg_ali(fast)
+-- Optimizing module DDS_rafa_cuarto(fast)
+-- Optimizing module radicador_64_32(fast)
+-- Optimizing module symphonyvamscelllib.adc_ams_wrapper(fast)
+-- Optimizing module symphonyvamscelllib.analog_top_4p_portable_to_fpga_ina_v3_plus_ams(fast)
+-- Optimizing module memoria_dual_port(fast)
+-- Optimizing module symphonyvamscelllib.dac_ams_wrapper(fast)
+-- Optimizing package fixed_pkg
+-- Optimizing package body fixed_pkg
+-- Optimizing architecture inferencia of memoria_single_port_mejorado
+viscom:
+VISCOM: Start time: 13:33:41 on Oct 11,2026
+
+VISCOM: QuestaSim /root/solido_symphony/solidosim/questasim/linux_x86_64/VisualizerRls/bin/viscom 2026.1_1 at 2026.03 Mar  2 2026
+VISCOM: Writing symphony.out/design.bin
+VISCOM: Done writing symphony.out/design.bin
+VISCOM: End time: 13:33:45 on Oct 11,2026, Elapsed time: 0:00:04 (Process Size : 308MB, Peak Process Size : 311MB)
+
+
+Optimized design name is qrun_opt
+End time: 13:33:55 on Oct 11,2026, Elapsed time: 0:00:15
+Errors: 0, Warnings: 2
+# ** Note: (vsim-220) 'symphony.out/default_snapshot/questa.ini' is used as the ini file.
+# vsim -ini symphony.out/default_snapshot/questa.ini -64 -batch -L symphonycelllib -L symphonyvamscelllib -qwavedb=+wavedir=symphony.out/default_snapshot/symphony.qdb "+plusarg_save" "+symphony=symphony.out/default_snapshot/.symphonycmdline" -rnmconfigfile symphony_v3_plus.conf -rnmconfiglib /root/solido_symphony/solidosim/symphony/lib.linux_x86_64/libconf_reader.so -symphony -pli "/root/solido_symphony/solidosim/symphony/lib.linux_x86_64/libsymphonyelabvpi.so" -L ./work -lib qrun.out/work -do "symphony.out/default_snapshot/.init.tcl" -do "run -all; quit -f" -statslog qrun.out/stats_log0xGMi8 qrun_opt -suppress 12130 -appendlog -l qrun_experimento_k_extremos_to_fpga_ina_configurable_v3_plus_symphony.log 
+# Start time: 13:33:55 on Oct 11,2026
+# Loading Siemens Visualizer shared object '/root/solido_symphony/solidosim/questasim/linux_x86_64/VisualizerRls/bin/libqvisualizer.so'
+# //  Questa Sim-64
+# //  Version 2026.1_1 linux_x86_64 Mar  2 2026
+# //
+# // Unpublished work. Copyright 2026 Siemens
+# //
+# // This material contains trade secrets or otherwise confidential information
+# // owned by Siemens Industry Software Inc. or its affiliates (collectively,
+# // "SISW"), or its licensors. Access to and use of this information is strictly
+# // limited as set forth in the Customer's applicable agreements with SISW.
+# //
+# // This material may not be copied, distributed, or otherwise disclosed outside
+# // of the Customer's facilities without the express written permission of SISW,
+# // and may not be used in any way not expressly authorized by SISW.
+# //
+# Loading sv_std.std
+# Loading work.electrical_pkg(fast)
+# Loading work.dpi_pkg_tiempos(fast)
+# Loading work.tb_correlacion_ina_2adcs_configurable_to_fpga_v3_plus_sv_unit(fast)
+# Loading work.tb_correlacion_portable_python_to_fpga_configurable(fast)
+# Loading work.top_bioimpedancia_circuito_medida_portable_mixed_v3_plus_sv_unit(fast)
+# Loading work.top_bioimpedancia_circuito_medida_portable_mixed_v3_plus(fast)
+# Loading mtiRnm.mgc_rnm_pkg
+# Loading symphonyvamscelllib.top_bioimpedancia_ams_v3_plus(fast)
+# Loading symphonyvamscelllib.dac_ams_wrapper(fast)
+# Loading symphonyvamscelllib.analog_top_4p_portable_to_fpga_ina_v3_plus_ams(fast)
+# Loading symphonyvamscelllib.adc_ams_wrapper(fast)
+# Loading work.Control_path_best_rafa_mejora_correlacion_autoshunt_4p_mejorado(fast)
+# Loading work.premodulo_best(fast)
+# Loading work.radicador_64_32(fast)
+# Loading work.Divisor_Alg_ali(fast)
+# Loading work.arctan8best(fast)
+# Loading work.DDS_rafa_cuarto(fast)
+# Loading work.memoria_dual_port(fast)
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.math_real(body)
+# Loading work.fixed_pkg(body)
+# Loading work.memoria_single_port_mejorado(inferencia)#1
+# ** Warning: (vsim-3015) [PCDPC] - Port size (9) does not match connection size (32) for port 'numero_rep'. The port definition is at: ../src/Control_path_dds_configurable_mejora_correlacion8_autoshunt_sweep_updown_4p_mejorado_quiza_final.sv(12).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_correlacion_portable_python_to_fpga_configurable/control_path_4p_inst File: ../src/tb_correlacion_ina_2adcs_configurable_to_fpga_v3_plus.sv Line: 332
+# Loading /tmp/eda@hyperion8_dpi_20586/linux_x86_64_gcc-13.4.0/vsim_auto_compile.so
+# Loading /tmp/eda@hyperion8_dpi_20586/linux_x86_64_gcc-13.4.0/STUB_SYMS_OF_libsymphonyelabvpi.so
+# Loading /root/solido_symphony/solidosim/symphony/lib.linux_x86_64/libsymphonyelabvpi.so
+# 
+# do symphony.out/default_snapshot/.init.tcl
+# run -all
+# qwavedb_dumpvars: Initiating qwavedb waveform capturing
+# 
+# Info: Enabling parallel (multi-threaded) wave dumping.
+# 
+# qwavedb_dumpvars: Done initiating qwavedb waveform capturing
+# 
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 4 ns  Iteration: 1  Instance: /tb_correlacion_portable_python_to_fpga_configurable/control_path_4p_inst/divisor_fa/arco_tangente1
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 4 ns  Iteration: 1  Instance: /tb_correlacion_portable_python_to_fpga_configurable/control_path_4p_inst/divisor_fa/arco_tangente1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 4 ns  Iteration: 1  Instance: /tb_correlacion_portable_python_to_fpga_configurable/control_path_4p_inst/divisor_fb/arco_tangente1
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 4 ns  Iteration: 1  Instance: /tb_correlacion_portable_python_to_fpga_configurable/control_path_4p_inst/divisor_fb/arco_tangente1
+# 
+# =================================================================
+#    [V3 PLUS] INICIANDO MEDIDAS CON AUTOSHUNT ADG4612 (4 BITS)
+# =================================================================
+# 
+# 
+#   [FLASH EXTRACTION] Freq:  40.0 Hz
+#     -> Z Bucle Total Medida:    121266 Ohm
+#     -> R_contact Dinámica Extraída:     51538 Ohm
+#     -> R_contact_Force real (promedio):     52745 Ohm (rf1: 49998, rf2: 55493)
+#     -> R_contact_Sense real (oculto rs1):     60855 Ohm
+# === FREQ:     39.99 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 18140.62 Ohm | Fase:   0.00 deg
+#   [SUJETO 1: POST-INV] Mag: 18140.62 Ohm | Fase:   0.00 deg | Err_M:  0.79% | Err_F:  0.82 deg
+#   [SUJETO 2: GOLDEN]   Mag: 17997.88 Ohm | Fase:  -0.82 deg
+# 
+#   [FLASH EXTRACTION] Freq:  50.3 Hz
+#     -> Z Bucle Total Medida:    119555 Ohm
+#     -> R_contact Dinámica Extraída:     50684 Ohm
+#     -> R_contact_Force real (promedio):     52565 Ohm (rf1: 49827, rf2: 55302)
+#     -> R_contact_Sense real (oculto rs1):     60646 Ohm
+# === FREQ:     50.35 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 18136.72 Ohm | Fase:   0.00 deg
+#   [SUJETO 1: POST-INV] Mag: 18136.72 Ohm | Fase:   0.00 deg | Err_M:  0.78% | Err_F:  1.03 deg
+#   [SUJETO 2: GOLDEN]   Mag: 17996.65 Ohm | Fase:  -1.03 deg
+# 
+#   [FLASH EXTRACTION] Freq:  63.4 Hz
+#     -> Z Bucle Total Medida:    119192 Ohm
+#     -> R_contact Dinámica Extraída:     50504 Ohm
+#     -> R_contact_Force real (promedio):     52462 Ohm (rf1: 49730, rf2: 55195)
+#     -> R_contact_Sense real (oculto rs1):     60528 Ohm
+# === FREQ:     63.39 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 18132.81 Ohm | Fase:   0.00 deg
+#   [SUJETO 1: POST-INV] Mag: 18132.81 Ohm | Fase:   0.00 deg | Err_M:  0.77% | Err_F:  1.30 deg
+#   [SUJETO 2: GOLDEN]   Mag: 17994.69 Ohm | Fase:  -1.29 deg
+# 
+#   [FLASH EXTRACTION] Freq:  79.8 Hz
+#     -> Z Bucle Total Medida:    118979 Ohm
+#     -> R_contact Dinámica Extraída:     50402 Ohm
+#     -> R_contact_Force real (promedio):     52408 Ohm (rf1: 49678, rf2: 55137)
+#     -> R_contact_Sense real (oculto rs1):     60465 Ohm
+# === FREQ:     79.80 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 18125.00 Ohm | Fase:   0.00 deg
+#   [SUJETO 1: POST-INV] Mag: 18125.00 Ohm | Fase:   0.01 deg | Err_M:  0.74% | Err_F:  1.63 deg
+#   [SUJETO 2: GOLDEN]   Mag: 17991.58 Ohm | Fase:  -1.63 deg
+# === FREQ:    100.47 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 18125.00 Ohm | Fase:  -0.88 deg
+#   [SUJETO 1: POST-INV] Mag: 18125.00 Ohm | Fase:  -0.87 deg | Err_M:  0.77% | Err_F:  1.18 deg
+#   [SUJETO 2: GOLDEN]   Mag: 17986.66 Ohm | Fase:  -2.05 deg
+# === FREQ:    126.49 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 18117.19 Ohm | Fase:  -0.88 deg
+#   [SUJETO 1: POST-INV] Mag: 18117.19 Ohm | Fase:  -0.87 deg | Err_M:  0.77% | Err_F:  1.71 deg
+#   [SUJETO 2: GOLDEN]   Mag: 17978.87 Ohm | Fase:  -2.58 deg
+# === FREQ:    159.26 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 18109.38 Ohm | Fase:  -1.75 deg
+#   [SUJETO 1: POST-INV] Mag: 18109.38 Ohm | Fase:  -1.74 deg | Err_M:  0.79% | Err_F:  1.50 deg
+#   [SUJETO 2: GOLDEN]   Mag: 17966.55 Ohm | Fase:  -3.24 deg
+# === FREQ:    200.47 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 18101.56 Ohm | Fase:  -1.75 deg
+#   [SUJETO 1: POST-INV] Mag: 18101.56 Ohm | Fase:  -1.74 deg | Err_M:  0.86% | Err_F:  2.34 deg
+#   [SUJETO 2: GOLDEN]   Mag: 17947.07 Ohm | Fase:  -4.08 deg
+# === FREQ:    252.39 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 18078.12 Ohm | Fase:  -2.62 deg
+#   [SUJETO 1: POST-INV] Mag: 18078.12 Ohm | Fase:  -2.61 deg | Err_M:  0.90% | Err_F:  2.52 deg
+#   [SUJETO 2: GOLDEN]   Mag: 17916.34 Ohm | Fase:  -5.13 deg
+# === FREQ:    317.73 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 18046.88 Ohm | Fase:  -3.50 deg
+#   [SUJETO 1: POST-INV] Mag: 18046.88 Ohm | Fase:  -3.48 deg | Err_M:  1.00% | Err_F:  2.97 deg
+#   [SUJETO 2: GOLDEN]   Mag: 17867.94 Ohm | Fase:  -6.45 deg
+# === FREQ:    400.00 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 18000.00 Ohm | Fase:  -6.25 deg
+#   [SUJETO 1: POST-INV] Mag: 18000.00 Ohm | Fase:  -6.22 deg | Err_M:  1.17% | Err_F:  1.87 deg
+#   [SUJETO 2: GOLDEN]   Mag: 17792.03 Ohm | Fase:  -8.09 deg
+# === FREQ:    503.58 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 17929.69 Ohm | Fase:  -7.12 deg
+#   [SUJETO 1: POST-INV] Mag: 17929.69 Ohm | Fase:  -7.09 deg | Err_M:  1.45% | Err_F:  3.04 deg
+#   [SUJETO 2: GOLDEN]   Mag: 17673.72 Ohm | Fase: -10.13 deg
+# === FREQ:    633.97 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 17812.50 Ohm | Fase:  -8.88 deg
+#   [SUJETO 1: POST-INV] Mag: 17812.50 Ohm | Fase:  -8.83 deg | Err_M:  1.84% | Err_F:  3.83 deg
+#   [SUJETO 2: GOLDEN]   Mag: 17490.97 Ohm | Fase: -12.66 deg
+# === FREQ:    798.11 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 17593.75 Ohm | Fase: -12.38 deg
+#   [SUJETO 1: POST-INV] Mag: 17593.75 Ohm | Fase: -12.32 deg | Err_M:  2.21% | Err_F:  3.43 deg
+#   [SUJETO 2: GOLDEN]   Mag: 17212.71 Ohm | Fase: -15.75 deg
+# === FREQ:   1004.75 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 17614.67 Ohm | Fase: -15.00 deg
+#   [SUJETO 1: POST-INV] Mag: 17614.67 Ohm | Fase: -14.93 deg | Err_M:  4.86% | Err_F:  4.55 deg
+#   [SUJETO 2: GOLDEN]   Mag: 16797.84 Ohm | Fase: -19.48 deg
+# === FREQ:   1264.91 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 17198.00 Ohm | Fase: -18.25 deg
+#   [SUJETO 1: POST-INV] Mag: 17198.00 Ohm | Fase: -18.16 deg | Err_M:  6.17% | Err_F:  5.71 deg
+#   [SUJETO 2: GOLDEN]   Mag: 16198.14 Ohm | Fase: -23.87 deg
+# === FREQ:   1592.42 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 16583.42 Ohm | Fase: -23.12 deg
+#   [SUJETO 1: POST-INV] Mag: 16583.42 Ohm | Fase: -23.01 deg | Err_M:  7.91% | Err_F:  5.87 deg
+#   [SUJETO 2: GOLDEN]   Mag: 15367.55 Ohm | Fase: -28.88 deg
+# === FREQ:   2004.76 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 15718.83 Ohm | Fase: -28.62 deg
+#   [SUJETO 1: POST-INV] Mag: 15718.83 Ohm | Fase: -28.48 deg | Err_M: 10.07% | Err_F:  5.87 deg
+#   [SUJETO 2: GOLDEN]   Mag: 14280.44 Ohm | Fase: -34.35 deg
+# === FREQ:   2523.83 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 14593.82 Ohm | Fase: -34.25 deg
+#   [SUJETO 1: POST-INV] Mag: 14593.82 Ohm | Fase: -34.07 deg | Err_M: 12.68% | Err_F:  5.96 deg
+#   [SUJETO 2: GOLDEN]   Mag: 12952.04 Ohm | Fase: -40.02 deg
+# === FREQ:   3177.32 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 13239.65 Ohm | Fase: -39.25 deg
+#   [SUJETO 1: POST-INV] Mag: 13239.65 Ohm | Fase: -39.02 deg | Err_M: 15.64% | Err_F:  6.50 deg
+#   [SUJETO 2: GOLDEN]   Mag: 11449.16 Ohm | Fase: -45.52 deg
+# === FREQ:   4000.00 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 11687.56 Ohm | Fase: -45.25 deg
+#   [SUJETO 1: POST-INV] Mag: 11687.56 Ohm | Fase: -44.96 deg | Err_M: 18.34% | Err_F:  5.51 deg
+#   [SUJETO 2: GOLDEN]   Mag:  9876.60 Ohm | Fase: -50.47 deg
+# === FREQ:   5035.69 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag: 10072.97 Ohm | Fase: -50.62 deg
+#   [SUJETO 1: POST-INV] Mag: 10072.97 Ohm | Fase: -50.26 deg | Err_M: 20.70% | Err_F:  4.26 deg
+#   [SUJETO 2: GOLDEN]   Mag:  8345.57 Ohm | Fase: -54.52 deg
+# === FREQ:   6339.57 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  8500.04 Ohm | Fase: -54.25 deg
+#   [SUJETO 1: POST-INV] Mag:  8500.04 Ohm | Fase: -53.79 deg | Err_M: 22.42% | Err_F:  3.67 deg
+#   [SUJETO 2: GOLDEN]   Mag:  6943.38 Ohm | Fase: -57.46 deg
+# === FREQ:   7981.06 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  7062.54 Ohm | Fase: -57.75 deg
+#   [SUJETO 1: POST-INV] Mag:  7062.54 Ohm | Fase: -57.17 deg | Err_M: 23.47% | Err_F:  1.98 deg
+#   [SUJETO 2: GOLDEN]   Mag:  5720.18 Ohm | Fase: -59.14 deg
+# === FREQ:  10047.54 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  5958.27 Ohm | Fase: -59.38 deg
+#   [SUJETO 1: POST-INV] Mag:  5958.27 Ohm | Fase: -58.63 deg | Err_M: 26.98% | Err_F:  0.89 deg
+#   [SUJETO 2: GOLDEN]   Mag:  4692.40 Ohm | Fase: -59.52 deg
+# === FREQ:  12649.11 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  4885.37 Ohm | Fase: -60.38 deg
+#   [SUJETO 1: POST-INV] Mag:  4885.37 Ohm | Fase: -59.43 deg | Err_M: 26.77% | Err_F:  0.86 deg
+#   [SUJETO 2: GOLDEN]   Mag:  3853.82 Ohm | Fase: -58.57 deg
+# === FREQ:  15924.28 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  4010.38 Ohm | Fase: -59.25 deg
+#   [SUJETO 1: POST-INV] Mag:  4010.38 Ohm | Fase: -58.06 deg | Err_M: 25.86% | Err_F:  1.73 deg
+#   [SUJETO 2: GOLDEN]   Mag:  3186.29 Ohm | Fase: -56.33 deg
+# === FREQ:  20047.48 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  3312.47 Ohm | Fase: -57.75 deg
+#   [SUJETO 1: POST-INV] Mag:  3312.47 Ohm | Fase: -56.26 deg | Err_M: 24.20% | Err_F:  3.37 deg
+#   [SUJETO 2: GOLDEN]   Mag:  2667.02 Ohm | Fase: -52.89 deg
+# === FREQ:  25238.29 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  2770.81 Ohm | Fase: -55.50 deg
+#   [SUJETO 1: POST-INV] Mag:  2770.81 Ohm | Fase: -53.62 deg | Err_M: 21.92% | Err_F:  5.21 deg
+#   [SUJETO 2: GOLDEN]   Mag:  2272.61 Ohm | Fase: -48.41 deg
+# === FREQ:  31773.12 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  2354.14 Ohm | Fase: -51.00 deg
+#   [SUJETO 1: POST-INV] Mag:  2354.14 Ohm | Fase: -48.64 deg | Err_M: 18.85% | Err_F:  5.45 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1980.69 Ohm | Fase: -43.18 deg
+# === FREQ:  40000.01 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  2041.65 Ohm | Fase: -47.12 deg
+#   [SUJETO 1: POST-INV] Mag:  2041.65 Ohm | Fase: -44.15 deg | Err_M: 15.31% | Err_F:  6.59 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1770.52 Ohm | Fase: -37.56 deg
+# === FREQ:  50357.02 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1822.90 Ohm | Fase: -42.62 deg
+#   [SUJETO 1: POST-INV] Mag:  1822.90 Ohm | Fase: -38.88 deg | Err_M: 12.29% | Err_F:  6.95 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1623.36 Ohm | Fase: -31.93 deg
+# === FREQ:  63395.74 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1656.23 Ohm | Fase: -38.50 deg
+#   [SUJETO 1: POST-INV] Mag:  1656.23 Ohm | Fase: -33.79 deg | Err_M:  8.75% | Err_F:  7.16 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1522.95 Ohm | Fase: -26.63 deg
+# === FREQ:  79810.50 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1541.65 Ohm | Fase: -35.12 deg
+#   [SUJETO 1: POST-INV] Mag:  1541.65 Ohm | Fase: -29.20 deg | Err_M:  5.89% | Err_F:  7.32 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1455.92 Ohm | Fase: -21.88 deg
+# === FREQ: 100475.44 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1617.19 Ohm | Fase: -32.62 deg
+#   [SUJETO 1: POST-INV] Mag:  1617.19 Ohm | Fase: -25.09 deg | Err_M: 14.54% | Err_F:  7.31 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1411.95 Ohm | Fase: -17.78 deg
+# === FREQ: 126491.10 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1539.06 Ohm | Fase: -30.50 deg
+#   [SUJETO 1: POST-INV] Mag:  1539.06 Ohm | Fase: -21.04 deg | Err_M: 11.25% | Err_F:  6.70 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1383.47 Ohm | Fase: -14.34 deg
+# === FREQ: 159242.86 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1476.56 Ohm | Fase: -30.50 deg
+#   [SUJETO 1: POST-INV] Mag:  1476.56 Ohm | Fase: -18.65 deg | Err_M:  8.16% | Err_F:  7.15 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1365.19 Ohm | Fase: -11.50 deg
+# === FREQ: 200474.90 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1406.25 Ohm | Fase: -31.75 deg
+#   [SUJETO 1: POST-INV] Mag:  1406.25 Ohm | Fase: -16.94 deg | Err_M:  3.90% | Err_F:  7.75 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1353.52 Ohm | Fase:  -9.19 deg
+# === FREQ: 252382.95 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1328.12 Ohm | Fase: -32.75 deg
+#   [SUJETO 1: POST-INV] Mag:  1328.12 Ohm | Fase: -14.32 deg | Err_M:  1.34% | Err_F:  6.99 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1346.11 Ohm | Fase:  -7.33 deg
+# === FREQ: 317731.29 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1234.38 Ohm | Fase: -34.88 deg
+#   [SUJETO 1: POST-INV] Mag:  1234.38 Ohm | Fase: -12.07 deg | Err_M:  7.98% | Err_F:  6.24 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1341.41 Ohm | Fase:  -5.84 deg
+# === FREQ: 399999.99 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1125.00 Ohm | Fase: -38.00 deg
+#   [SUJETO 1: POST-INV] Mag:  1125.00 Ohm | Fase: -10.04 deg | Err_M: 15.95% | Err_F:  5.39 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1338.43 Ohm | Fase:  -4.64 deg
+# === FREQ: 503570.16 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:  1000.00 Ohm | Fase: -40.12 deg
+#   [SUJETO 1: POST-INV] Mag:  1000.00 Ohm | Fase:  -6.24 deg | Err_M: 25.18% | Err_F:  2.55 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1336.55 Ohm | Fase:  -3.69 deg
+# === FREQ: 633957.27 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:   890.62 Ohm | Fase: -40.12 deg
+#   [SUJETO 1: POST-INV] Mag:   890.62 Ohm | Fase:   0.30 deg | Err_M: 33.30% | Err_F:  3.24 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1335.37 Ohm | Fase:  -2.94 deg
+# === FREQ: 798104.91 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:   781.25 Ohm | Fase: -41.25 deg
+#   [SUJETO 1: POST-INV] Mag:   781.25 Ohm | Fase:   6.11 deg | Err_M: 41.46% | Err_F:  8.45 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1334.63 Ohm | Fase:  -2.34 deg
+# === FREQ: 999999.99 Hz ===
+#   [SUJETO 0: PRE-INV]  Mag:   687.50 Ohm | Fase: -40.38 deg
+#   [SUJETO 1: POST-INV] Mag:   687.50 Ohm | Fase:  13.84 deg | Err_M: 48.49% | Err_F: 16.18 deg
+#   [SUJETO 2: GOLDEN]   Mag:  1334.63 Ohm | Fase:  -2.34 deg
+# 
+# Simulación finalizada. Procesando datos en Python...
+# ** Note: $finish    : ../src/tb_correlacion_ina_2adcs_configurable_to_fpga_v3_plus.sv(485)
+#    Time: 324485676 ns  Iteration: 0  Instance: /tb_correlacion_portable_python_to_fpga_configurable
+# End time: 00:38:13 on Oct 12,2026, Elapsed time: 11:04:18
+# Errors: 0, Warnings: 5
+# Disable bg thread...
+# qwavedb_dumpvars : Simulation ending at [75 2363128800] 0
+End time: 00:38:14 on Oct 12,2026, Elapsed time: 11:04:35
+*** Summary *********************************************
+    qrun: Errors:   0, Warnings:   0
+    vlog: Errors:   0, Warnings:   1
+    vcom: Errors:   0, Warnings:   4
+    vopt: Errors:   0, Warnings:   2
+    vsim: Errors:   0, Warnings:   5
+  Totals: Errors:   0, Warnings:  12
