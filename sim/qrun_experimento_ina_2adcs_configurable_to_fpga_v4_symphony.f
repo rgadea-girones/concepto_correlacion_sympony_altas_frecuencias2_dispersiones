@@ -1,7 +1,7 @@
 # Experimento 2 ADCs con INA - Versión 4 con Symphony (Opción 3 Calibración de Magnitud)
 -O5
 -sv
-+define+EXPERIMENTO_CONTACTO_150K+ALTAS_FRECUENCIAS+DISPERSION_CONTACTOS+USE_VAMS_MIXED+EXPERIMENTO_K_MIN
++define+EXPERIMENTO_CONTACTO_5K+ALTAS_FRECUENCIAS+DISPERSION_CONTACTOS+USE_VAMS_MIXED+EXPERIMENTO_K_EXTREMOS
 -top tb_correlacion_portable_python_to_fpga_configurable
 +incdir+../src/
 -l qrun_experimento_k_extremos_to_fpga_ina_configurable_v4_symphony.log

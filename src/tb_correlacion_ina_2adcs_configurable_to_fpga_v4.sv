@@ -595,20 +595,20 @@ module tb_correlacion_portable_python_to_fpga_configurable;
                     numero_ciclos = 10'd1; numero_anchura = 10'd1; numero_decimales = 4'd8; 
                 end
             end else if (f_actual < 10000.0) begin 
-                v_shunt_effective_authosunt = 666.67;
-                sw_autoshunt_val = 4'b0011;
-                numero_ciclos = 10'd16; //antes era 4
+                v_shunt_effective_authosunt = 2000; //antes era 666.67
+                sw_autoshunt_val = 4'b0001;
+                numero_ciclos = 10'd4; //antes era 4
                 numero_anchura = 10'd2; 
                 numero_decimales = 4'd6;  
             end else if (f_actual < 100000.0) begin 
-                v_shunt_effective_authosunt = 333.33;
-                sw_autoshunt_val = 4'b0110;
-                numero_ciclos = 10'd32; //antes era 5
+                v_shunt_effective_authosunt = 667.67;//antes era 333.33
+                sw_autoshunt_val = 4'b0011;
+                numero_ciclos = 10'd5; //antes era 5
                 numero_anchura = 10'd2; 
                 numero_decimales = 4'd5; 
             end else begin 
-                v_shunt_effective_authosunt = 125.0;
-                sw_autoshunt_val = 4'b1110;
+                v_shunt_effective_authosunt = 333.33;//antes era 125.0
+                sw_autoshunt_val = 4'b0110;
                 numero_ciclos = 10'd128; numero_anchura = 10'd2; numero_decimales = 4'd4; 
             end
         end else begin

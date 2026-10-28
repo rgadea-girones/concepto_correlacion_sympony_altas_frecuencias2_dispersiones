@@ -1,0 +1,813 @@
+QuestaSim-64 qrun 2026.1_1 Utility 2026.03 Mar  2 2026
+Start time: 10:17:12 on Oct 24,2026
+qrun -ini symphony.out/default_snapshot/questa.ini -reflib ./work -64 -do "symphony.out/default_snapshot/.init.tcl" -O5 -sv "+define+EXPERIMENTO_CONTACTO_50K+ALTAS_FRECUENCIAS+DISPERSION_CONTACTOS+USE_VAMS_MIXED+EXPERIMENTO_K_EXTREMOS" -top tb_correlacion_portable_python_to_fpga_configurable "+incdir+../src/" -l qrun_experimento_k_extremos_to_fpga_ina_configurable_v4_symphony.log -batch -do "run -all; quit -f" ../src/FFT_mariposa.c ../src/dpi_guardar_datos_detalle_tiempos.c ../src/dpi_pkg_tiempos.sv ../src/electrical_pkg.sv ../src/bioz_block_portable_to_fpga_ina_v4.sv ../src/rp_adc_model_nettype.sv ../src/rp_dac_model_nettype.sv ../src/top_bioimpedancia_circuito_medida_portable_mixed_v4.sv ../src/Fixed2Float.v ../src/Float2Fixed.v ../src/NormalCases.v ../src/Overflow.v ../src/SpecialCases.v ../src/FixedShifter.v ../src/FixedShiftCalc.v ../src/Divisor_Alg_ali2.sv ../src/arctan8b.sv ../src/arctan8better2.sv ../src/arctan8best.sv ../src/DDS_rafa_red_cuarto.sv ../src/fixed_pkg.vhd ../src/memoria_dual_port.sv ../src/memoria_single_port_vhdl_2008_arctan.vhd ../src/nuevo_radicador_rapido2.sv ../src/premodulo_generico_best.sv ../src/Control_path_dds_configurable_mejora_correlacion8_autoshunt_sweep_updown_4p_mejorado_quiza_final.sv ../src/tb_correlacion_ina_2adcs_configurable_to_fpga_v4.sv -L symphonycelllib -L symphonyvamscelllib -voptargs="-designfile symphony.out/design.bin"  -qwavedb=+wavedir=symphony.out/default_snapshot/symphony.qdb -suppress 12130 -voptargs="-access=rw+/. -cellaccess=rw+/. -bitscalars -inlineFactor=0  -noSharedArchs "  "+plusarg_save" "+symphony=symphony.out/default_snapshot/.symphonycmdline" -rnmconfigfile symphony_v4.conf -rnmconfiglib /root/solido_symphony/solidosim/symphony/lib.linux_x86_64/libconf_reader.so -symphony -pli "/root/solido_symphony/solidosim/symphony/lib.linux_x86_64/libsymphonyelabvpi.so"
+
+Formatted qrun command:
+qrun
+    -ini symphony.out/default_snapshot/questa.ini
+    -reflib ./work
+    -64
+    -do "symphony.out/default_snapshot/.init.tcl"
+    -O5
+    -sv
+    "+define+EXPERIMENTO_CONTACTO_50K+ALTAS_FRECUENCIAS+DISPERSION_CONTACTOS+USE_VAMS_MIXED+EXPERIMENTO_K_EXTREMOS"
+    -top tb_correlacion_portable_python_to_fpga_configurable
+    "+incdir+../src/"
+    -l qrun_experimento_k_extremos_to_fpga_ina_configurable_v4_symphony.log
+    -batch
+    -do "run -all; quit -f"
+    ../src/FFT_mariposa.c
+    ../src/dpi_guardar_datos_detalle_tiempos.c
+    ../src/dpi_pkg_tiempos.sv
+    ../src/electrical_pkg.sv
+    ../src/bioz_block_portable_to_fpga_ina_v4.sv
+    ../src/rp_adc_model_nettype.sv
+    ../src/rp_dac_model_nettype.sv
+    ../src/top_bioimpedancia_circuito_medida_portable_mixed_v4.sv
+    ../src/Fixed2Float.v
+    ../src/Float2Fixed.v
+    ../src/NormalCases.v
+    ../src/Overflow.v
+    ../src/SpecialCases.v
+    ../src/FixedShifter.v
+    ../src/FixedShiftCalc.v
+    ../src/Divisor_Alg_ali2.sv
+    ../src/arctan8b.sv
+    ../src/arctan8better2.sv
+    ../src/arctan8best.sv
+    ../src/DDS_rafa_red_cuarto.sv
+    ../src/fixed_pkg.vhd
+    ../src/memoria_dual_port.sv
+    ../src/memoria_single_port_vhdl_2008_arctan.vhd
+    ../src/nuevo_radicador_rapido2.sv
+    ../src/premodulo_generico_best.sv
+    ../src/Control_path_dds_configurable_mejora_correlacion8_autoshunt_sweep_updown_4p_mejorado_quiza_final.sv
+    ../src/tb_correlacion_ina_2adcs_configurable_to_fpga_v4.sv
+    -L symphonycelllib
+    -L symphonyvamscelllib
+    -voptargs="-designfile symphony.out/design.bin" 
+    -qwavedb=+wavedir=symphony.out/default_snapshot/symphony.qdb
+    -suppress 12130
+    -voptargs="-access=rw+/. -cellaccess=rw+/. -bitscalars -inlineFactor=0  -noSharedArchs " 
+    "+plusarg_save"
+    "+symphony=symphony.out/default_snapshot/.symphonycmdline"
+    -rnmconfigfile symphony_v4.conf
+    -rnmconfiglib /root/solido_symphony/solidosim/symphony/lib.linux_x86_64/libconf_reader.so
+    -symphony
+    -pli "/root/solido_symphony/solidosim/symphony/lib.linux_x86_64/libsymphonyelabvpi.so"
+
+** Note: (qrun-220) 'symphony.out/default_snapshot/questa.ini' is used as the ini file.
+** Note: (qrun-20238) Reinvoking vlog command and creating a new session as an old vlog session has been found with common files but different arguments passed:
+- New Command: vlog -ini symphony.out/default_snapshot/questa.ini -64 -O5 -sv +define+EXPERIMENTO_CONTACTO_50K+ALTAS_FRECUENCIAS+DISPERSION_CONTACTOS+USE_VAMS_MIXED+EXPERIMENTO_K_EXTREMOS +incdir+../src/ -L symphonycelllib -L symphonyvamscelllib -L ./work -suppress 12130 ../src/FFT_mariposa.c ../src/dpi_guardar_datos_detalle_tiempos.c ../src/dpi_pkg_tiempos.sv ../src/electrical_pkg.sv ../src/bioz_block_portable_to_fpga_ina_v4.sv ../src/rp_adc_model_nettype.sv ../src/rp_dac_model_nettype.sv ../src/top_bioimpedancia_circuito_medida_portable_mixed_v4.sv ../src/Fixed2Float.v ../src/Float2Fixed.v ../src/NormalCases.v ../src/Overflow.v ../src/SpecialCases.v ../src/FixedShifter.v ../src/FixedShiftCalc.v ../src/Divisor_Alg_ali2.sv ../src/arctan8b.sv ../src/arctan8better2.sv ../src/arctan8best.sv ../src/DDS_rafa_red_cuarto.sv ../src/memoria_dual_port.sv ../src/nuevo_radicador_rapido2.sv ../src/premodulo_generico_best.sv ../src/Control_path_dds_configurable_mejora_correlacion8_autoshunt_sweep_updown_4p_mejorado_quiza_final.sv ../src/tb_correlacion_ina_2adcs_configurable_to_fpga_v4.sv -work qrun.out/work -statslog qrun.out/stats_logH5cEED -csession=incr 
+- Old Command: vlog -64 -O5 -sv +define+EXPERIMENTO_CONTACTO_50K+ALTAS_FRECUENCIAS+DISPERSION_CONTACTOS+USE_VAMS_MIXED+EXPERIMENTO_K_EXTREMOS +incdir+../src/ ../src/FFT_mariposa.c ../src/dpi_guardar_datos_detalle_tiempos.c ../src/dpi_pkg_tiempos.sv ../src/electrical_pkg.sv ../src/bioz_block_portable_to_fpga_ina_v4.sv ../src/rp_adc_model_nettype.sv ../src/rp_dac_model_nettype.sv ../src/top_bioimpedancia_circuito_medida_portable_mixed_v4.sv ../src/Fixed2Float.v ../src/Float2Fixed.v ../src/NormalCases.v ../src/Overflow.v ../src/SpecialCases.v ../src/FixedShifter.v ../src/FixedShiftCalc.v ../src/Divisor_Alg_ali2.sv ../src/arctan8b.sv ../src/arctan8better2.sv ../src/arctan8best.sv ../src/DDS_rafa_red_cuarto.sv ../src/memoria_dual_port.sv ../src/nuevo_radicador_rapido2.sv ../src/premodulo_generico_best.sv ../src/Control_path_dds_configurable_mejora_correlacion8_autoshunt_sweep_updown_4p_mejorado_quiza_final.sv ../src/tb_correlacion_ina_2adcs_configurable_to_fpga_v4.sv -work qrun.out/work -statslog qrun.out/stats_log5tFW6n -csession=incr 
+QuestaSim-64 vlog 2026.1_1 Compiler 2026.03 Mar  2 2026
+** Warning: (vlog-13288) Multiple macros defined in +define+ command line switch.
+Start time: 10:17:12 on Oct 24,2026
+vlog -ini symphony.out/default_snapshot/questa.ini -64 -O5 -sv "+define+EXPERIMENTO_CONTACTO_50K+ALTAS_FRECUENCIAS+DISPERSION_CONTACTOS+USE_VAMS_MIXED+EXPERIMENTO_K_EXTREMOS" "+incdir+../src/" -L symphonycelllib -L symphonyvamscelllib -L ./work -suppress 12130 ../src/FFT_mariposa.c ../src/dpi_guardar_datos_detalle_tiempos.c ../src/dpi_pkg_tiempos.sv ../src/electrical_pkg.sv ../src/bioz_block_portable_to_fpga_ina_v4.sv ../src/rp_adc_model_nettype.sv ../src/rp_dac_model_nettype.sv ../src/top_bioimpedancia_circuito_medida_portable_mixed_v4.sv ../src/Fixed2Float.v ../src/Float2Fixed.v ../src/NormalCases.v ../src/Overflow.v ../src/SpecialCases.v ../src/FixedShifter.v ../src/FixedShiftCalc.v ../src/Divisor_Alg_ali2.sv ../src/arctan8b.sv ../src/arctan8better2.sv ../src/arctan8best.sv ../src/DDS_rafa_red_cuarto.sv ../src/memoria_dual_port.sv ../src/nuevo_radicador_rapido2.sv ../src/premodulo_generico_best.sv ../src/Control_path_dds_configurable_mejora_correlacion8_autoshunt_sweep_updown_4p_mejorado_quiza_final.sv ../src/tb_correlacion_ina_2adcs_configurable_to_fpga_v4.sv -work qrun.out/work -statslog qrun.out/stats_logH5cEED -csession=incr 
+** Note: (vlog-220) 'symphony.out/default_snapshot/questa.ini' is used as the ini file.
+** Note: (vlog-20238) Reinvoking vlog command and creating a new session as an old vlog session has been found with common files but different arguments passed:
+- New Command: vlog -ini symphony.out/default_snapshot/questa.ini -64 -O5 -sv +define+EXPERIMENTO_CONTACTO_50K+ALTAS_FRECUENCIAS+DISPERSION_CONTACTOS+USE_VAMS_MIXED+EXPERIMENTO_K_EXTREMOS +incdir+../src/ -L symphonycelllib -L symphonyvamscelllib -L ./work -suppress 12130 ../src/FFT_mariposa.c ../src/dpi_guardar_datos_detalle_tiempos.c ../src/dpi_pkg_tiempos.sv ../src/electrical_pkg.sv ../src/bioz_block_portable_to_fpga_ina_v4.sv ../src/rp_adc_model_nettype.sv ../src/rp_dac_model_nettype.sv ../src/top_bioimpedancia_circuito_medida_portable_mixed_v4.sv ../src/Fixed2Float.v ../src/Float2Fixed.v ../src/NormalCases.v ../src/Overflow.v ../src/SpecialCases.v ../src/FixedShifter.v ../src/FixedShiftCalc.v ../src/Divisor_Alg_ali2.sv ../src/arctan8b.sv ../src/arctan8better2.sv ../src/arctan8best.sv ../src/DDS_rafa_red_cuarto.sv ../src/memoria_dual_port.sv ../src/nuevo_radicador_rapido2.sv ../src/premodulo_generico_best.sv ../src/Control_path_dds_configurable_mejora_correlacion8_autoshunt_sweep_updown_4p_mejorado_quiza_final.sv ../src/tb_correlacion_ina_2adcs_configurable_to_fpga_v4.sv -work qrun.out/work -statslog qrun.out/stats_logH5cEED -csession=incr 
+- Old Command: vlog -64 -O5 -sv +define+EXPERIMENTO_CONTACTO_50K+ALTAS_FRECUENCIAS+DISPERSION_CONTACTOS+USE_VAMS_MIXED+EXPERIMENTO_K_EXTREMOS +incdir+../src/ ../src/FFT_mariposa.c ../src/dpi_guardar_datos_detalle_tiempos.c ../src/dpi_pkg_tiempos.sv ../src/electrical_pkg.sv ../src/bioz_block_portable_to_fpga_ina_v4.sv ../src/rp_adc_model_nettype.sv ../src/rp_dac_model_nettype.sv ../src/top_bioimpedancia_circuito_medida_portable_mixed_v4.sv ../src/Fixed2Float.v ../src/Float2Fixed.v ../src/NormalCases.v ../src/Overflow.v ../src/SpecialCases.v ../src/FixedShifter.v ../src/FixedShiftCalc.v ../src/Divisor_Alg_ali2.sv ../src/arctan8b.sv ../src/arctan8better2.sv ../src/arctan8best.sv ../src/DDS_rafa_red_cuarto.sv ../src/memoria_dual_port.sv ../src/nuevo_radicador_rapido2.sv ../src/premodulo_generico_best.sv ../src/Control_path_dds_configurable_mejora_correlacion8_autoshunt_sweep_updown_4p_mejorado_quiza_final.sv ../src/tb_correlacion_ina_2adcs_configurable_to_fpga_v4.sv -work qrun.out/work -statslog qrun.out/stats_log5tFW6n -csession=incr 
+-- Compiling package dpi_pkg_tiempos
+-- Compiling package electrical_pkg
+-- Compiling package bioz_block_portable_to_fpga_ina_v4_sv_unit
+-- Importing package electrical_pkg
+-- Compiling module bioz_block_portable_to_fpga_ina_v4
+-- Compiling package rp_adc_model_nettype_sv_unit
+-- Compiling module rp_adc_model_nettype
+-- Compiling package rp_dac_model_nettype_sv_unit
+-- Compiling module rp_dac_model_nettype
+-- Compiling package top_bioimpedancia_circuito_medida_portable_mixed_v4_sv_unit
+-- Compiling module top_bioimpedancia_circuito_medida_portable_mixed_v4
+-- Compiling module Fixed2Float
+-- Compiling module Float2Fixed
+-- Compiling module NormalCases
+-- Compiling module Overflow
+-- Compiling module SpecialCases
+-- Compiling module FixedShifter
+-- Compiling module FixedShiftCalc
+-- Compiling module Divisor_Alg_ali
+-- Compiling module arctan8b
+-- Compiling module arctan8better
+-- Compiling module arctan8best
+-- Compiling module DDS_rafa_cuarto
+-- Compiling module memoria_dual_port
+-- Compiling module radicador_64_32
+-- Compiling module premodulo_best
+-- Compiling module Control_path_best_rafa_mejora_correlacion_autoshunt_4p_mejorado
+-- Compiling package tb_correlacion_ina_2adcs_configurable_to_fpga_v4_sv_unit
+-- Importing package dpi_pkg_tiempos
+-- Compiling module tb_correlacion_portable_python_to_fpga_configurable
+
+Top level modules:
+	bioz_block_portable_to_fpga_ina_v4
+	rp_adc_model_nettype
+	rp_dac_model_nettype
+	Fixed2Float
+	Float2Fixed
+	arctan8b
+	arctan8better
+	tb_correlacion_portable_python_to_fpga_configurable
+-- Compiling DPI/PLI C file ../src/FFT_mariposa.c
+-- Compiling DPI/PLI C file ../src/dpi_guardar_datos_detalle_tiempos.c
+End time: 10:17:12 on Oct 24,2026, Elapsed time: 0:00:00
+Errors: 0, Warnings: 1
+** Note: (qrun-20238) Reinvoking vcom command and creating a new session as an old vcom session has been found with common files but different arguments passed:
+- New Command: vcom -ini symphony.out/default_snapshot/questa.ini -64 -O5 -suppress 12130 ../src/fixed_pkg.vhd ../src/memoria_single_port_vhdl_2008_arctan.vhd -work qrun.out/work -autoorder -statslog qrun.out/stats_logH5cEED -csession=incr 
+- Old Command: vcom -64 -O5 ../src/fixed_pkg.vhd ../src/memoria_single_port_vhdl_2008_arctan.vhd -work qrun.out/work -autoorder -statslog qrun.out/stats_log5tFW6n -csession=incr 
+QuestaSim-64 vcom 2026.1_1 Compiler 2026.03 Mar  2 2026
+Start time: 10:17:12 on Oct 24,2026
+vcom -ini symphony.out/default_snapshot/questa.ini -64 -O5 -suppress 12130 ../src/fixed_pkg.vhd ../src/memoria_single_port_vhdl_2008_arctan.vhd -work qrun.out/work -autoorder -statslog qrun.out/stats_logH5cEED -csession=incr 
+** Note: (vcom-220) 'symphony.out/default_snapshot/questa.ini' is used as the ini file.
+** Note: (vcom-20238) Reinvoking vcom command and creating a new session as an old vcom session has been found with common files but different arguments passed:
+- New Command: vcom -ini symphony.out/default_snapshot/questa.ini -64 -O5 -suppress 12130 ../src/fixed_pkg.vhd ../src/memoria_single_port_vhdl_2008_arctan.vhd -work qrun.out/work -autoorder -statslog qrun.out/stats_logH5cEED -csession=incr 
+- Old Command: vcom -64 -O5 ../src/fixed_pkg.vhd ../src/memoria_single_port_vhdl_2008_arctan.vhd -work qrun.out/work -autoorder -statslog qrun.out/stats_log5tFW6n -csession=incr 
+-- Loading package STANDARD
+-- Scanning package fixed_pkg
+-- Scanning package body fixed_pkg
+-- Loading package fixed_pkg
+-- Scanning entity memoria_single_port_mejorado
+-- Scanning architecture inferencia of memoria_single_port_mejorado
+End time: 10:17:12 on Oct 24,2026, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+QuestaSim-64 vcom 2026.1_1 Compiler 2026.03 Mar  2 2026
+Start time: 10:17:12 on Oct 24,2026
+vcom -refresh_marked -work qrun.out/work -csession=incr -statslog qrun.out/stats_logH5cEED 
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling package fixed_pkg
+-- Loading package MATH_REAL
+-- Compiling package body fixed_pkg
+-- Loading package fixed_pkg
+** Warning: ../src/fixed_pkg.vhd(1494): (vcom-1246) Range 0 downto 1 is null.
+** Warning: ../src/fixed_pkg.vhd(1495): (vcom-1246) Range 0 downto 1 is null.
+** Warning: ../src/fixed_pkg.vhd(1496): (vcom-1246) Range 0 downto 1 is null.
+** Warning: ../src/fixed_pkg.vhd(6907): (vcom-1246) Range 2 to 1 is null.
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package fixed_pkg
+-- Compiling entity memoria_single_port_mejorado
+-- Compiling architecture inferencia of memoria_single_port_mejorado
+End time: 10:17:13 on Oct 24,2026, Elapsed time: 0:00:01
+Errors: 0, Warnings: 4
+QuestaSim-64 vopt 2026.1_1 Compiler 2026.03 Mar  2 2026
+** Note: (vopt-14495) '-O' option is obsolete, and will be ignored.
+Start time: 10:17:13 on Oct 24,2026
+vopt -ini symphony.out/default_snapshot/questa.ini -O5 -L symphonycelllib -L symphonyvamscelllib -rnmconfigfile symphony_v4.conf -rnmconfiglib /root/solido_symphony/solidosim/symphony/lib.linux_x86_64/libconf_reader.so -symphony -L ./work -designfile symphony.out/design.bin -access=rw+/. -cellaccess=rw+/. -bitscalars -inlineFactor=0 -noSharedArchs tb_correlacion_portable_python_to_fpga_configurable -suppress 12130 -work qrun.out/work -statslog qrun.out/stats_logH5cEED -csession=incr -o qrun_opt -csessionid=6 
+** Note: (vopt-220) 'symphony.out/default_snapshot/questa.ini' is used as the ini file.
+
+Top level modules:
+	tb_correlacion_portable_python_to_fpga_configurable
+
+Analyzing design...
+-- Loading module tb_correlacion_portable_python_to_fpga_configurable
+-- Loading module top_bioimpedancia_circuito_medida_portable_mixed_v4
+-- Loading module symphonyvamscelllib.top_bioimpedancia_ams_v4
+-- Importing package mtiRnm.mgc_rnm_pkg
+-- Loading module symphonyvamscelllib.dac_ams_wrapper
+-- Loading module symphonyvamscelllib.analog_top_4p_portable_to_fpga_ina_v4_ams
+-- Loading module symphonyvamscelllib.adc_ams_wrapper
+-- Loading module Control_path_best_rafa_mejora_correlacion_autoshunt_4p_mejorado
+-- Loading module premodulo_best
+-- Loading module radicador_64_32
+-- Loading module Divisor_Alg_ali
+-- Loading module arctan8best
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package NUMERIC_STD
+-- Loading package fixed_pkg
+-- Loading package MATH_REAL
+-- Loading entity memoria_single_port_mejorado
+-- Loading architecture inferencia of memoria_single_port_mejorado
+-- Loading package body fixed_pkg
+-- Loading module DDS_rafa_cuarto
+-- Loading module memoria_dual_port
+** Warning: ../src/tb_correlacion_ina_2adcs_configurable_to_fpga_v4.sv(379): (vopt-2241) Connection width does not match width of port 'numero_rep'. The port definition is at: ../src/Control_path_dds_configurable_mejora_correlacion8_autoshunt_sweep_updown_4p_mejorado_quiza_final.sv(12). Formal Port width: 9 and Actual Port width: 32.
+Optimizing 21 design-units (inlining 0/18 module instances, 0/2 architecture instances):
+-- Optimizing package dpi_pkg_tiempos(fast)
+-- Optimizing package electrical_pkg(fast)
+-- Optimizing package tb_correlacion_ina_2adcs_configurable_to_fpga_v4_sv_unit(fast)
+-- Optimizing package top_bioimpedancia_circuito_medida_portable_mixed_v4_sv_unit(fast)
+-- Optimizing package mtiRnm.mgc_rnm_pkg(fast)
+-- Optimizing module tb_correlacion_portable_python_to_fpga_configurable(fast)
+** Warning: ../src/tb_correlacion_ina_2adcs_configurable_to_fpga_v4.sv(381): (vopt-2958) Implicit wire 'clk65' does not have any driver.
+-- Optimizing module Control_path_best_rafa_mejora_correlacion_autoshunt_4p_mejorado(fast)
+-- Optimizing module arctan8best(fast)
+-- Optimizing module symphonyvamscelllib.top_bioimpedancia_ams_v4(fast)
+-- Optimizing module top_bioimpedancia_circuito_medida_portable_mixed_v4(fast)
+-- Optimizing module premodulo_best(fast)
+-- Optimizing module Divisor_Alg_ali(fast)
+-- Optimizing module DDS_rafa_cuarto(fast)
+-- Optimizing module radicador_64_32(fast)
+-- Optimizing module symphonyvamscelllib.adc_ams_wrapper(fast)
+-- Optimizing module symphonyvamscelllib.analog_top_4p_portable_to_fpga_ina_v4_ams(fast)
+-- Optimizing module memoria_dual_port(fast)
+-- Optimizing module symphonyvamscelllib.dac_ams_wrapper(fast)
+-- Optimizing package fixed_pkg
+-- Optimizing package body fixed_pkg
+-- Optimizing architecture inferencia of memoria_single_port_mejorado
+viscom:
+VISCOM: Start time: 10:17:14 on Oct 24,2026
+
+VISCOM: QuestaSim /root/solido_symphony/solidosim/questasim/linux_x86_64/VisualizerRls/bin/viscom 2026.1_1 at 2026.03 Mar  2 2026
+VISCOM: Writing symphony.out/design.bin
+VISCOM: Done writing symphony.out/design.bin
+VISCOM: End time: 10:17:19 on Oct 24,2026, Elapsed time: 0:00:05 (Process Size : 307MB, Peak Process Size : 311MB)
+
+
+Optimized design name is qrun_opt
+End time: 10:17:32 on Oct 24,2026, Elapsed time: 0:00:19
+Errors: 0, Warnings: 2
+# ** Note: (vsim-220) 'symphony.out/default_snapshot/questa.ini' is used as the ini file.
+# vsim -ini symphony.out/default_snapshot/questa.ini -64 -batch -L symphonycelllib -L symphonyvamscelllib -qwavedb=+wavedir=symphony.out/default_snapshot/symphony.qdb "+plusarg_save" "+symphony=symphony.out/default_snapshot/.symphonycmdline" -rnmconfigfile symphony_v4.conf -rnmconfiglib /root/solido_symphony/solidosim/symphony/lib.linux_x86_64/libconf_reader.so -symphony -pli "/root/solido_symphony/solidosim/symphony/lib.linux_x86_64/libsymphonyelabvpi.so" -L ./work -lib qrun.out/work -do "symphony.out/default_snapshot/.init.tcl" -do "run -all; quit -f" -statslog qrun.out/stats_logH5cEED qrun_opt -suppress 12130 -appendlog -l qrun_experimento_k_extremos_to_fpga_ina_configurable_v4_symphony.log 
+# Start time: 10:17:32 on Oct 24,2026
+# Loading Siemens Visualizer shared object '/root/solido_symphony/solidosim/questasim/linux_x86_64/VisualizerRls/bin/libqvisualizer.so'
+# //  Questa Sim-64
+# //  Version 2026.1_1 linux_x86_64 Mar  2 2026
+# //
+# // Unpublished work. Copyright 2026 Siemens
+# //
+# // This material contains trade secrets or otherwise confidential information
+# // owned by Siemens Industry Software Inc. or its affiliates (collectively,
+# // "SISW"), or its licensors. Access to and use of this information is strictly
+# // limited as set forth in the Customer's applicable agreements with SISW.
+# //
+# // This material may not be copied, distributed, or otherwise disclosed outside
+# // of the Customer's facilities without the express written permission of SISW,
+# // and may not be used in any way not expressly authorized by SISW.
+# //
+# Loading sv_std.std
+# Loading work.electrical_pkg(fast)
+# Loading work.dpi_pkg_tiempos(fast)
+# Loading work.tb_correlacion_ina_2adcs_configurable_to_fpga_v4_sv_unit(fast)
+# Loading work.tb_correlacion_portable_python_to_fpga_configurable(fast)
+# Loading work.top_bioimpedancia_circuito_medida_portable_mixed_v4_sv_unit(fast)
+# Loading work.top_bioimpedancia_circuito_medida_portable_mixed_v4(fast)
+# Loading mtiRnm.mgc_rnm_pkg
+# Loading symphonyvamscelllib.top_bioimpedancia_ams_v4(fast)
+# Loading symphonyvamscelllib.dac_ams_wrapper(fast)
+# Loading symphonyvamscelllib.analog_top_4p_portable_to_fpga_ina_v4_ams(fast)
+# Loading symphonyvamscelllib.adc_ams_wrapper(fast)
+# Loading work.Control_path_best_rafa_mejora_correlacion_autoshunt_4p_mejorado(fast)
+# Loading work.premodulo_best(fast)
+# Loading work.radicador_64_32(fast)
+# Loading work.Divisor_Alg_ali(fast)
+# Loading work.arctan8best(fast)
+# Loading work.DDS_rafa_cuarto(fast)
+# Loading work.memoria_dual_port(fast)
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.math_real(body)
+# Loading work.fixed_pkg(body)
+# Loading work.memoria_single_port_mejorado(inferencia)#1
+# ** Warning: (vsim-3015) [PCDPC] - Port size (9) does not match connection size (32) for port 'numero_rep'. The port definition is at: ../src/Control_path_dds_configurable_mejora_correlacion8_autoshunt_sweep_updown_4p_mejorado_quiza_final.sv(12).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_correlacion_portable_python_to_fpga_configurable/control_path_4p_inst File: ../src/tb_correlacion_ina_2adcs_configurable_to_fpga_v4.sv Line: 379
+# Loading /tmp/eda@hyperion8_dpi_1552/linux_x86_64_gcc-13.4.0/vsim_auto_compile.so
+# Loading /tmp/eda@hyperion8_dpi_1552/linux_x86_64_gcc-13.4.0/STUB_SYMS_OF_libsymphonyelabvpi.so
+# Loading /root/solido_symphony/solidosim/symphony/lib.linux_x86_64/libsymphonyelabvpi.so
+# 
+# do symphony.out/default_snapshot/.init.tcl
+# run -all
+# qwavedb_dumpvars: Initiating qwavedb waveform capturing
+# 
+# Info: Enabling parallel (multi-threaded) wave dumping.
+# 
+# qwavedb_dumpvars: Done initiating qwavedb waveform capturing
+# 
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 4 ns  Iteration: 1  Instance: /tb_correlacion_portable_python_to_fpga_configurable/control_path_4p_inst/divisor_fa/arco_tangente1
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 4 ns  Iteration: 1  Instance: /tb_correlacion_portable_python_to_fpga_configurable/control_path_4p_inst/divisor_fa/arco_tangente1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 4 ns  Iteration: 1  Instance: /tb_correlacion_portable_python_to_fpga_configurable/control_path_4p_inst/divisor_fb/arco_tangente1
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 4 ns  Iteration: 1  Instance: /tb_correlacion_portable_python_to_fpga_configurable/control_path_4p_inst/divisor_fb/arco_tangente1
+# 
+# =================================================================
+#    [V4 - OPCION 3 MAGNITUD] INICIANDO ENTORNO DUAL (ANALITICA + LUT)
+#    Modo Calibracion Previa: DESHABILITADO | Metodo Sujeto 1: 0 ( INVERSION ANALITICA DIRECTA)
+# =================================================================
+# 
+# 
+#   [FLASH EXTRACTION] Freq:  40.0 Hz
+#     -> Z Bucle Total Medida:    121275 Ohm
+#     -> R_contact Dinámica Extraída:     51542 Ohm
+#     -> R_contact_Force real (promedio):     52745 Ohm (rf1: 49998, rf2: 55493)
+#     -> R_contact_Sense real (oculto rs1):     60855 Ohm
+# === FREQ:     39.99 Hz ===
+#   [SUJETO 0: RAW]         Mag: 18140.62 Ohm | Fase:   0.00 deg | Err_M:  0.79% | Err_F:  0.82 deg
+#   [SUJETO 1: APLICADO]    Mag: 18120.48 Ohm | Fase:   0.00 deg | Err_M:  0.68% | Err_F:  0.82 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag: 18120.48 Ohm | Fase:   0.00 deg | Err_M:  0.68% | Err_F:  0.82 deg
+#   [SUJETO 2: GOLDEN]      Mag: 17997.88 Ohm | Fase:  -0.82 deg
+# 
+#   [FLASH EXTRACTION] Freq:  50.3 Hz
+#     -> Z Bucle Total Medida:    119561 Ohm
+#     -> R_contact Dinámica Extraída:     50687 Ohm
+#     -> R_contact_Force real (promedio):     52565 Ohm (rf1: 49827, rf2: 55302)
+#     -> R_contact_Sense real (oculto rs1):     60646 Ohm
+# === FREQ:     50.35 Hz ===
+#   [SUJETO 0: RAW]         Mag: 18136.72 Ohm | Fase:   0.00 deg | Err_M:  0.78% | Err_F:  1.03 deg
+#   [SUJETO 1: APLICADO]    Mag: 18115.62 Ohm | Fase:   0.00 deg | Err_M:  0.66% | Err_F:  1.03 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag: 18115.62 Ohm | Fase:   0.00 deg | Err_M:  0.66% | Err_F:  1.03 deg
+#   [SUJETO 2: GOLDEN]      Mag: 17996.65 Ohm | Fase:  -1.03 deg
+# 
+#   [FLASH EXTRACTION] Freq:  63.4 Hz
+#     -> Z Bucle Total Medida:    119201 Ohm
+#     -> R_contact Dinámica Extraída:     50509 Ohm
+#     -> R_contact_Force real (promedio):     52462 Ohm (rf1: 49730, rf2: 55195)
+#     -> R_contact_Sense real (oculto rs1):     60528 Ohm
+# === FREQ:     63.39 Hz ===
+#   [SUJETO 0: RAW]         Mag: 18132.81 Ohm | Fase:   0.00 deg | Err_M:  0.77% | Err_F:  1.29 deg
+#   [SUJETO 1: APLICADO]    Mag: 18113.30 Ohm | Fase:   0.00 deg | Err_M:  0.66% | Err_F:  1.30 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag: 18113.30 Ohm | Fase:   0.00 deg | Err_M:  0.66% | Err_F:  1.30 deg
+#   [SUJETO 2: GOLDEN]      Mag: 17994.69 Ohm | Fase:  -1.29 deg
+# 
+#   [FLASH EXTRACTION] Freq:  79.8 Hz
+#     -> Z Bucle Total Medida:    118987 Ohm
+#     -> R_contact Dinámica Extraída:     50406 Ohm
+#     -> R_contact_Force real (promedio):     52408 Ohm (rf1: 49678, rf2: 55137)
+#     -> R_contact_Sense real (oculto rs1):     60465 Ohm
+# === FREQ:     79.80 Hz ===
+#   [SUJETO 0: RAW]         Mag: 18125.00 Ohm | Fase:   0.00 deg | Err_M:  0.74% | Err_F:  1.63 deg
+#   [SUJETO 1: APLICADO]    Mag: 18109.28 Ohm | Fase:   0.00 deg | Err_M:  0.65% | Err_F:  1.63 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag: 18109.28 Ohm | Fase:   0.00 deg | Err_M:  0.65% | Err_F:  1.63 deg
+#   [SUJETO 2: GOLDEN]      Mag: 17991.58 Ohm | Fase:  -1.63 deg
+# === FREQ:    100.47 Hz ===
+#   [SUJETO 0: RAW]         Mag: 18125.00 Ohm | Fase:  -0.88 deg | Err_M:  0.77% | Err_F:  1.17 deg
+#   [SUJETO 1: APLICADO]    Mag: 18105.84 Ohm | Fase:  -0.87 deg | Err_M:  0.66% | Err_F:  1.18 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag: 18105.84 Ohm | Fase:  -0.87 deg | Err_M:  0.66% | Err_F:  1.18 deg
+#   [SUJETO 2: GOLDEN]      Mag: 17986.66 Ohm | Fase:  -2.05 deg
+# === FREQ:    126.49 Hz ===
+#   [SUJETO 0: RAW]         Mag: 18117.19 Ohm | Fase:  -0.88 deg | Err_M:  0.77% | Err_F:  1.70 deg
+#   [SUJETO 1: APLICADO]    Mag: 18101.69 Ohm | Fase:  -0.87 deg | Err_M:  0.68% | Err_F:  1.71 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag: 18101.69 Ohm | Fase:  -0.87 deg | Err_M:  0.68% | Err_F:  1.71 deg
+#   [SUJETO 2: GOLDEN]      Mag: 17978.87 Ohm | Fase:  -2.58 deg
+# === FREQ:    159.26 Hz ===
+#   [SUJETO 0: RAW]         Mag: 18109.38 Ohm | Fase:  -1.75 deg | Err_M:  0.79% | Err_F:  1.49 deg
+#   [SUJETO 1: APLICADO]    Mag: 18093.84 Ohm | Fase:  -1.74 deg | Err_M:  0.71% | Err_F:  1.50 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag: 18093.84 Ohm | Fase:  -1.74 deg | Err_M:  0.71% | Err_F:  1.50 deg
+#   [SUJETO 2: GOLDEN]      Mag: 17966.55 Ohm | Fase:  -3.24 deg
+# === FREQ:    200.47 Hz ===
+#   [SUJETO 0: RAW]         Mag: 18101.56 Ohm | Fase:  -1.75 deg | Err_M:  0.86% | Err_F:  2.33 deg
+#   [SUJETO 1: APLICADO]    Mag: 18081.78 Ohm | Fase:  -1.74 deg | Err_M:  0.75% | Err_F:  2.34 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag: 18081.78 Ohm | Fase:  -1.74 deg | Err_M:  0.75% | Err_F:  2.34 deg
+#   [SUJETO 2: GOLDEN]      Mag: 17947.07 Ohm | Fase:  -4.08 deg
+# === FREQ:    252.39 Hz ===
+#   [SUJETO 0: RAW]         Mag: 18078.12 Ohm | Fase:  -2.62 deg | Err_M:  0.90% | Err_F:  2.50 deg
+#   [SUJETO 1: APLICADO]    Mag: 18062.09 Ohm | Fase:  -2.61 deg | Err_M:  0.81% | Err_F:  2.52 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag: 18062.09 Ohm | Fase:  -2.61 deg | Err_M:  0.81% | Err_F:  2.52 deg
+#   [SUJETO 2: GOLDEN]      Mag: 17916.34 Ohm | Fase:  -5.13 deg
+# === FREQ:    317.73 Hz ===
+#   [SUJETO 0: RAW]         Mag: 18046.88 Ohm | Fase:  -3.50 deg | Err_M:  1.00% | Err_F:  2.95 deg
+#   [SUJETO 1: APLICADO]    Mag: 18031.34 Ohm | Fase:  -3.48 deg | Err_M:  0.91% | Err_F:  2.96 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag: 18031.34 Ohm | Fase:  -3.48 deg | Err_M:  0.91% | Err_F:  2.96 deg
+#   [SUJETO 2: GOLDEN]      Mag: 17867.94 Ohm | Fase:  -6.45 deg
+# === FREQ:    400.00 Hz ===
+#   [SUJETO 0: RAW]         Mag: 18000.00 Ohm | Fase:  -6.25 deg | Err_M:  1.17% | Err_F:  1.84 deg
+#   [SUJETO 1: APLICADO]    Mag: 17983.33 Ohm | Fase:  -6.23 deg | Err_M:  1.08% | Err_F:  1.86 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag: 17983.33 Ohm | Fase:  -6.23 deg | Err_M:  1.08% | Err_F:  1.86 deg
+#   [SUJETO 2: GOLDEN]      Mag: 17792.03 Ohm | Fase:  -8.09 deg
+# === FREQ:    503.58 Hz ===
+#   [SUJETO 0: RAW]         Mag: 17929.69 Ohm | Fase:  -7.12 deg | Err_M:  1.45% | Err_F:  3.01 deg
+#   [SUJETO 1: APLICADO]    Mag: 17908.01 Ohm | Fase:  -7.10 deg | Err_M:  1.33% | Err_F:  3.04 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag: 17908.01 Ohm | Fase:  -7.10 deg | Err_M:  1.33% | Err_F:  3.04 deg
+#   [SUJETO 2: GOLDEN]      Mag: 17673.72 Ohm | Fase: -10.13 deg
+# === FREQ:    633.97 Hz ===
+#   [SUJETO 0: RAW]         Mag: 17812.50 Ohm | Fase:  -8.88 deg | Err_M:  1.84% | Err_F:  3.79 deg
+#   [SUJETO 1: APLICADO]    Mag: 17791.57 Ohm | Fase:  -8.84 deg | Err_M:  1.72% | Err_F:  3.83 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag: 17791.57 Ohm | Fase:  -8.84 deg | Err_M:  1.72% | Err_F:  3.83 deg
+#   [SUJETO 2: GOLDEN]      Mag: 17490.97 Ohm | Fase: -12.66 deg
+# === FREQ:    798.11 Hz ===
+#   [SUJETO 0: RAW]         Mag: 17593.75 Ohm | Fase: -12.38 deg | Err_M:  2.21% | Err_F:  3.38 deg
+#   [SUJETO 1: APLICADO]    Mag: 17600.63 Ohm | Fase: -12.33 deg | Err_M:  2.25% | Err_F:  3.43 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag: 17600.63 Ohm | Fase: -12.33 deg | Err_M:  2.25% | Err_F:  3.43 deg
+#   [SUJETO 2: GOLDEN]      Mag: 17212.71 Ohm | Fase: -15.75 deg
+# === FREQ:   1004.75 Hz ===
+#   [SUJETO 0: RAW]         Mag: 17343.75 Ohm | Fase: -15.00 deg | Err_M:  3.25% | Err_F:  4.48 deg
+#   [SUJETO 1: APLICADO]    Mag: 17322.81 Ohm | Fase: -14.94 deg | Err_M:  3.13% | Err_F:  4.54 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag: 17322.81 Ohm | Fase: -14.94 deg | Err_M:  3.13% | Err_F:  4.54 deg
+#   [SUJETO 2: GOLDEN]      Mag: 16797.84 Ohm | Fase: -19.48 deg
+# === FREQ:   1264.91 Hz ===
+#   [SUJETO 0: RAW]         Mag: 16906.25 Ohm | Fase: -18.25 deg | Err_M:  4.37% | Err_F:  5.62 deg
+#   [SUJETO 1: APLICADO]    Mag: 16899.88 Ohm | Fase: -18.17 deg | Err_M:  4.33% | Err_F:  5.69 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag: 16899.88 Ohm | Fase: -18.17 deg | Err_M:  4.33% | Err_F:  5.69 deg
+#   [SUJETO 2: GOLDEN]      Mag: 16198.14 Ohm | Fase: -23.87 deg
+# === FREQ:   1592.42 Hz ===
+#   [SUJETO 0: RAW]         Mag: 16312.50 Ohm | Fase: -23.12 deg | Err_M:  6.15% | Err_F:  5.75 deg
+#   [SUJETO 1: APLICADO]    Mag: 16295.87 Ohm | Fase: -23.03 deg | Err_M:  6.04% | Err_F:  5.85 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag: 16295.87 Ohm | Fase: -23.03 deg | Err_M:  6.04% | Err_F:  5.85 deg
+#   [SUJETO 2: GOLDEN]      Mag: 15367.55 Ohm | Fase: -28.88 deg
+# === FREQ:   2004.76 Hz ===
+#   [SUJETO 0: RAW]         Mag: 15468.75 Ohm | Fase: -27.75 deg | Err_M:  8.32% | Err_F:  6.60 deg
+#   [SUJETO 1: APLICADO]    Mag: 15455.45 Ohm | Fase: -27.63 deg | Err_M:  8.23% | Err_F:  6.72 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag: 15455.45 Ohm | Fase: -27.63 deg | Err_M:  8.23% | Err_F:  6.72 deg
+#   [SUJETO 2: GOLDEN]      Mag: 14280.44 Ohm | Fase: -34.35 deg
+# === FREQ:   2523.83 Hz ===
+#   [SUJETO 0: RAW]         Mag: 14375.00 Ohm | Fase: -34.25 deg | Err_M: 10.99% | Err_F:  5.77 deg
+#   [SUJETO 1: APLICADO]    Mag: 14361.66 Ohm | Fase: -34.10 deg | Err_M: 10.88% | Err_F:  5.92 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag: 14361.66 Ohm | Fase: -34.10 deg | Err_M: 10.88% | Err_F:  5.92 deg
+#   [SUJETO 2: GOLDEN]      Mag: 12952.04 Ohm | Fase: -40.02 deg
+# === FREQ:   3177.32 Hz ===
+#   [SUJETO 0: RAW]         Mag: 13031.25 Ohm | Fase: -39.25 deg | Err_M: 13.82% | Err_F:  6.27 deg
+#   [SUJETO 1: APLICADO]    Mag: 13017.20 Ohm | Fase: -39.06 deg | Err_M: 13.70% | Err_F:  6.46 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag: 13017.20 Ohm | Fase: -39.06 deg | Err_M: 13.70% | Err_F:  6.46 deg
+#   [SUJETO 2: GOLDEN]      Mag: 11449.16 Ohm | Fase: -45.52 deg
+# === FREQ:   4000.00 Hz ===
+#   [SUJETO 0: RAW]         Mag: 11500.00 Ohm | Fase: -45.25 deg | Err_M: 16.44% | Err_F:  5.22 deg
+#   [SUJETO 1: APLICADO]    Mag: 11501.94 Ohm | Fase: -45.01 deg | Err_M: 16.46% | Err_F:  5.45 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag: 11501.94 Ohm | Fase: -45.01 deg | Err_M: 16.46% | Err_F:  5.45 deg
+#   [SUJETO 2: GOLDEN]      Mag:  9876.60 Ohm | Fase: -50.47 deg
+# === FREQ:   5035.69 Hz ===
+#   [SUJETO 0: RAW]         Mag:  9906.25 Ohm | Fase: -50.25 deg | Err_M: 18.70% | Err_F:  4.27 deg
+#   [SUJETO 1: APLICADO]    Mag:  9919.47 Ohm | Fase: -49.95 deg | Err_M: 18.86% | Err_F:  4.57 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag:  9919.47 Ohm | Fase: -49.95 deg | Err_M: 18.86% | Err_F:  4.57 deg
+#   [SUJETO 2: GOLDEN]      Mag:  8345.57 Ohm | Fase: -54.52 deg
+# === FREQ:   6339.57 Hz ===
+#   [SUJETO 0: RAW]         Mag:  8375.00 Ohm | Fase: -54.25 deg | Err_M: 20.62% | Err_F:  3.21 deg
+#   [SUJETO 1: APLICADO]    Mag:  8376.30 Ohm | Fase: -53.87 deg | Err_M: 20.64% | Err_F:  3.58 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag:  8376.30 Ohm | Fase: -53.87 deg | Err_M: 20.64% | Err_F:  3.58 deg
+#   [SUJETO 2: GOLDEN]      Mag:  6943.38 Ohm | Fase: -57.46 deg
+# === FREQ:   7981.06 Hz ===
+#   [SUJETO 0: RAW]         Mag:  6937.50 Ohm | Fase: -57.75 deg | Err_M: 21.28% | Err_F:  1.39 deg
+#   [SUJETO 1: APLICADO]    Mag:  6963.54 Ohm | Fase: -57.28 deg | Err_M: 21.74% | Err_F:  1.87 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag:  6963.54 Ohm | Fase: -57.28 deg | Err_M: 21.74% | Err_F:  1.87 deg
+#   [SUJETO 2: GOLDEN]      Mag:  5720.18 Ohm | Fase: -59.14 deg
+# === FREQ:  10047.54 Hz ===
+#   [SUJETO 0: RAW]         Mag:  5821.25 Ohm | Fase: -59.38 deg | Err_M: 24.06% | Err_F:  0.14 deg
+#   [SUJETO 1: APLICADO]    Mag:  5847.18 Ohm | Fase: -58.69 deg | Err_M: 24.61% | Err_F:  0.83 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag:  5847.18 Ohm | Fase: -58.69 deg | Err_M: 24.61% | Err_F:  0.83 deg
+#   [SUJETO 2: GOLDEN]      Mag:  4692.40 Ohm | Fase: -59.52 deg
+# === FREQ:  12649.11 Hz ===
+#   [SUJETO 0: RAW]         Mag:  4778.01 Ohm | Fase: -60.38 deg | Err_M: 23.98% | Err_F:  1.80 deg
+#   [SUJETO 1: APLICADO]    Mag:  4787.60 Ohm | Fase: -59.51 deg | Err_M: 24.23% | Err_F:  0.94 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag:  4787.60 Ohm | Fase: -59.51 deg | Err_M: 24.23% | Err_F:  0.94 deg
+#   [SUJETO 2: GOLDEN]      Mag:  3853.82 Ohm | Fase: -58.57 deg
+# === FREQ:  15924.28 Hz ===
+#   [SUJETO 0: RAW]         Mag:  3901.70 Ohm | Fase: -59.50 deg | Err_M: 22.45% | Err_F:  3.17 deg
+#   [SUJETO 1: APLICADO]    Mag:  3928.73 Ohm | Fase: -58.42 deg | Err_M: 23.30% | Err_F:  2.09 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag:  3928.73 Ohm | Fase: -58.42 deg | Err_M: 23.30% | Err_F:  2.09 deg
+#   [SUJETO 2: GOLDEN]      Mag:  3186.29 Ohm | Fase: -56.33 deg
+# === FREQ:  20047.48 Hz ===
+#   [SUJETO 0: RAW]         Mag:  3234.03 Ohm | Fase: -58.00 deg | Err_M: 21.26% | Err_F:  5.11 deg
+#   [SUJETO 1: APLICADO]    Mag:  3244.66 Ohm | Fase: -56.64 deg | Err_M: 21.66% | Err_F:  3.75 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag:  3244.66 Ohm | Fase: -56.64 deg | Err_M: 21.66% | Err_F:  3.75 deg
+#   [SUJETO 2: GOLDEN]      Mag:  2667.02 Ohm | Fase: -52.89 deg
+# === FREQ:  25238.29 Hz ===
+#   [SUJETO 0: RAW]         Mag:  2691.54 Ohm | Fase: -55.50 deg | Err_M: 18.43% | Err_F:  7.09 deg
+#   [SUJETO 1: APLICADO]    Mag:  2709.02 Ohm | Fase: -53.78 deg | Err_M: 19.20% | Err_F:  5.37 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag:  2709.02 Ohm | Fase: -53.78 deg | Err_M: 19.20% | Err_F:  5.37 deg
+#   [SUJETO 2: GOLDEN]      Mag:  2272.61 Ohm | Fase: -48.41 deg
+# === FREQ:  31773.12 Hz ===
+#   [SUJETO 0: RAW]         Mag:  2295.12 Ohm | Fase: -51.00 deg | Err_M: 15.87% | Err_F:  7.82 deg
+#   [SUJETO 1: APLICADO]    Mag:  2303.49 Ohm | Fase: -48.84 deg | Err_M: 16.30% | Err_F:  5.66 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag:  2303.49 Ohm | Fase: -48.84 deg | Err_M: 16.30% | Err_F:  5.66 deg
+#   [SUJETO 2: GOLDEN]      Mag:  1980.69 Ohm | Fase: -43.18 deg
+# === FREQ:  40000.01 Hz ===
+#   [SUJETO 0: RAW]         Mag:  1982.15 Ohm | Fase: -47.12 deg | Err_M: 11.95% | Err_F:  9.57 deg
+#   [SUJETO 1: APLICADO]    Mag:  2002.08 Ohm | Fase: -44.40 deg | Err_M: 13.08% | Err_F:  6.84 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag:  2002.08 Ohm | Fase: -44.40 deg | Err_M: 13.08% | Err_F:  6.84 deg
+#   [SUJETO 2: GOLDEN]      Mag:  1770.52 Ohm | Fase: -37.56 deg
+# === FREQ:  50357.02 Hz ===
+#   [SUJETO 0: RAW]         Mag:  1773.50 Ohm | Fase: -42.62 deg | Err_M:  9.25% | Err_F: 10.69 deg
+#   [SUJETO 1: APLICADO]    Mag:  1781.55 Ohm | Fase: -39.20 deg | Err_M:  9.74% | Err_F:  7.27 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag:  1781.55 Ohm | Fase: -39.20 deg | Err_M:  9.74% | Err_F:  7.27 deg
+#   [SUJETO 2: GOLDEN]      Mag:  1623.36 Ohm | Fase: -31.93 deg
+# === FREQ:  63395.74 Hz ===
+#   [SUJETO 0: RAW]         Mag:  1606.58 Ohm | Fase: -38.50 deg | Err_M:  5.49% | Err_F: 11.87 deg
+#   [SUJETO 1: APLICADO]    Mag:  1627.66 Ohm | Fase: -34.19 deg | Err_M:  6.88% | Err_F:  7.56 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag:  1627.66 Ohm | Fase: -34.19 deg | Err_M:  6.88% | Err_F:  7.56 deg
+#   [SUJETO 2: GOLDEN]      Mag:  1522.95 Ohm | Fase: -26.63 deg
+# === FREQ:  79810.50 Hz ===
+#   [SUJETO 0: RAW]         Mag:  1502.26 Ohm | Fase: -35.12 deg | Err_M:  3.18% | Err_F: 13.24 deg
+#   [SUJETO 1: APLICADO]    Mag:  1517.70 Ohm | Fase: -29.71 deg | Err_M:  4.24% | Err_F:  7.83 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag:  1517.70 Ohm | Fase: -29.71 deg | Err_M:  4.24% | Err_F:  7.83 deg
+#   [SUJETO 2: GOLDEN]      Mag:  1455.92 Ohm | Fase: -21.88 deg
+# === FREQ: 100475.44 Hz ===
+#   [SUJETO 0: RAW]         Mag:  1458.32 Ohm | Fase: -32.62 deg | Err_M:  3.28% | Err_F: 14.84 deg
+#   [SUJETO 1: APLICADO]    Mag:  1488.25 Ohm | Fase: -25.43 deg | Err_M:  5.40% | Err_F:  7.65 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag:  1488.25 Ohm | Fase: -25.43 deg | Err_M:  5.40% | Err_F:  7.65 deg
+#   [SUJETO 2: GOLDEN]      Mag:  1411.95 Ohm | Fase: -17.78 deg
+# === FREQ: 126491.10 Hz ===
+#   [SUJETO 0: RAW]         Mag:  1395.82 Ohm | Fase: -31.38 deg | Err_M:  0.89% | Err_F: 17.04 deg
+#   [SUJETO 1: APLICADO]    Mag:  1424.48 Ohm | Fase: -22.34 deg | Err_M:  2.96% | Err_F:  8.01 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag:  1424.48 Ohm | Fase: -22.34 deg | Err_M:  2.96% | Err_F:  8.01 deg
+#   [SUJETO 2: GOLDEN]      Mag:  1383.47 Ohm | Fase: -14.34 deg
+# === FREQ: 159242.86 Hz ===
+#   [SUJETO 0: RAW]         Mag:  1333.32 Ohm | Fase: -31.38 deg | Err_M:  2.33% | Err_F: 19.87 deg
+#   [SUJETO 1: APLICADO]    Mag:  1372.61 Ohm | Fase: -20.06 deg | Err_M:  0.54% | Err_F:  8.56 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag:  1372.61 Ohm | Fase: -20.06 deg | Err_M:  0.54% | Err_F:  8.56 deg
+#   [SUJETO 2: GOLDEN]      Mag:  1365.19 Ohm | Fase: -11.50 deg
+# === FREQ: 200474.90 Hz ===
+#   [SUJETO 0: RAW]         Mag:  1270.82 Ohm | Fase: -32.62 deg | Err_M:  6.11% | Err_F: 23.43 deg
+#   [SUJETO 1: APLICADO]    Mag:  1320.69 Ohm | Fase: -18.49 deg | Err_M:  2.43% | Err_F:  9.30 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag:  1320.69 Ohm | Fase: -18.49 deg | Err_M:  2.43% | Err_F:  9.30 deg
+#   [SUJETO 2: GOLDEN]      Mag:  1353.52 Ohm | Fase:  -9.19 deg
+# === FREQ: 252382.95 Hz ===
+#   [SUJETO 0: RAW]         Mag:  1187.49 Ohm | Fase: -34.50 deg | Err_M: 11.78% | Err_F: 27.17 deg
+#   [SUJETO 1: APLICADO]    Mag:  1264.68 Ohm | Fase: -16.93 deg | Err_M:  6.05% | Err_F:  9.59 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag:  1264.68 Ohm | Fase: -16.93 deg | Err_M:  6.05% | Err_F:  9.59 deg
+#   [SUJETO 2: GOLDEN]      Mag:  1346.11 Ohm | Fase:  -7.33 deg
+# === FREQ: 317731.29 Hz ===
+#   [SUJETO 0: RAW]         Mag:  1104.16 Ohm | Fase: -37.50 deg | Err_M: 17.69% | Err_F: 31.66 deg
+#   [SUJETO 1: APLICADO]    Mag:  1202.16 Ohm | Fase: -15.78 deg | Err_M: 10.38% | Err_F:  9.94 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag:  1202.16 Ohm | Fase: -15.78 deg | Err_M: 10.38% | Err_F:  9.94 deg
+#   [SUJETO 2: GOLDEN]      Mag:  1341.41 Ohm | Fase:  -5.84 deg
+# === FREQ: 399999.99 Hz ===
+#   [SUJETO 0: RAW]         Mag:   999.99 Ohm | Fase: -40.12 deg | Err_M: 25.29% | Err_F: 35.48 deg
+#   [SUJETO 1: APLICADO]    Mag:  1133.05 Ohm | Fase: -13.52 deg | Err_M: 15.35% | Err_F:  8.88 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag:  1133.05 Ohm | Fase: -13.52 deg | Err_M: 15.35% | Err_F:  8.88 deg
+#   [SUJETO 2: GOLDEN]      Mag:  1338.43 Ohm | Fase:  -4.64 deg
+# === FREQ: 503570.16 Hz ===
+#   [SUJETO 0: RAW]         Mag:   895.82 Ohm | Fase: -43.12 deg | Err_M: 32.98% | Err_F: 39.43 deg
+#   [SUJETO 1: APLICADO]    Mag:  1063.45 Ohm | Fase: -10.95 deg | Err_M: 20.43% | Err_F:  7.26 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag:  1063.45 Ohm | Fase: -10.95 deg | Err_M: 20.43% | Err_F:  7.26 deg
+#   [SUJETO 2: GOLDEN]      Mag:  1336.55 Ohm | Fase:  -3.69 deg
+# === FREQ: 633957.27 Hz ===
+#   [SUJETO 0: RAW]         Mag:   770.83 Ohm | Fase: -45.00 deg | Err_M: 42.28% | Err_F: 42.06 deg
+#   [SUJETO 1: APLICADO]    Mag:  1002.94 Ohm | Fase:  -6.73 deg | Err_M: 24.89% | Err_F:  3.79 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag:  1002.94 Ohm | Fase:  -6.73 deg | Err_M: 24.89% | Err_F:  3.79 deg
+#   [SUJETO 2: GOLDEN]      Mag:  1335.37 Ohm | Fase:  -2.94 deg
+# === FREQ: 798104.91 Hz ===
+#   [SUJETO 0: RAW]         Mag:   687.49 Ohm | Fase: -46.75 deg | Err_M: 48.49% | Err_F: 44.41 deg
+#   [SUJETO 1: APLICADO]    Mag:   958.47 Ohm | Fase:  -2.10 deg | Err_M: 28.18% | Err_F:  0.24 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag:   958.47 Ohm | Fase:  -2.10 deg | Err_M: 28.18% | Err_F:  0.24 deg
+#   [SUJETO 2: GOLDEN]      Mag:  1334.63 Ohm | Fase:  -2.34 deg
+# === FREQ: 999999.99 Hz ===
+#   [SUJETO 0: RAW]         Mag:   583.33 Ohm | Fase: -47.12 deg | Err_M: 56.29% | Err_F: 44.78 deg
+#   [SUJETO 1: APLICADO]    Mag:   933.59 Ohm | Fase:   3.69 deg | Err_M: 30.05% | Err_F:  6.04 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag:   933.59 Ohm | Fase:   3.69 deg | Err_M: 30.05% | Err_F:  6.04 deg
+#   [SUJETO 2: GOLDEN]      Mag:  1334.63 Ohm | Fase:  -2.34 deg
+# 
+#   [FLASH EXTRACTION] Freq:  40.0 Hz
+#     -> Z Bucle Total Medida:    116562 Ohm
+#     -> R_contact Dinámica Extraída:     53225 Ohm
+#     -> R_contact_Force real (promedio):     54755 Ohm (rf1: 48795, rf2: 60715)
+#     -> R_contact_Sense real (oculto rs1):     62965 Ohm
+# === FREQ:     39.99 Hz ===
+#   [SUJETO 0: RAW]         Mag: 10062.50 Ohm | Fase:   0.00 deg | Err_M:  0.63% | Err_F:  0.15 deg
+#   [SUJETO 1: APLICADO]    Mag: 10053.78 Ohm | Fase:   0.00 deg | Err_M:  0.54% | Err_F:  0.15 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag: 10053.78 Ohm | Fase:   0.00 deg | Err_M:  0.54% | Err_F:  0.15 deg
+#   [SUJETO 2: GOLDEN]      Mag:  9999.96 Ohm | Fase:  -0.15 deg
+# 
+#   [FLASH EXTRACTION] Freq:  50.3 Hz
+#     -> Z Bucle Total Medida:    115721 Ohm
+#     -> R_contact Dinámica Extraída:     52802 Ohm
+#     -> R_contact_Force real (promedio):     54581 Ohm (rf1: 48640, rf2: 60522)
+#     -> R_contact_Sense real (oculto rs1):     62765 Ohm
+# === FREQ:     50.35 Hz ===
+#   [SUJETO 0: RAW]         Mag: 10066.41 Ohm | Fase:   0.00 deg | Err_M:  0.66% | Err_F:  0.19 deg
+#   [SUJETO 1: APLICADO]    Mag: 10057.54 Ohm | Fase:   0.00 deg | Err_M:  0.58% | Err_F:  0.19 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag: 10057.54 Ohm | Fase:   0.00 deg | Err_M:  0.58% | Err_F:  0.19 deg
+#   [SUJETO 2: GOLDEN]      Mag:  9999.93 Ohm | Fase:  -0.19 deg
+# 
+#   [FLASH EXTRACTION] Freq:  63.4 Hz
+#     -> Z Bucle Total Medida:    115351 Ohm
+#     -> R_contact Dinámica Extraída:     52617 Ohm
+#     -> R_contact_Force real (promedio):     54486 Ohm (rf1: 48555, rf2: 60417)
+#     -> R_contact_Sense real (oculto rs1):     62656 Ohm
+# === FREQ:     63.39 Hz ===
+#   [SUJETO 0: RAW]         Mag: 10066.41 Ohm | Fase:   0.00 deg | Err_M:  0.67% | Err_F:  0.24 deg
+#   [SUJETO 1: APLICADO]    Mag: 10054.95 Ohm | Fase:   0.00 deg | Err_M:  0.55% | Err_F:  0.24 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag: 10054.95 Ohm | Fase:   0.00 deg | Err_M:  0.55% | Err_F:  0.24 deg
+#   [SUJETO 2: GOLDEN]      Mag:  9999.89 Ohm | Fase:  -0.24 deg
+# 
+#   [FLASH EXTRACTION] Freq:  79.8 Hz
+#     -> Z Bucle Total Medida:    115128 Ohm
+#     -> R_contact Dinámica Extraída:     52508 Ohm
+#     -> R_contact_Force real (promedio):     54439 Ohm (rf1: 48513, rf2: 60364)
+#     -> R_contact_Sense real (oculto rs1):     62601 Ohm
+# === FREQ:     79.80 Hz ===
+#   [SUJETO 0: RAW]         Mag: 10062.50 Ohm | Fase:   0.00 deg | Err_M:  0.63% | Err_F:  0.30 deg
+#   [SUJETO 1: APLICADO]    Mag: 10051.38 Ohm | Fase:   0.00 deg | Err_M:  0.52% | Err_F:  0.31 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag: 10051.38 Ohm | Fase:   0.00 deg | Err_M:  0.52% | Err_F:  0.31 deg
+#   [SUJETO 2: GOLDEN]      Mag:  9999.83 Ohm | Fase:  -0.30 deg
+# === FREQ:    100.47 Hz ===
+#   [SUJETO 0: RAW]         Mag: 10062.50 Ohm | Fase:   0.00 deg | Err_M:  0.63% | Err_F:  0.38 deg
+#   [SUJETO 1: APLICADO]    Mag: 10050.89 Ohm | Fase:   0.01 deg | Err_M:  0.51% | Err_F:  0.39 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag: 10050.89 Ohm | Fase:   0.01 deg | Err_M:  0.51% | Err_F:  0.39 deg
+#   [SUJETO 2: GOLDEN]      Mag:  9999.73 Ohm | Fase:  -0.38 deg
+# === FREQ:    126.49 Hz ===
+#   [SUJETO 0: RAW]         Mag: 10062.50 Ohm | Fase:   0.00 deg | Err_M:  0.63% | Err_F:  0.48 deg
+#   [SUJETO 1: APLICADO]    Mag: 10050.87 Ohm | Fase:   0.01 deg | Err_M:  0.51% | Err_F:  0.49 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag: 10050.87 Ohm | Fase:   0.01 deg | Err_M:  0.51% | Err_F:  0.49 deg
+#   [SUJETO 2: GOLDEN]      Mag:  9999.57 Ohm | Fase:  -0.48 deg
+# === FREQ:    159.26 Hz ===
+#   [SUJETO 0: RAW]         Mag: 10062.50 Ohm | Fase:   0.00 deg | Err_M:  0.63% | Err_F:  0.60 deg
+#   [SUJETO 1: APLICADO]    Mag: 10050.94 Ohm | Fase:   0.01 deg | Err_M:  0.52% | Err_F:  0.61 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag: 10050.94 Ohm | Fase:   0.01 deg | Err_M:  0.52% | Err_F:  0.61 deg
+#   [SUJETO 2: GOLDEN]      Mag:  9999.32 Ohm | Fase:  -0.60 deg
+# === FREQ:    200.47 Hz ===
+#   [SUJETO 0: RAW]         Mag: 10062.50 Ohm | Fase:   0.00 deg | Err_M:  0.64% | Err_F:  0.76 deg
+#   [SUJETO 1: APLICADO]    Mag: 10051.10 Ohm | Fase:   0.01 deg | Err_M:  0.52% | Err_F:  0.77 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag: 10051.10 Ohm | Fase:   0.01 deg | Err_M:  0.52% | Err_F:  0.77 deg
+#   [SUJETO 2: GOLDEN]      Mag:  9998.92 Ohm | Fase:  -0.76 deg
+# === FREQ:    252.39 Hz ===
+#   [SUJETO 0: RAW]         Mag: 10062.50 Ohm | Fase:   0.00 deg | Err_M:  0.64% | Err_F:  0.95 deg
+#   [SUJETO 1: APLICADO]    Mag: 10051.01 Ohm | Fase:   0.02 deg | Err_M:  0.53% | Err_F:  0.97 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag: 10051.01 Ohm | Fase:   0.02 deg | Err_M:  0.53% | Err_F:  0.97 deg
+#   [SUJETO 2: GOLDEN]      Mag:  9998.28 Ohm | Fase:  -0.95 deg
+# === FREQ:    317.73 Hz ===
+#   [SUJETO 0: RAW]         Mag: 10054.69 Ohm | Fase:   0.00 deg | Err_M:  0.57% | Err_F:  1.20 deg
+#   [SUJETO 1: APLICADO]    Mag: 10050.03 Ohm | Fase:   0.02 deg | Err_M:  0.53% | Err_F:  1.22 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag: 10050.03 Ohm | Fase:   0.02 deg | Err_M:  0.53% | Err_F:  1.22 deg
+#   [SUJETO 2: GOLDEN]      Mag:  9997.28 Ohm | Fase:  -1.20 deg
+# === FREQ:    400.00 Hz ===
+#   [SUJETO 0: RAW]         Mag: 10054.69 Ohm | Fase:  -0.88 deg | Err_M:  0.59% | Err_F:  0.64 deg
+#   [SUJETO 1: APLICADO]    Mag: 10049.75 Ohm | Fase:  -0.85 deg | Err_M:  0.54% | Err_F:  0.66 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag: 10049.75 Ohm | Fase:  -0.85 deg | Err_M:  0.54% | Err_F:  0.66 deg
+#   [SUJETO 2: GOLDEN]      Mag:  9995.69 Ohm | Fase:  -1.51 deg
+# === FREQ:    503.58 Hz ===
+#   [SUJETO 0: RAW]         Mag: 10054.69 Ohm | Fase:  -0.88 deg | Err_M:  0.62% | Err_F:  1.03 deg
+#   [SUJETO 1: APLICADO]    Mag: 10048.55 Ohm | Fase:  -0.84 deg | Err_M:  0.55% | Err_F:  1.06 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag: 10048.55 Ohm | Fase:  -0.84 deg | Err_M:  0.55% | Err_F:  1.06 deg
+#   [SUJETO 2: GOLDEN]      Mag:  9993.18 Ohm | Fase:  -1.90 deg
+# === FREQ:    633.97 Hz ===
+#   [SUJETO 0: RAW]         Mag: 10054.69 Ohm | Fase:  -0.88 deg | Err_M:  0.66% | Err_F:  1.52 deg
+#   [SUJETO 1: APLICADO]    Mag: 10047.10 Ohm | Fase:  -0.84 deg | Err_M:  0.58% | Err_F:  1.56 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag: 10047.10 Ohm | Fase:  -0.84 deg | Err_M:  0.58% | Err_F:  1.56 deg
+#   [SUJETO 2: GOLDEN]      Mag:  9989.19 Ohm | Fase:  -2.39 deg
+# === FREQ:    798.11 Hz ===
+#   [SUJETO 0: RAW]         Mag: 10031.25 Ohm | Fase:  -1.75 deg | Err_M:  0.48% | Err_F:  1.26 deg
+#   [SUJETO 1: APLICADO]    Mag: 10043.93 Ohm | Fase:  -1.70 deg | Err_M:  0.61% | Err_F:  1.31 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag: 10043.93 Ohm | Fase:  -1.70 deg | Err_M:  0.61% | Err_F:  1.31 deg
+#   [SUJETO 2: GOLDEN]      Mag:  9982.89 Ohm | Fase:  -3.01 deg
+# === FREQ:   1004.75 Hz ===
+#   [SUJETO 0: RAW]         Mag: 10031.25 Ohm | Fase:  -2.62 deg | Err_M:  0.58% | Err_F:  1.16 deg
+#   [SUJETO 1: APLICADO]    Mag: 10038.25 Ohm | Fase:  -2.56 deg | Err_M:  0.66% | Err_F:  1.22 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag: 10038.25 Ohm | Fase:  -2.56 deg | Err_M:  0.66% | Err_F:  1.22 deg
+#   [SUJETO 2: GOLDEN]      Mag:  9972.92 Ohm | Fase:  -3.79 deg
+# === FREQ:   1264.91 Hz ===
+#   [SUJETO 0: RAW]         Mag: 10031.25 Ohm | Fase:  -3.50 deg | Err_M:  0.74% | Err_F:  1.26 deg
+#   [SUJETO 1: APLICADO]    Mag: 10027.86 Ohm | Fase:  -3.42 deg | Err_M:  0.71% | Err_F:  1.34 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag: 10027.86 Ohm | Fase:  -3.42 deg | Err_M:  0.71% | Err_F:  1.34 deg
+#   [SUJETO 2: GOLDEN]      Mag:  9957.18 Ohm | Fase:  -4.76 deg
+# === FREQ:   1592.42 Hz ===
+#   [SUJETO 0: RAW]         Mag: 10000.00 Ohm | Fase:  -4.50 deg | Err_M:  0.68% | Err_F:  1.48 deg
+#   [SUJETO 1: APLICADO]    Mag: 10012.79 Ohm | Fase:  -4.40 deg | Err_M:  0.81% | Err_F:  1.58 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag: 10012.79 Ohm | Fase:  -4.40 deg | Err_M:  0.81% | Err_F:  1.58 deg
+#   [SUJETO 2: GOLDEN]      Mag:  9932.39 Ohm | Fase:  -5.98 deg
+# === FREQ:   2004.76 Hz ===
+#   [SUJETO 0: RAW]         Mag:  9968.75 Ohm | Fase:  -5.38 deg | Err_M:  0.76% | Err_F:  2.14 deg
+#   [SUJETO 1: APLICADO]    Mag:  9985.70 Ohm | Fase:  -5.25 deg | Err_M:  0.93% | Err_F:  2.26 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag:  9985.70 Ohm | Fase:  -5.25 deg | Err_M:  0.93% | Err_F:  2.26 deg
+#   [SUJETO 2: GOLDEN]      Mag:  9893.48 Ohm | Fase:  -7.51 deg
+# === FREQ:   2523.83 Hz ===
+#   [SUJETO 0: RAW]         Mag:  9937.50 Ohm | Fase:  -7.12 deg | Err_M:  1.07% | Err_F:  2.29 deg
+#   [SUJETO 1: APLICADO]    Mag:  9944.85 Ohm | Fase:  -6.97 deg | Err_M:  1.14% | Err_F:  2.44 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag:  9944.85 Ohm | Fase:  -6.97 deg | Err_M:  1.14% | Err_F:  2.44 deg
+#   [SUJETO 2: GOLDEN]      Mag:  9832.76 Ohm | Fase:  -9.41 deg
+# === FREQ:   3177.32 Hz ===
+#   [SUJETO 0: RAW]         Mag:  9875.00 Ohm | Fase:  -8.88 deg | Err_M:  1.40% | Err_F:  2.89 deg
+#   [SUJETO 1: APLICADO]    Mag:  9881.64 Ohm | Fase:  -8.68 deg | Err_M:  1.47% | Err_F:  3.09 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag:  9881.64 Ohm | Fase:  -8.68 deg | Err_M:  1.47% | Err_F:  3.09 deg
+#   [SUJETO 2: GOLDEN]      Mag:  9738.81 Ohm | Fase: -11.76 deg
+# === FREQ:   4000.00 Hz ===
+#   [SUJETO 0: RAW]         Mag:  9781.25 Ohm | Fase: -10.62 deg | Err_M:  1.94% | Err_F:  4.02 deg
+#   [SUJETO 1: APLICADO]    Mag:  9786.48 Ohm | Fase: -10.38 deg | Err_M:  1.99% | Err_F:  4.27 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag:  9786.48 Ohm | Fase: -10.38 deg | Err_M:  1.99% | Err_F:  4.27 deg
+#   [SUJETO 2: GOLDEN]      Mag:  9595.36 Ohm | Fase: -14.64 deg
+# === FREQ:   5035.69 Hz ===
+#   [SUJETO 0: RAW]         Mag:  9625.00 Ohm | Fase: -14.12 deg | Err_M:  2.60% | Err_F:  3.99 deg
+#   [SUJETO 1: APLICADO]    Mag:  9641.48 Ohm | Fase: -13.81 deg | Err_M:  2.78% | Err_F:  4.30 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag:  9641.48 Ohm | Fase: -13.81 deg | Err_M:  2.78% | Err_F:  4.30 deg
+#   [SUJETO 2: GOLDEN]      Mag:  9380.64 Ohm | Fase: -18.11 deg
+# === FREQ:   6339.57 Hz ===
+#   [SUJETO 0: RAW]         Mag:  9437.50 Ohm | Fase: -18.25 deg | Err_M:  4.07% | Err_F:  3.96 deg
+#   [SUJETO 1: APLICADO]    Mag:  9426.23 Ohm | Fase: -17.85 deg | Err_M:  3.95% | Err_F:  4.36 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag:  9426.23 Ohm | Fase: -17.85 deg | Err_M:  3.95% | Err_F:  4.36 deg
+#   [SUJETO 2: GOLDEN]      Mag:  9068.46 Ohm | Fase: -22.21 deg
+# === FREQ:   7981.06 Hz ===
+#   [SUJETO 0: RAW]         Mag:  9062.50 Ohm | Fase: -22.25 deg | Err_M:  4.98% | Err_F:  4.65 deg
+#   [SUJETO 1: APLICADO]    Mag:  9112.87 Ohm | Fase: -21.75 deg | Err_M:  5.56% | Err_F:  5.14 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag:  9112.87 Ohm | Fase: -21.75 deg | Err_M:  5.56% | Err_F:  5.14 deg
+#   [SUJETO 2: GOLDEN]      Mag:  8632.79 Ohm | Fase: -26.90 deg
+# === FREQ:  10047.54 Hz ===
+#   [SUJETO 0: RAW]         Mag:  8825.76 Ohm | Fase: -27.62 deg | Err_M:  9.54% | Err_F:  4.40 deg
+#   [SUJETO 1: APLICADO]    Mag:  8839.84 Ohm | Fase: -26.91 deg | Err_M:  9.72% | Err_F:  5.11 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag:  8839.84 Ohm | Fase: -26.91 deg | Err_M:  9.72% | Err_F:  5.11 deg
+#   [SUJETO 2: GOLDEN]      Mag:  8056.89 Ohm | Fase: -32.02 deg
+# === FREQ:  12649.11 Hz ===
+#   [SUJETO 0: RAW]         Mag:  8220.69 Ohm | Fase: -32.50 deg | Err_M: 11.92% | Err_F:  4.83 deg
+#   [SUJETO 1: APLICADO]    Mag:  8243.38 Ohm | Fase: -31.60 deg | Err_M: 12.23% | Err_F:  5.73 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag:  8243.38 Ohm | Fase: -31.60 deg | Err_M: 12.23% | Err_F:  5.73 deg
+#   [SUJETO 2: GOLDEN]      Mag:  7345.17 Ohm | Fase: -37.33 deg
+# === FREQ:  15924.28 Hz ===
+#   [SUJETO 0: RAW]         Mag:  7490.42 Ohm | Fase: -38.00 deg | Err_M: 14.70% | Err_F:  4.44 deg
+#   [SUJETO 1: APLICADO]    Mag:  7520.05 Ohm | Fase: -36.87 deg | Err_M: 15.16% | Err_F:  5.57 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag:  7520.05 Ohm | Fase: -36.87 deg | Err_M: 15.16% | Err_F:  5.57 deg
+#   [SUJETO 2: GOLDEN]      Mag:  6530.32 Ohm | Fase: -42.44 deg
+# === FREQ:  20047.48 Hz ===
+#   [SUJETO 0: RAW]         Mag:  6655.84 Ohm | Fase: -43.88 deg | Err_M: 17.42% | Err_F:  3.07 deg
+#   [SUJETO 1: APLICADO]    Mag:  6675.18 Ohm | Fase: -42.45 deg | Err_M: 17.76% | Err_F:  4.49 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag:  6675.18 Ohm | Fase: -42.45 deg | Err_M: 17.76% | Err_F:  4.49 deg
+#   [SUJETO 2: GOLDEN]      Mag:  5668.40 Ohm | Fase: -46.94 deg
+# === FREQ:  25238.29 Hz ===
+#   [SUJETO 0: RAW]         Mag:  5779.52 Ohm | Fase: -48.88 deg | Err_M: 19.85% | Err_F:  1.61 deg
+#   [SUJETO 1: APLICADO]    Mag:  5791.05 Ohm | Fase: -47.08 deg | Err_M: 20.09% | Err_F:  3.41 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag:  5791.05 Ohm | Fase: -47.08 deg | Err_M: 20.09% | Err_F:  3.41 deg
+#   [SUJETO 2: GOLDEN]      Mag:  4822.21 Ohm | Fase: -50.49 deg
+# === FREQ:  31773.12 Hz ===
+#   [SUJETO 0: RAW]         Mag:  4882.34 Ohm | Fase: -53.75 deg | Err_M: 20.74% | Err_F:  0.95 deg
+#   [SUJETO 1: APLICADO]    Mag:  4907.51 Ohm | Fase: -51.49 deg | Err_M: 21.37% | Err_F:  1.31 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag:  4907.51 Ohm | Fase: -51.49 deg | Err_M: 21.37% | Err_F:  1.31 deg
+#   [SUJETO 2: GOLDEN]      Mag:  4043.55 Ohm | Fase: -52.80 deg
+# === FREQ:  40000.01 Hz ===
+#   [SUJETO 0: RAW]         Mag:  4089.48 Ohm | Fase: -56.00 deg | Err_M: 21.56% | Err_F:  2.27 deg
+#   [SUJETO 1: APLICADO]    Mag:  4113.00 Ohm | Fase: -53.16 deg | Err_M: 22.26% | Err_F:  0.58 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag:  4113.00 Ohm | Fase: -53.16 deg | Err_M: 22.26% | Err_F:  0.58 deg
+#   [SUJETO 2: GOLDEN]      Mag:  3364.10 Ohm | Fase: -53.73 deg
+# === FREQ:  50357.02 Hz ===
+#   [SUJETO 0: RAW]         Mag:  3380.08 Ohm | Fase: -58.50 deg | Err_M: 20.89% | Err_F:  5.27 deg
+#   [SUJETO 1: APLICADO]    Mag:  3411.35 Ohm | Fase: -54.93 deg | Err_M: 22.01% | Err_F:  1.70 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag:  3411.35 Ohm | Fase: -54.93 deg | Err_M: 22.01% | Err_F:  1.70 deg
+#   [SUJETO 2: GOLDEN]      Mag:  2795.98 Ohm | Fase: -53.23 deg
+# === FREQ:  63395.74 Hz ===
+#   [SUJETO 0: RAW]         Mag:  2795.87 Ohm | Fase: -59.50 deg | Err_M: 19.61% | Err_F:  8.19 deg
+#   [SUJETO 1: APLICADO]    Mag:  2827.29 Ohm | Fase: -55.00 deg | Err_M: 20.96% | Err_F:  3.70 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag:  2827.29 Ohm | Fase: -55.00 deg | Err_M: 20.96% | Err_F:  3.70 deg
+#   [SUJETO 2: GOLDEN]      Mag:  2337.44 Ohm | Fase: -51.31 deg
+# === FREQ:  79810.50 Hz ===
+#   [SUJETO 0: RAW]         Mag:  2336.84 Ohm | Fase: -59.25 deg | Err_M: 18.10% | Err_F: 11.15 deg
+#   [SUJETO 1: APLICADO]    Mag:  2359.64 Ohm | Fase: -53.60 deg | Err_M: 19.25% | Err_F:  5.49 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag:  2359.64 Ohm | Fase: -53.60 deg | Err_M: 19.25% | Err_F:  5.49 deg
+#   [SUJETO 2: GOLDEN]      Mag:  1978.77 Ohm | Fase: -48.10 deg
+# === FREQ: 100475.44 Hz ===
+#   [SUJETO 0: RAW]         Mag:  1979.15 Ohm | Fase: -57.38 deg | Err_M: 15.97% | Err_F: 13.53 deg
+#   [SUJETO 1: APLICADO]    Mag:  2027.46 Ohm | Fase: -49.88 deg | Err_M: 18.80% | Err_F:  6.03 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag:  2027.46 Ohm | Fase: -49.88 deg | Err_M: 18.80% | Err_F:  6.03 deg
+#   [SUJETO 2: GOLDEN]      Mag:  1706.58 Ohm | Fase: -43.85 deg
+# === FREQ: 126491.10 Hz ===
+#   [SUJETO 0: RAW]         Mag:  1687.48 Ohm | Fase: -55.75 deg | Err_M: 12.04% | Err_F: 16.88 deg
+#   [SUJETO 1: APLICADO]    Mag:  1730.25 Ohm | Fase: -46.35 deg | Err_M: 14.88% | Err_F:  7.47 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag:  1730.25 Ohm | Fase: -46.35 deg | Err_M: 14.88% | Err_F:  7.47 deg
+#   [SUJETO 2: GOLDEN]      Mag:  1506.20 Ohm | Fase: -38.87 deg
+# === FREQ: 159242.86 Hz ===
+#   [SUJETO 0: RAW]         Mag:  1458.32 Ohm | Fase: -54.00 deg | Err_M:  6.99% | Err_F: 20.42 deg
+#   [SUJETO 1: APLICADO]    Mag:  1507.50 Ohm | Fase: -42.22 deg | Err_M: 10.59% | Err_F:  8.64 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag:  1507.50 Ohm | Fase: -42.22 deg | Err_M: 10.59% | Err_F:  8.64 deg
+#   [SUJETO 2: GOLDEN]      Mag:  1363.10 Ohm | Fase: -33.58 deg
+# === FREQ: 200474.90 Hz ===
+#   [SUJETO 0: RAW]         Mag:  1270.82 Ohm | Fase: -52.38 deg | Err_M:  0.56% | Err_F: 24.00 deg
+#   [SUJETO 1: APLICADO]    Mag:  1339.35 Ohm | Fase: -37.68 deg | Err_M:  5.98% | Err_F:  9.30 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag:  1339.35 Ohm | Fase: -37.68 deg | Err_M:  5.98% | Err_F:  9.30 deg
+#   [SUJETO 2: GOLDEN]      Mag:  1263.79 Ohm | Fase: -28.37 deg
+# === FREQ: 252382.95 Hz ===
+#   [SUJETO 0: RAW]         Mag:  1124.99 Ohm | Fase: -51.62 deg | Err_M:  5.99% | Err_F: 28.09 deg
+#   [SUJETO 1: APLICADO]    Mag:  1209.77 Ohm | Fase: -33.36 deg | Err_M:  1.10% | Err_F:  9.82 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag:  1209.77 Ohm | Fase: -33.36 deg | Err_M:  1.10% | Err_F:  9.82 deg
+#   [SUJETO 2: GOLDEN]      Mag:  1196.61 Ohm | Fase: -23.53 deg
+# === FREQ: 317731.29 Hz ===
+#   [SUJETO 0: RAW]         Mag:   999.99 Ohm | Fase: -51.38 deg | Err_M: 13.20% | Err_F: 32.12 deg
+#   [SUJETO 1: APLICADO]    Mag:  1109.28 Ohm | Fase: -28.83 deg | Err_M:  3.72% | Err_F:  9.57 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag:  1109.28 Ohm | Fase: -28.83 deg | Err_M:  3.72% | Err_F:  9.57 deg
+#   [SUJETO 2: GOLDEN]      Mag:  1152.08 Ohm | Fase: -19.26 deg
+# === FREQ: 399999.99 Hz ===
+#   [SUJETO 0: RAW]         Mag:   895.82 Ohm | Fase: -51.38 deg | Err_M: 20.23% | Err_F: 35.78 deg
+#   [SUJETO 1: APLICADO]    Mag:  1024.19 Ohm | Fase: -23.82 deg | Err_M:  8.80% | Err_F:  8.22 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag:  1024.19 Ohm | Fase: -23.82 deg | Err_M:  8.80% | Err_F:  8.22 deg
+#   [SUJETO 2: GOLDEN]      Mag:  1123.02 Ohm | Fase: -15.60 deg
+# === FREQ: 503570.16 Hz ===
+#   [SUJETO 0: RAW]         Mag:   791.66 Ohm | Fase: -51.62 deg | Err_M: 28.31% | Err_F: 39.07 deg
+#   [SUJETO 1: APLICADO]    Mag:   956.33 Ohm | Fase: -18.39 deg | Err_M: 13.40% | Err_F:  5.83 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag:   956.33 Ohm | Fase: -18.39 deg | Err_M: 13.40% | Err_F:  5.83 deg
+#   [SUJETO 2: GOLDEN]      Mag:  1104.28 Ohm | Fase: -12.55 deg
+# === FREQ: 633957.27 Hz ===
+#   [SUJETO 0: RAW]         Mag:   687.49 Ohm | Fase: -52.00 deg | Err_M: 37.06% | Err_F: 41.95 deg
+#   [SUJETO 1: APLICADO]    Mag:   902.09 Ohm | Fase: -12.58 deg | Err_M: 17.41% | Err_F:  2.53 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag:   902.09 Ohm | Fase: -12.58 deg | Err_M: 17.41% | Err_F:  2.53 deg
+#   [SUJETO 2: GOLDEN]      Mag:  1092.28 Ohm | Fase: -10.05 deg
+# === FREQ: 798104.91 Hz ===
+#   [SUJETO 0: RAW]         Mag:   604.16 Ohm | Fase: -52.75 deg | Err_M: 44.30% | Err_F: 44.68 deg
+#   [SUJETO 1: APLICADO]    Mag:   867.85 Ohm | Fase:  -6.94 deg | Err_M: 20.00% | Err_F:  1.13 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag:   867.85 Ohm | Fase:  -6.94 deg | Err_M: 20.00% | Err_F:  1.13 deg
+#   [SUJETO 2: GOLDEN]      Mag:  1084.76 Ohm | Fase:  -8.07 deg
+# === FREQ: 999999.99 Hz ===
+#   [SUJETO 0: RAW]         Mag:   520.83 Ohm | Fase: -53.38 deg | Err_M: 51.99% | Err_F: 45.31 deg
+#   [SUJETO 1: APLICADO]    Mag:   852.87 Ohm | Fase:  -1.43 deg | Err_M: 21.38% | Err_F:  6.63 deg (INVERSION ANALITICA)
+#     -> [M1] Invers. Analit: Mag:   852.87 Ohm | Fase:  -1.43 deg | Err_M: 21.38% | Err_F:  6.63 deg
+#   [SUJETO 2: GOLDEN]      Mag:  1084.76 Ohm | Fase:  -8.07 deg
+# 
+# Simulación finalizada. Procesando datos en Python...
+# ** Note: $finish    : ../src/tb_correlacion_ina_2adcs_configurable_to_fpga_v4.sv(573)
+#    Time: 658332436 ns  Iteration: 0  Instance: /tb_correlacion_portable_python_to_fpga_configurable
+# End time: 06:03:06 on Oct 25,2026, Elapsed time: 20:45:34
+# Errors: 0, Warnings: 5
+# Disable bg thread...
+# qwavedb_dumpvars : Simulation ending at [153 1202439712] 0
+End time: 06:03:07 on Oct 25,2026, Elapsed time: 20:45:55
+*** Summary *********************************************
+    qrun: Errors:   0, Warnings:   0
+    vlog: Errors:   0, Warnings:   1
+    vcom: Errors:   0, Warnings:   4
+    vopt: Errors:   0, Warnings:   2
+    vsim: Errors:   0, Warnings:   5
+  Totals: Errors:   0, Warnings:  12
